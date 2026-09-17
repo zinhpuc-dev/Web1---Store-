@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minh họa Danh mục</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+
+        .categories {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .categories h2 {
+            color: #333;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        /* Layout chia 4 cột */
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /* Định dạng từng thẻ card danh mục */
+        .category-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(211, 47, 47, 0.2);
+        }
+
+        .category-card a {
+            display: block;
+            padding: 30px 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .category-card i {
+            font-size: 40px;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            color: #111;
+        }
+
+        .category-card p {
+            margin: 0;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="categories">
+        <h2>DANH MỤC SẢN PHẨM</h2>
+
+        <div class="category-list">
+            <div class="category-card">
+                <a href="products.html?category=racket">
+                    <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                    <h3>Vợt cầu lông</h3>
+                    <p>Các dòng vợt chính hãng</p>
+                </a>
+            </div>
+
+            <div class="category-card">
+                <a href="products.html?category=shoes">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                    <h3>Giày cầu lông</h3>
+                    <p>Giày thi đấu và tập luyện</p>
+                </a>
+            </div>
+
+            <div class="category-card">
+                <a href="products.html?category=shirt">
+                    <i class="fa-solid fa-shirt"></i>
+                    <h3>Áo cầu lông</h3>
+                    <p>Áo thể thao chính hãng</p>
+                </a>
+            </div>
+
+            <div class="category-card">
+                <a href="products.html?category=accessory">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <h3>Phụ kiện</h3>
+                    <p>Cước, quấn cán, balo...</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
