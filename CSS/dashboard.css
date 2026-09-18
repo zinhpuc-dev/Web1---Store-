@@ -260,18 +260,18 @@ a {
   font-size: 14px;
 }
 
-.menu-column li a:hover {
+.menu-column li a:hover,
+.menu-column > a:hover {
   color: #e60012;
 }
-
-.menu-desc {
-  color: #777;
-
+.menu-column > a {
+  color: #333;
   font-size: 14px;
-
-  line-height: 1.6;
 }
 
+.menu-column > a:hover {
+  color: #e60012;
+}
 /* ========================================
    MAIN
 ======================================== */
