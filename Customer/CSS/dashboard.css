@@ -14,8 +14,10 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #222;
+
+  background-color: #111;
+
+  color: white;
 }
 
 /* ========================================
@@ -24,6 +26,7 @@ body {
 
 a {
   text-decoration: none;
+
   color: inherit;
 }
 
@@ -33,22 +36,31 @@ a {
 
 .header {
   width: 100%;
+
   min-height: 75px;
 
-  background-color: #111;
+  background-color: #0b0b0b;
+
   color: white;
 
   display: flex;
+
   align-items: center;
 
   padding: 0 60px;
+
   gap: 30px;
+
+  border-bottom: 1px solid #292929;
 }
 
-/* LOGO */
+/* ========================================
+   LOGO
+======================================== */
 
 .logo {
   font-size: 24px;
+
   font-weight: bold;
 
   color: #e60012;
@@ -60,26 +72,29 @@ a {
   color: #e60012;
 
   display: flex;
+
   align-items: center;
 
   gap: 10px;
 }
 
-/* LOGO IMAGE */
-
 .logo img {
   width: 45px;
+
   height: 45px;
 
   object-fit: cover;
 
-  border-radius: 50%;
+  border-radius: 0;
 }
 
-/* HOTLINE */
+/* ========================================
+   HOTLINE
+======================================== */
 
 .hotline {
   display: flex;
+
   flex-direction: column;
 
   font-size: 13px;
@@ -95,7 +110,13 @@ a {
   color: white;
 }
 
-/* SEARCH */
+.hotline a:hover {
+  color: #e60012;
+}
+
+/* ========================================
+   SEARCH
+======================================== */
 
 .search {
   flex: 1;
@@ -110,12 +131,25 @@ a {
 
   padding: 12px;
 
-  border: none;
+  border: 1px solid #333;
+
   outline: none;
 
   border-radius: 5px 0 0 5px;
 
+  background-color: #181818;
+
+  color: white;
+
   font-size: 14px;
+}
+
+.search input::placeholder {
+  color: #888;
+}
+
+.search input:focus {
+  border-color: #e60012;
 }
 
 .search button {
@@ -124,6 +158,7 @@ a {
   border: none;
 
   background-color: #e60012;
+
   color: white;
 
   cursor: pointer;
@@ -131,13 +166,17 @@ a {
   border-radius: 0 5px 5px 0;
 
   font-size: 16px;
+
+  transition: 0.2s;
 }
 
 .search button:hover {
   background-color: #c50010;
 }
 
-/* ACCOUNT + CART */
+/* ========================================
+   ACCOUNT + CART
+======================================== */
 
 .account,
 .cart {
@@ -146,9 +185,52 @@ a {
   font-weight: bold;
 }
 
+.account a,
+.cart a {
+  color: #ddd;
+
+  transition: 0.2s;
+}
+
 .account a:hover,
 .cart a:hover {
   color: #e60012;
+}
+
+/* ========================================
+   LOGOUT BUTTON
+======================================== */
+
+.logout-btn {
+  display: none;
+
+  margin-left: 10px;
+
+  padding: 7px 12px;
+
+  border: 1px solid #e60012;
+
+  border-radius: 5px;
+
+  background-color: transparent;
+
+  color: #e60012;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #e60012;
+
+  color: white;
 }
 
 /* ========================================
@@ -156,10 +238,11 @@ a {
 ======================================== */
 
 .menu {
-  background-color: #1c1c1c;
+  background-color: #181818;
 
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+  border-top: 1px solid #292929;
+
+  border-bottom: 1px solid #292929;
 }
 
 .menu > ul {
@@ -174,20 +257,37 @@ a {
   position: relative;
 }
 
-/* MENU LINK */
+/* ========================================
+   MENU LINK
+======================================== */
 
 .menu > ul > li > a {
   display: block;
 
   padding: 18px 25px;
 
-  color: white;
+  color: #ddd;
 
   font-size: 14px;
+
   font-weight: bold;
+
+  transition: 0.2s;
 }
 
 .menu > ul > li > a:hover {
+  background-color: #e60012;
+
+  color: white;
+}
+
+.menu > ul > li > a.active {
+  color: #e60012;
+}
+
+.menu > ul > li > a.active:hover {
+  color: white;
+
   background-color: #e60012;
 }
 
@@ -199,17 +299,16 @@ a {
   position: relative;
 }
 
-/* MENU CON */
-
 .mega-menu {
   position: absolute;
 
   top: 100%;
+
   left: 0;
 
   width: 850px;
 
-  background-color: white;
+  background-color: #181818;
 
   display: none;
 
@@ -219,20 +318,22 @@ a {
 
   padding: 25px;
 
-  border: 1px solid #ddd;
+  border: 1px solid #333;
 
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 
   z-index: 1000;
 }
 
-/* HIỆN MENU KHI DI CHUỘT */
+/* HIỆN MENU */
 
 .has-dropdown:hover .mega-menu {
   display: grid;
 }
 
-/* CỘT MENU */
+/* ========================================
+   CỘT MENU
+======================================== */
 
 .menu-column h3 {
   margin-bottom: 15px;
@@ -255,29 +356,31 @@ a {
 }
 
 .menu-column li a {
-  color: #333;
+  color: #aaa;
 
   font-size: 14px;
+
+  transition: 0.2s;
 }
 
 .menu-column li a:hover,
 .menu-column > a:hover {
   color: #e60012;
 }
+
 .menu-column > a {
-  color: #333;
+  color: #aaa;
+
   font-size: 14px;
 }
 
-.menu-column > a:hover {
-  color: #e60012;
-}
 /* ========================================
    MAIN
 ======================================== */
 
 main {
   width: 90%;
+
   max-width: 1400px;
 
   margin: 30px auto;
@@ -299,6 +402,7 @@ main {
 
 .banner img {
   width: 100%;
+
   height: 350px;
 
   object-fit: cover;
@@ -330,6 +434,8 @@ section h2 {
   padding-left: 12px;
 
   text-transform: uppercase;
+
+  color: white;
 }
 
 /* ========================================
@@ -340,6 +446,7 @@ section h2 {
   display: flex;
 
   justify-content: space-between;
+
   align-items: center;
 
   margin-bottom: 20px;
@@ -373,10 +480,12 @@ section h2 {
   gap: 20px;
 }
 
-/* CATEGORY CARD */
+/* ========================================
+   CATEGORY CARD
+======================================== */
 
 .category-card {
-  background-color: white;
+  background-color: #181818;
 
   border-radius: 8px;
 
@@ -384,7 +493,7 @@ section h2 {
 
   text-align: center;
 
-  border: 1px solid #ddd;
+  border: 1px solid #292929;
 
   transition: 0.2s;
 
@@ -396,13 +505,16 @@ section h2 {
 
   border-color: #e60012;
 
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* CATEGORY IMAGE */
+/* ========================================
+   CATEGORY IMAGE
+======================================== */
 
 .category-img {
   width: 100%;
+
   height: 180px;
 
   object-fit: contain;
@@ -415,13 +527,13 @@ section h2 {
 .category-card h3 {
   margin-bottom: 10px;
 
-  color: #222;
+  color: white;
 
   font-size: 18px;
 }
 
 .category-card p {
-  color: #777;
+  color: #999;
 
   font-size: 14px;
 }
@@ -443,9 +555,9 @@ section h2 {
 ======================================== */
 
 .product-card {
-  background-color: white;
+  background-color: #181818;
 
-  border: 1px solid #ddd;
+  border: 1px solid #292929;
 
   border-radius: 8px;
 
@@ -459,7 +571,7 @@ section h2 {
 .product-card:hover {
   transform: translateY(-5px);
 
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 
   border-color: #e60012;
 }
@@ -470,6 +582,7 @@ section h2 {
 
 .product-card img {
   width: 100%;
+
   height: 250px;
 
   object-fit: contain;
@@ -477,6 +590,10 @@ section h2 {
   display: block;
 
   margin-bottom: 15px;
+
+  background-color: #111;
+
+  border-radius: 5px;
 }
 
 /* ========================================
@@ -490,9 +607,13 @@ section h2 {
 
   margin-bottom: 10px;
 
-  color: #222;
+  color: #eee;
 
   line-height: 1.4;
+}
+
+.product-card h3:hover {
+  color: #e60012;
 }
 
 .product-card > a {
@@ -504,7 +625,7 @@ section h2 {
 ======================================== */
 
 .old-price {
-  color: #888;
+  color: #777;
 
   text-decoration: line-through;
 
@@ -538,7 +659,7 @@ section h2 {
 ======================================== */
 
 .status {
-  color: #198754;
+  color: #4caf50;
 
   font-size: 14px;
 
@@ -579,18 +700,20 @@ section h2 {
   background-color: #c50010;
 }
 
-/* BUTTON DISABLED */
+/* ========================================
+   BUTTON DISABLED
+======================================== */
 
 .product-card button:disabled {
-  background-color: #999;
+  background-color: #444;
 
-  color: white;
+  color: #888;
 
   cursor: not-allowed;
 }
 
 .product-card button:disabled:hover {
-  background-color: #999;
+  background-color: #444;
 }
 
 /* ========================================
@@ -598,13 +721,19 @@ section h2 {
 ======================================== */
 
 .introduction {
-  background-color: white;
+  background-color: #181818;
 
   padding: 35px;
 
   border-radius: 8px;
 
   border-left: 5px solid #e60012;
+
+  border-top: 1px solid #292929;
+
+  border-right: 1px solid #292929;
+
+  border-bottom: 1px solid #292929;
 }
 
 .introduction h2 {
@@ -613,10 +742,12 @@ section h2 {
   padding: 0;
 
   margin-bottom: 15px;
+
+  color: white;
 }
 
 .introduction p {
-  color: #666;
+  color: #999;
 
   line-height: 1.7;
 
@@ -628,7 +759,7 @@ section h2 {
 ======================================== */
 
 .footer {
-  background-color: #111;
+  background-color: #0b0b0b;
 
   color: white;
 
@@ -639,6 +770,8 @@ section h2 {
   gap: 40px;
 
   padding: 45px 10%;
+
+  border-top: 1px solid #292929;
 }
 
 .footer-column h3 {
@@ -648,7 +781,7 @@ section h2 {
 }
 
 .footer-column p {
-  color: #ccc;
+  color: #999;
 
   line-height: 1.7;
 
@@ -664,7 +797,9 @@ section h2 {
 }
 
 .footer-column a {
-  color: #ccc;
+  color: #999;
+
+  transition: 0.2s;
 }
 
 .footer-column a:hover {
@@ -818,37 +953,4 @@ section h2 {
 
     padding: 35px 8%;
   }
-}
-/* ========================================
-   LOGOUT BUTTON
-======================================== */
-
-.logout-btn {
-  display: none;
-
-  margin-left: 10px;
-
-  padding: 7px 12px;
-
-  border: 1px solid #e60012;
-
-  border-radius: 5px;
-
-  background-color: transparent;
-
-  color: #e60012;
-
-  font-size: 13px;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.logout-btn:hover {
-  background-color: #e60012;
-
-  color: white;
 }
