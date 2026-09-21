@@ -819,3 +819,36 @@ section h2 {
     padding: 35px 8%;
   }
 }
+/* ========================================
+   LOGOUT BUTTON
+======================================== */
+
+.logout-btn {
+  display: none;
+
+  margin-left: 10px;
+
+  padding: 7px 12px;
+
+  border: 1px solid #e60012;
+
+  border-radius: 5px;
+
+  background-color: transparent;
+
+  color: #e60012;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #e60012;
+
+  color: white;
+}
