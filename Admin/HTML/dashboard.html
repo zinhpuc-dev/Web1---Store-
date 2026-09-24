@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - ZP Badminton</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="admin-header">
+        <a href="dashboard.html" class="logo">
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+            ZP Admin
+        </a>
+        <div class="user-info">
+            <span>Xin chào, <strong>Admin</strong></span>
+            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h3>Quản trị</h3>
+            <ul>
+                <li><a href="dashboard.html" class="active"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
+                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
+                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
+                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
+                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
+                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Dashboard <span>Admin</span></h1>
+            <div class="stats">
+                <div class="stat-card">
+                    <h4>Tổng sản phẩm</h4>
+                    <div class="num">48</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Đơn hàng mới</h4>
+                    <div class="num">12</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Khách hàng</h4>
+                    <div class="num">156</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Sắp hết hàng</h4>
+                    <div class="num">5</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-bottom:15px;color:#e60012;">Đơn hàng gần đây</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã đơn</th>
+                                <th>Khách hàng</th>
+                                <th>Ngày đặt</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#DH001</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>20/09/2026</td>
+                                <td>2.450.000đ</td>
+                                <td><span class="badge badge-warning">Mới đặt</span></td>
+                            </tr>
+                            <tr>
+                                <td>#DH002</td>
+                                <td>Trần Thị B</td>
+                                <td>19/09/2026</td>
+                                <td>1.890.000đ</td>
+                                <td><span class="badge badge-info">Đã xử lý</span></td>
+                            </tr>
+                            <tr>
+                                <td>#DH003</td>
+                                <td>Lê Văn C</td>
+                                <td>18/09/2026</td>
+                                <td>3.200.000đ</td>
+                                <td><span class="badge badge-success">Đã giao</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

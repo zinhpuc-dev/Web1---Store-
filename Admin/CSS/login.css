@@ -1,0 +1,80 @@
+/* Login Admin - chỉ dùng cho login.html */
+
+.admin-login-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #111;
+}
+
+.admin-login-box {
+  width: 400px;
+  background: #1a1a1a;
+  border: 1px solid #292929;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.admin-login-box h1 {
+  text-align: center;
+  margin-bottom: 8px;
+  color: #e60012;
+  font-size: 28px;
+}
+
+.admin-login-box p {
+  text-align: center;
+  color: #888;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.admin-login-box .form-group {
+  margin-bottom: 18px;
+}
+
+.admin-login-box .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.admin-login-box .form-group input {
+  width: 100%;
+  padding: 12px;
+  background: #0b0b0b;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.admin-login-box .form-group input:focus {
+  outline: none;
+  border-color: #e60012;
+}
+
+.admin-login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #e60012;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.admin-login-box button:hover {
+  background: #c50010;
+}
+
+.error-msg {
+  color: #f44336;
+  font-size: 13px;
+  margin-top: 12px;
+  text-align: center;
+}

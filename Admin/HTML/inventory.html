@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tồn kho - Admin</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="admin-header">
+        <a href="dashboard.html" class="logo">
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+            ZP Admin
+        </a>
+        <div class="user-info">
+            <span>Xin chào, <strong>Admin</strong></span>
+            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h3>Quản trị</h3>
+            <ul>
+                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
+                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
+                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
+                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
+                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
+                <li><a href="inventory.html" class="active"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Quản lý <span>số lượng tồn</span></h1>
+
+            <!-- CẢNH BÁO SẮP HẾT HÀNG -->
+            <div class="alert alert-warning">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <strong>Cảnh báo:</strong> Có <strong>5</strong> sản phẩm sắp hết hàng (tồn &lt; 5).
+            </div>
+
+            <!-- TRA CỨU TỒN -->
+            <div class="card">
+                <h3>Tra cứu số lượng tồn</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Sản phẩm</label>
+                            <select>
+                                <option value="">-- Tất cả sản phẩm --</option>
+                                <option>Yonex Astrox 100ZZ</option>
+                                <option>Victor Thruster Metallic</option>
+                                <option>Giày Lining AYTS012</option>
+                                <option>Áo Yonex 2024</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Loại sản phẩm</label>
+                            <select>
+                                <option value="">-- Tất cả loại --</option>
+                                <option>Vợt cầu lông</option>
+                                <option>Giày cầu lông</option>
+                                <option>Áo cầu lông</option>
+                                <option>Phụ kiện</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Thời điểm</label>
+                            <input type="date" value="2026-09-24">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-search"></i> Tra cứu
+                            tồn</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- BẢNG TỒN HIỆN TẠI -->
+            <div class="card">
+                <h3>Số lượng tồn hiện tại</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã SP</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Loại</th>
+                                <th>Tồn kho</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SP001</td>
+                                <td>Yonex Astrox 100ZZ</td>
+                                <td>Vợt cầu lông</td>
+                                <td><strong>12</strong></td>
+                                <td><span class="badge badge-success">Đủ hàng</span></td>
+                            </tr>
+                            <tr>
+                                <td>SP002</td>
+                                <td>Victor Thruster Metallic</td>
+                                <td>Vợt cầu lông</td>
+                                <td><strong style="color:#ff9800;">3</strong></td>
+                                <td><span class="badge badge-warning">Sắp hết</span></td>
+                            </tr>
+                            <tr>
+                                <td>SP003</td>
+                                <td>Giày Lining AYTS012</td>
+                                <td>Giày cầu lông</td>
+                                <td><strong>25</strong></td>
+                                <td><span class="badge badge-success">Đủ hàng</span></td>
+                            </tr>
+                            <tr>
+                                <td>SP004</td>
+                                <td>Áo Yonex 2024</td>
+                                <td>Áo cầu lông</td>
+                                <td><strong style="color:#f44336;">1</strong></td>
+                                <td><span class="badge badge-danger">Sắp hết</span></td>
+                            </tr>
+                            <tr>
+                                <td>SP005</td>
+                                <td>Quấn cán Yonex</td>
+                                <td>Phụ kiện</td>
+                                <td><strong style="color:#ff9800;">4</strong></td>
+                                <td><span class="badge badge-warning">Sắp hết</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- NHẬP – XUẤT – TỒN THEO KHOẢNG THỜI GIAN -->
+            <div class="card">
+                <h3>Tra cứu Nhập – Xuất – Tồn theo khoảng thời gian</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Sản phẩm</label>
+                            <select>
+                                <option>Yonex Astrox 100ZZ</option>
+                                <option>Victor Thruster Metallic</option>
+                                <option>Giày Lining AYTS012</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Từ ngày</label>
+                            <input type="date" value="2026-09-01">
+                        </div>
+                        <div class="form-group">
+                            <label>Đến ngày</label>
+                            <input type="date" value="2026-09-24">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-search"></i> Tra
+                            cứu</button>
+                    </div>
+                </form>
+
+                <div class="table-wrap" style="margin-top:20px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Tồn đầu</th>
+                                <th>Nhập</th>
+                                <th>Xuất</th>
+                                <th>Tồn cuối</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Yonex Astrox 100ZZ</td>
+                                <td>8</td>
+                                <td>+10</td>
+                                <td>-6</td>
+                                <td><strong>12</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Victor Thruster Metallic</td>
+                                <td>5</td>
+                                <td>+5</td>
+                                <td>-7</td>
+                                <td><strong style="color:#ff9800;">3</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Giày Lining AYTS012</td>
+                                <td>20</td>
+                                <td>+15</td>
+                                <td>-10</td>
+                                <td><strong>25</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

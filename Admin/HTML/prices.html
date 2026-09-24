@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý giá bán - Admin</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="admin-header">
+        <a href="dashboard.html" class="logo">
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+            ZP Admin
+        </a>
+        <div class="user-info">
+            <span>Xin chào, <strong>Admin</strong></span>
+            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h3>Quản trị</h3>
+            <ul>
+                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
+                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
+                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
+                <li><a href="prices.html" class="active"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a>
+                </li>
+                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
+                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Quản lý <span>giá bán</span></h1>
+
+            <!-- % LỢI NHUẬN THEO LOẠI -->
+            <div class="card">
+                <h3>% Lợi nhuận theo loại sản phẩm</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Loại sản phẩm</label>
+                            <select>
+                                <option>Vợt cầu lông</option>
+                                <option>Giày cầu lông</option>
+                                <option>Áo cầu lông</option>
+                                <option>Phụ kiện</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>% Lợi nhuận</label>
+                            <input type="number" value="25" min="0" max="100" step="0.5">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary">Cập nhật % theo loại</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- % LỢI NHUẬN THEO SẢN PHẨM -->
+            <div class="card">
+                <h3>% Lợi nhuận theo từng sản phẩm</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Sản phẩm</label>
+                            <select>
+                                <option>Yonex Astrox 100ZZ</option>
+                                <option>Victor Thruster Metallic</option>
+                                <option>Giày Lining AYTS012</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>% Lợi nhuận riêng</label>
+                            <input type="number" value="30" min="0" max="100" step="0.5">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary">Cập nhật % theo SP</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- BẢNG TRA CỨU GIÁ -->
+            <div class="card">
+                <h3>Tra cứu giá vốn – % lợi nhuận – giá bán</h3>
+                <div class="toolbar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Tìm tên / mã SP...">
+                        <select>
+                            <option value="">Tất cả loại</option>
+                            <option>Vợt cầu lông</option>
+                            <option>Giày cầu lông</option>
+                            <option>Áo cầu lông</option>
+                            <option>Phụ kiện</option>
+                        </select>
+                        <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã SP</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Loại</th>
+                                <th>Giá vốn</th>
+                                <th>% LN</th>
+                                <th>Giá bán</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SP001</td>
+                                <td>Yonex Astrox 100ZZ</td>
+                                <td>Vợt cầu lông</td>
+                                <td>1.850.000đ</td>
+                                <td>30%</td>
+                                <td><strong style="color:#e60012;">2.405.000đ</strong></td>
+                            </tr>
+                            <tr>
+                                <td>SP002</td>
+                                <td>Victor Thruster Metallic</td>
+                                <td>Vợt cầu lông</td>
+                                <td>1.200.000đ</td>
+                                <td>25%</td>
+                                <td><strong style="color:#e60012;">1.500.000đ</strong></td>
+                            </tr>
+                            <tr>
+                                <td>SP003</td>
+                                <td>Giày Lining AYTS012</td>
+                                <td>Giày cầu lông</td>
+                                <td>890.000đ</td>
+                                <td>28%</td>
+                                <td><strong style="color:#e60012;">1.140.000đ</strong></td>
+                            </tr>
+                            <tr>
+                                <td>SP004</td>
+                                <td>Áo Yonex 2024</td>
+                                <td>Áo cầu lông</td>
+                                <td>320.000đ</td>
+                                <td>35%</td>
+                                <td><strong style="color:#e60012;">432.000đ</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

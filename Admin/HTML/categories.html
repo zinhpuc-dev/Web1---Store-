@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý loại SP - Admin</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .form-panel {
+            display: none;
+        }
+
+        .form-panel.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="admin-header">
+        <a href="dashboard.html" class="logo">
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo"> ZP Admin
+        </a>
+        <div class="user-info">
+            <span>Xin chào, <strong>Admin</strong></span>
+            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h3>Quản trị</h3>
+            <ul>
+                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
+                <li><a href="categories.html" class="active"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
+                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
+                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
+                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
+                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Quản lý <span>loại sản phẩm</span></h1>
+
+            <!-- NÚT THÊM MỚI -->
+            <div style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-primary" onclick="showAddForm()">
+                    <i class="fa-solid fa-plus"></i> Thêm loại mới
+                </button>
+            </div>
+
+            <!-- FORM THÊM / SỬA (mặc định ẩn) -->
+            <div class="card form-panel" id="formPanel">
+                <h3 id="formTitle">Thêm loại sản phẩm</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Mã loại</label>
+                            <input type="text" id="maLoai" placeholder="VD: LOAI01">
+                        </div>
+                        <div class="form-group">
+                            <label>Tên loại</label>
+                            <input type="text" id="tenLoai" placeholder="Tên loại sản phẩm">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary">Lưu</button>
+                        <button type="button" class="btn btn-secondary" onclick="hideForm()">Hủy</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- BẢNG DANH SÁCH -->
+            <div class="card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Tên loại</th>
+                                <th>Số SP</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>LOAI01</td>
+                                <td>Vợt cầu lông</td>
+                                <td>18</td>
+                                <td><span class="badge badge-success">Hiện</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm"
+                                        onclick="showEditForm('LOAI01', 'Vợt cầu lông')">Sửa</button>
+                                    <button class="btn btn-danger btn-sm">Ẩn</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LOAI02</td>
+                                <td>Giày cầu lông</td>
+                                <td>12</td>
+                                <td><span class="badge badge-success">Hiện</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm"
+                                        onclick="showEditForm('LOAI02', 'Giày cầu lông')">Sửa</button>
+                                    <button class="btn btn-danger btn-sm">Ẩn</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LOAI03</td>
+                                <td>Áo cầu lông</td>
+                                <td>10</td>
+                                <td><span class="badge badge-success">Hiện</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm"
+                                        onclick="showEditForm('LOAI03', 'Áo cầu lông')">Sửa</button>
+                                    <button class="btn btn-danger btn-sm">Ẩn</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LOAI04</td>
+                                <td>Phụ kiện</td>
+                                <td>8</td>
+                                <td><span class="badge badge-danger">Ẩn</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm"
+                                        onclick="showEditForm('LOAI04', 'Phụ kiện')">Sửa</button>
+                                    <button class="btn btn-primary btn-sm">Hiện</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showAddForm() {
+            document.getElementById('formTitle').textContent = 'Thêm loại sản phẩm';
+            document.getElementById('maLoai').value = '';
+            document.getElementById('tenLoai').value = '';
+            document.getElementById('formPanel').classList.add('show');
+            document.getElementById('formPanel').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showEditForm(ma, ten) {
+            document.getElementById('formTitle').textContent = 'Sửa loại sản phẩm';
+            document.getElementById('maLoai').value = ma;
+            document.getElementById('tenLoai').value = ten;
+            document.getElementById('formPanel').classList.add('show');
+            document.getElementById('formPanel').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideForm() {
+            document.getElementById('formPanel').classList.remove('show');
+        }
+    </script>
+</body>
+
+</html>

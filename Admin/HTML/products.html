@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm - Admin</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .form-panel {
+            display: none;
+        }
+
+        .form-panel.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="admin-header">
+        <a href="dashboard.html" class="logo">
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo"> ZP Admin
+        </a>
+        <div class="user-info">
+            <span>Xin chào, <strong>Admin</strong></span>
+            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h3>Quản trị</h3>
+            <ul>
+                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
+                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
+                <li><a href="products.html" class="active"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
+                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
+                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
+                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
+                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Quản lý <span>danh mục sản phẩm</span></h1>
+
+            <div style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-primary" onclick="showAddForm()">
+                    <i class="fa-solid fa-plus"></i> Thêm sản phẩm mới
+                </button>
+            </div>
+
+            <!-- FORM THÊM / SỬA (mặc định ẩn) -->
+            <div class="card form-panel" id="formPanel">
+                <h3 id="formTitle">Thêm sản phẩm</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Loại sản phẩm</label>
+                            <select id="loaiSP">
+                                <option value="Vợt cầu lông">Vợt cầu lông</option>
+                                <option value="Giày cầu lông">Giày cầu lông</option>
+                                <option value="Áo cầu lông">Áo cầu lông</option>
+                                <option value="Phụ kiện">Phụ kiện</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Mã SP</label>
+                            <input type="text" id="maSP" placeholder="SP001">
+                        </div>
+                        <div class="form-group">
+                            <label>Tên sản phẩm</label>
+                            <input type="text" id="tenSP" placeholder="Tên SP">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Hình ảnh</label>
+                            <input type="file" accept="image/*">
+                        </div>
+                        <div class="form-group" style="flex:2">
+                            <label>Mô tả</label>
+                            <textarea id="moTa" rows="3" placeholder="Mô tả sản phẩm..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary">Lưu sản phẩm</button>
+                        <button type="button" class="btn btn-secondary" onclick="hideForm()">Hủy</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- BẢNG DANH SÁCH -->
+            <div class="card">
+                <div class="toolbar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Tìm sản phẩm...">
+                        <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Hình</th>
+                                <th>Tên</th>
+                                <th>Loại</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SP001</td>
+                                <td><img src="../HinhAnh/100zz.jpg" alt=""></td>
+                                <td>Yonex Astrox 100ZZ</td>
+                                <td>Vợt cầu lông</td>
+                                <td><span class="badge badge-success">Hiện</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm"
+                                        onclick="showEditForm('SP001', 'Yonex Astrox 100ZZ', 'Vợt cầu lông', 'Vợt cầu lông cao cấp, khung cứng, phù hợp người chơi tấn công.')">
+                                        Sửa
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">Ẩn</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SP002</td>
+                                <td><img src="../HinhAnh/thruster-metallic.webp" alt=""></td>
+                                <td>Victor Thruster Metallic</td>
+                                <td>Vợt cầu lông</td>
+                                <td><span class="badge badge-success">Hiện</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm"
+                                        onclick="showEditForm('SP002', 'Victor Thruster Metallic', 'Vợt cầu lông', 'Vợt cân bằng, phù hợp chơi toàn diện.')">
+                                        Sửa
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">Ẩn</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showAddForm() {
+            document.getElementById('formTitle').textContent = 'Thêm sản phẩm';
+            document.getElementById('maSP').value = '';
+            document.getElementById('tenSP').value = '';
+            document.getElementById('loaiSP').value = 'Vợt cầu lông';
+            document.getElementById('moTa').value = '';
+            document.getElementById('formPanel').classList.add('show');
+            document.getElementById('formPanel').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showEditForm(ma, ten, loai, mota) {
+            document.getElementById('formTitle').textContent = 'Sửa sản phẩm';
+            document.getElementById('maSP').value = ma;
+            document.getElementById('tenSP').value = ten;
+            document.getElementById('loaiSP').value = loai;
+            document.getElementById('moTa').value = mota;
+            document.getElementById('formPanel').classList.add('show');
+            document.getElementById('formPanel').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideForm() {
+            document.getElementById('formPanel').classList.remove('show');
+        }
+    </script>
+</body>
+
+</html>

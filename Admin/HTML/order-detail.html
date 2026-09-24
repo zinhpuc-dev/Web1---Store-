@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết đơn hàng - Admin</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="admin-header">
+        <a href="dashboard.html" class="logo">
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+            ZP Admin
+        </a>
+        <div class="user-info">
+            <span>Xin chào, <strong>Admin</strong></span>
+            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h3>Quản trị</h3>
+            <ul>
+                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
+                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
+                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
+                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
+                <li><a href="orders.html" class="active"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a>
+                </li>
+                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Chi tiết đơn hàng <span>#DH001</span></h1>
+
+            <div class="card">
+                <h3>Thông tin đơn hàng</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Mã đơn</label>
+                        <input type="text" value="#DH001" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày đặt</label>
+                        <input type="text" value="20/09/2026 14:30" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Trạng thái hiện tại</label>
+                        <select>
+                            <option selected>Mới đặt</option>
+                            <option>Đã xử lý</option>
+                            <option>Đã giao</option>
+                            <option>Hủy</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary">Cập nhật trạng thái</button>
+                    <a href="orders.html" class="btn btn-secondary">Quay lại</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Thông tin khách hàng & giao hàng</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Họ tên</label>
+                        <input type="text" value="Nguyễn Văn A" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input type="text" value="0901234567" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" value="nguyenvana@gmail.com" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="flex:2">
+                        <label>Địa chỉ giao hàng</label>
+                        <input type="text" value="123 Nguyễn Trãi, Quận 5, TP.HCM" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Thanh toán</label>
+                        <input type="text" value="Tiền mặt khi nhận hàng" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Chi tiết sản phẩm</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Đơn giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Yonex Astrox 100ZZ</td>
+                                <td>2.405.000đ</td>
+                                <td>1</td>
+                                <td>2.405.000đ</td>
+                            </tr>
+                            <tr>
+                                <td>Quấn cán Yonex</td>
+                                <td>45.000đ</td>
+                                <td>1</td>
+                                <td>45.000đ</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" style="text-align:right;font-weight:bold;">Tổng cộng:</td>
+                                <td style="color:#e60012;font-weight:bold;font-size:16px;">2.450.000đ</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

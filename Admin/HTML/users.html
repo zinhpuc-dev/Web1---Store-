@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý người dùng - Admin</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="admin-header">
+        <a href="dashboard.html" class="logo"><img src="../HinhAnh/Logo_hinh.jpg" alt=""> ZP Admin</a>
+        <div class="user-info"><span>Admin</span> <a href="login.html">Đăng xuất</a></div>
+    </header>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h3>Quản trị</h3>
+            <ul>
+                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li><a href="users.html" class="active"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
+                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
+                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
+                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
+                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
+                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <h1>Quản lý <span>người dùng / khách hàng</span></h1>
+            <div class="card">
+                <div class="toolbar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Tìm theo tên, email...">
+                        <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ tên</th>
+                                <th>Email</th>
+                                <th>SĐT</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>nguyenvana@gmail.com</td>
+                                <td>0901234567</td>
+                                <td><span class="badge badge-success">Hoạt động</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm" title="Reset mật khẩu">Reset MK</button>
+                                    <button class="btn btn-danger btn-sm">Khóa</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Trần Thị B</td>
+                                <td>tranthib@gmail.com</td>
+                                <td>0912345678</td>
+                                <td><span class="badge badge-success">Hoạt động</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm">Reset MK</button>
+                                    <button class="btn btn-danger btn-sm">Khóa</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Lê Văn C</td>
+                                <td>levanc@gmail.com</td>
+                                <td>0923456789</td>
+                                <td><span class="badge badge-danger">Đã khóa</span></td>
+                                <td class="btn-group">
+                                    <button class="btn btn-secondary btn-sm">Reset MK</button>
+                                    <button class="btn btn-primary btn-sm">Mở khóa</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
