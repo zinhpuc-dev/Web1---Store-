@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
     <link rel="stylesheet" href="../CSS/login.css">
     <link rel="stylesheet" href="../CSS/profile.css">
+    <link rel="stylesheet" href="../CSS/product-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -55,8 +56,9 @@
                     </div>
                 </div>
 
-                <button type="button" class="login-button" onclick="alert('Đã lưu thông tin (prototype)')">
-                    Lưu thay đổi
+                <!-- Đã sửa: Nút submit chuẩn HTML, không bọc thẻ <a> -->
+                <button type="submit" class="login-button">
+                    Lưu cài đặt
                 </button>
             </form>
 
@@ -69,6 +71,32 @@
             </div>
         </section>
     </main>
+
+    <!-- Thêm: Khung thông báo Toast ẩn -->
+    <div id="toastNotification" class="toast-notification">
+        <div class="toast-icon">✓</div>
+        <div class="toast-message">Đã lưu cài đặt thành công!</div>
+    </div>
+
+    <!-- Nhúng cart.js để dùng hàm showToast sẵn có -->
+    <script src="../JS/cart.js"></script>
+    <script>
+        document.getElementById("profileForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Ngăn load lại trang ngay lập tức
+
+            // Kích hoạt Toast thông báo
+            if (typeof showToast === "function") {
+                showToast("Đã lưu thông tin cài đặt thành công!");
+            } else {
+                alert("Đã lưu thông tin cài đặt thành công!");
+            }
+
+            // Đợi 1.5 giây cho người dùng thấy Toast rồi mới chuyển về trang chủ
+            setTimeout(() => {
+                window.location.href = "dashboard.html";
+            }, 1500);
+        });
+    </script>
 </body>
 
 </html>
