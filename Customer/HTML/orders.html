@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn hàng của tôi - ZP Badminton</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/orders.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <!-- HEADER (giống dashboard) -->
+    <header class="header">
+        <div class="logo">
+            <a href="dashboard.html">
+                <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo shop">
+                ZP Badminton
+            </a>
+        </div>
+        <div class="hotline">
+            <span>HOTLINE:</span>
+            <a href="tel:0946513954"><strong>0946 513 954</strong></a>
+        </div>
+        <form class="search">
+            <input type="text" name="q" placeholder="Tìm sản phẩm...">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="account">
+            <a href="profile.html" id="accountLink">Nguyễn Văn A</a>
+            <button id="logoutBtn" class="logout-btn" onclick="logout()">Đăng xuất</button>
+        </div>
+        <div class="cart">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="dashboard.html">Trang chủ</a></li>
+            <li><a href="product.html">Sản phẩm</a></li>
+            <li><a href="sale.html">Sale</a></li>
+            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+            <li><a href="orders.html" style="color:#e60012;">Đơn hàng của tôi</a></li>
+        </ul>
+    </nav>
+
+    <main style="max-width: 1100px; margin: 40px auto; padding: 0 20px;">
+        <h1 style="margin-bottom: 25px;">Đơn hàng <span style="color:#e60012;">đã mua</span></h1>
+
+        <div class="order-list">
+            <!-- Đơn 1 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div>
+                        <strong>#DH001</strong>
+                        <span class="order-date">20/09/2026</span>
+                    </div>
+                    <span class="badge badge-warning">Mới đặt</span>
+                </div>
+                <div class="order-body">
+                    <div class="order-item">
+                        <img src="../HinhAnh/100zz.jpg" alt="">
+                        <div>
+                            <p class="item-name">Yonex Astrox 100ZZ</p>
+                            <p class="item-qty">x1</p>
+                        </div>
+                        <p class="item-price">2.405.000đ</p>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <span>Tổng tiền: <strong style="color:#e60012;">2.450.000đ</strong></span>
+                    <span>Thanh toán: Tiền mặt</span>
+                </div>
+            </div>
+
+            <!-- Đơn 2 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div>
+                        <strong>#DH003</strong>
+                        <span class="order-date">18/09/2026</span>
+                    </div>
+                    <span class="badge badge-success">Đã giao</span>
+                </div>
+                <div class="order-body">
+                    <div class="order-item">
+                        <img src="../HinhAnh/thruster-metallic.webp" alt="">
+                        <div>
+                            <p class="item-name">Victor Thruster Metallic</p>
+                            <p class="item-qty">x1</p>
+                        </div>
+                        <p class="item-price">1.500.000đ</p>
+                    </div>
+                    <div class="order-item">
+                        <img src="../HinhAnh/giay_lining.jpg" alt="">
+                        <div>
+                            <p class="item-name">Giày Lining AYTS012</p>
+                            <p class="item-qty">x1</p>
+                        </div>
+                        <p class="item-price">1.140.000đ</p>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <span>Tổng tiền: <strong style="color:#e60012;">2.640.000đ</strong></span>
+                    <span>Thanh toán: Chuyển khoản</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userName');
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="../JS/login.js"></script>
+</body>
+
+</html>

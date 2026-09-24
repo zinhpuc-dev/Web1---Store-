@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin cá nhân - ZP Badminton</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="../CSS/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="login-header">
+        <a href="dashboard.html" class="logo">
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="ZP Badminton">
+            <span>ZP Badminton</span>
+        </a>
+    </header>
+
+    <main class="login-container">
+        <section class="login-box" style="max-width: 520px;">
+            <div class="login-title">
+                <h1>Thông tin cá nhân</h1>
+                <p>Xem / chỉnh sửa thông tin tài khoản của bạn</p>
+            </div>
+
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="fullName">Họ và tên</label>
+                    <div class="input-box">
+                        <input type="text" id="fullName" value="Nguyễn Văn A" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-box">
+                        <input type="email" id="email" value="nguyenvana@gmail.com" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <div class="input-box">
+                        <input type="tel" id="phone" value="0901234567" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Địa chỉ mặc định</label>
+                    <div class="input-box">
+                        <input type="text" id="address" value="123 Nguyễn Trãi, Quận 5, TP.HCM">
+                    </div>
+                </div>
+
+                <button type="button" class="login-button" onclick="alert('Đã lưu thông tin (prototype)')">
+                    Lưu thay đổi
+                </button>
+            </form>
+
+            <div class="back-home" style="margin-top: 20px; text-align: center;">
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-arrow-left"></i> Quay về trang chủ
+                </a>
+                &nbsp;|&nbsp;
+                <a href="orders.html">Đơn hàng của tôi</a>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

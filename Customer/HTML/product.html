@@ -218,148 +218,111 @@
 
 
             <!-- ==================================================
-                 SIDEBAR FILTER
+                    SIDEBAR FILTER
             ================================================== -->
+            <!-- ==================================================
+     SIDEBAR FILTER + TÌM KIẾM NÂNG CAO
+================================================== -->
             <aside class="filter-sidebar">
 
-
                 <div class="filter-header">
-
                     <h2>
                         <i class="fa-solid fa-filter"></i>
                         Bộ lọc
                     </h2>
-
-                    <button id="clearFilter">
+                    <button type="button" id="clearFilter">
                         Xóa lọc
                     </button>
-
                 </div>
 
+                <!-- ===== TÌM KIẾM NÂNG CAO ===== -->
+                <div class="filter-group advanced-search-box">
+                    <h3>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Tìm kiếm nâng cao
+                    </h3>
 
+                    <div class="adv-field">
+                        <label>Tên sản phẩm</label>
+                        <input type="text" id="advName" placeholder="Nhập tên sản phẩm...">
+                    </div>
 
-                <!-- LOẠI SẢN PHẨM -->
-                <div class="filter-group">
+                    <div class="adv-field">
+                        <label>Phân loại</label>
+                        <select id="advCategory">
+                            <option value="">Tất cả loại</option>
+                            <option value="vot">Vợt cầu lông</option>
+                            <option value="giay">Giày cầu lông</option>
+                            <option value="ao">Áo cầu lông</option>
+                            <option value="phukien">Phụ kiện</option>
+                        </select>
+                    </div>
 
-                    <h3>Loại sản phẩm</h3>
+                    <div class="adv-price-row">
+                        <div class="adv-field">
+                            <label>Giá từ</label>
+                            <input type="number" id="advPriceMin" placeholder="0" min="0">
+                        </div>
+                        <div class="adv-field">
+                            <label>Giá đến</label>
+                            <input type="number" id="advPriceMax" placeholder="5000000" min="0">
+                        </div>
+                    </div>
 
-
-                    <label class="filter-option">
-
-                        <input type="checkbox" name="category" value="vot">
-
-                        <span>Vợt cầu lông</span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input type="checkbox" name="category" value="giay">
-
-                        <span>Giày cầu lông</span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input type="checkbox" name="category" value="ao">
-
-                        <span>Áo cầu lông</span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input type="checkbox" name="category" value="phukien">
-
-                        <span>Phụ kiện</span>
-
-                    </label>
-
+                    <button type="button" class="btn-adv-search" id="btnAdvSearch">
+                        <i class="fa-solid fa-search"></i> Tìm kiếm
+                    </button>
                 </div>
-
-
 
                 <!-- HÃNG -->
                 <div class="filter-group">
-
                     <h3>Thương hiệu</h3>
 
-
                     <label class="filter-option">
-
                         <input type="checkbox" name="brand" value="yonex">
-
                         <span>Yonex</span>
-
                     </label>
 
-
                     <label class="filter-option">
-
                         <input type="checkbox" name="brand" value="victor">
-
                         <span>Victor</span>
-
                     </label>
-
 
                     <label class="filter-option">
-
                         <input type="checkbox" name="brand" value="lining">
-
                         <span>Lining</span>
-
                     </label>
-
                 </div>
 
-
-
-                <!-- KHOẢNG GIÁ -->
+                <!-- KHOẢNG GIÁ (nút nhanh) -->
                 <div class="filter-group">
-
                     <h3>Khoảng giá</h3>
 
-                    <button class="price-filter" data-price="under1">
+                    <button type="button" class="price-filter" data-price="under1">
                         Dưới 1 triệu
                     </button>
-
-                    <button class="price-filter" data-price="1to3">
+                    <button type="button" class="price-filter" data-price="1to3">
                         1 - 3 triệu
                     </button>
-
-                    <button class="price-filter" data-price="3to5">
+                    <button type="button" class="price-filter" data-price="3to5">
                         3 - 5 triệu
                     </button>
-
-                    <button class="price-filter" data-price="over5">
+                    <button type="button" class="price-filter" data-price="over5">
                         Trên 5 triệu
                     </button>
-
                 </div>
-
 
                 <!-- TÌNH TRẠNG -->
                 <div class="filter-group">
-
                     <h3>Tình trạng</h3>
 
                     <label class="filter-option">
-
                         <input type="checkbox" id="inStock">
-
                         <span>Còn hàng</span>
-
                     </label>
-
                 </div>
 
             </aside>
-
 
 
             <!-- ==================================================
@@ -1049,9 +1012,14 @@
 
     </footer>
 
-
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notification">
+        <div class="toast-icon">✓</div>
+        <div class="toast-message">Đã thêm sản phẩm vào giỏ hàng!</div>
+    </div>
     <!-- JAVASCRIPT -->
-    <script src="../JS/product.js"></script>
+    <script src="../JS/login.js"></script>
+    <script src="../JS/cart.js"></script>
 
 </body>
 

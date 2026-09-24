@@ -250,19 +250,15 @@
 
                 <!-- BUTTON -->
 
+                <!-- BUTTON -->
                 <div class="product-buttons">
 
-                    <button id="addCartBtn" class="add-cart">
-
+                    <button id="addCartBtn" type="button" class="add-cart cart-btn">
                         Thêm vào giỏ hàng
-
                     </button>
 
-
-                    <button id="buyNowBtn" class="buy-now">
-
+                    <button id="buyNowBtn" type="button" class="buy-now buy-btn">
                         Mua ngay
-
                     </button>
 
                 </div>
@@ -412,8 +408,12 @@
 
     </footer>
 
-
-    <script src="../JS/product-detail.js"></script>
+    <div id="toastNotification" class="toast-notification">
+        <div class="toast-icon">✓</div>
+        <div class="toast-message">Đã thêm sản phẩm vào giỏ hàng!</div>
+    </div>
+    <script src="../JS/login.js"></script>
+    <script src="../JS/cart.js"></script>
 
 </body>
 

@@ -954,3 +954,44 @@ section h2 {
     padding: 35px 8%;
   }
 }
+/* ========================================
+   TOAST NOTIFICATION (Trang sản phẩm)
+======================================== */
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  right: -350px; /* An ngoài màn hình */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #10b981; /* Màu xanh lá tươi */
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-size: 15px;
+  font-weight: 500;
+  transition:
+    right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  right: 20px; /* Trượt vào màn hình */
+  opacity: 1;
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}

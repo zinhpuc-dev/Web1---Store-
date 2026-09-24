@@ -1,0 +1,19 @@
+/* Bổ sung nhỏ cho trang profile – phần lớn dùng login.css */
+
+.login-box {
+  max-width: 520px;
+}
+
+.login-box input[readonly] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.back-home a {
+  color: #e60012;
+  font-size: 14px;
+}
+
+.back-home a:hover {
+  text-decoration: underline;
+}

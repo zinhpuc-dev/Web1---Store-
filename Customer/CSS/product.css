@@ -1174,3 +1174,120 @@ main {
     gap: 25px;
   }
 }
+/* ===== TÌM KIẾM NÂNG CAO TRONG SIDEBAR ===== */
+.advanced-search-box {
+  background: #121212;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 16px !important;
+}
+
+.advanced-search-box h3 {
+  color: #e60012;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.advanced-search-box h3 i {
+  margin-right: 6px;
+}
+
+.adv-field {
+  margin-bottom: 12px;
+}
+
+.adv-field label {
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.adv-field input,
+.adv-field select {
+  width: 100%;
+  padding: 9px 11px;
+  background: #0b0b0b;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.adv-field input:focus,
+.adv-field select:focus {
+  outline: none;
+  border-color: #e60012;
+}
+
+.adv-price-row {
+  display: flex;
+  gap: 10px;
+}
+
+.adv-price-row .adv-field {
+  flex: 1;
+}
+
+.btn-adv-search {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  background: #e60012;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-adv-search:hover {
+  background: #c50010;
+}
+
+.btn-adv-search i {
+  margin-right: 6px;
+}
+/* ========================================
+   TOAST NOTIFICATION (Trang sản phẩm)
+======================================== */
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  right: -350px; /* An ngoài màn hình */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #10b981; /* Màu xanh lá tươi */
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-size: 15px;
+  font-weight: 500;
+  transition:
+    right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  right: 20px; /* Trượt vào màn hình */
+  opacity: 1;
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
