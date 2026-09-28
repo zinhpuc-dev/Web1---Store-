@@ -19,6 +19,13 @@
 <body>
 
 
+    <!-- ==================================================
+         CHECKBOX ẨN DÙNG ĐỂ HIỆN THÔNG BÁO
+    ================================================== -->
+
+    <input type="checkbox" id="order-success" class="success-checkbox">
+
+
     <!-- ================= HEADER ================= -->
 
     <header class="header">
@@ -63,17 +70,9 @@
 
             <div class="account">
 
-                <a href="login.html" id="accountLink">
-
+                <a href="login.html">
                     Tài khoản
-
                 </a>
-
-                <button id="logoutBtn" class="logout-btn">
-
-                    Đăng xuất
-
-                </button>
 
             </div>
 
@@ -105,209 +104,413 @@
         </div>
 
 
-        <form id="checkoutForm">
+        <div class="checkout-grid">
 
 
-            <div class="checkout-grid">
+            <!-- ================= CUSTOMER ================= -->
+
+            <section class="customer-info">
+
+                <h2>
+                    Thông tin nhận hàng
+                </h2>
 
 
-                <!-- ================= CUSTOMER ================= -->
+                <!-- HỌ TÊN -->
 
-                <section class="customer-info">
+                <div class="form-group">
 
-                    <h2>
-                        Thông tin nhận hàng
-                    </h2>
+                    <label>
+                        Họ và tên
+                    </label>
 
+                    <input type="text" value="Nguyễn Văn A" readonly>
 
-                    <div class="form-group">
-
-                        <label for="fullname">
-                            Họ và tên
-                        </label>
-
-                        <input type="text" id="fullname" placeholder="Nhập họ và tên">
-
-                    </div>
+                </div>
 
 
-                    <div class="form-group">
+                <!-- EMAIL -->
 
-                        <label for="phone">
-                            Số điện thoại
-                        </label>
+                <div class="form-group">
 
-                        <input type="tel" id="phone" placeholder="Nhập số điện thoại">
+                    <label>
+                        Email
+                    </label>
 
-                    </div>
+                    <input type="email" value="nguyenvana@gmail.com" readonly>
 
-
-                    <div class="form-group">
-
-                        <label for="address">
-                            Địa chỉ
-                        </label>
-
-                        <input type="text" id="address" placeholder="Số nhà, tên đường">
-
-                    </div>
+                </div>
 
 
-                    <div class="form-row">
+                <!-- SỐ ĐIỆN THOẠI -->
 
-                        <div class="form-group">
+                <div class="form-group">
 
-                            <label for="city">
-                                Tỉnh / Thành phố
-                            </label>
+                    <label>
+                        Số điện thoại
+                    </label>
 
-                            <input type="text" id="city" placeholder="Ví dụ: TP.HCM">
+                    <input type="tel" value="0901234567" readonly>
 
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="district">
-                                Quận / Huyện
-                            </label>
-
-                            <input type="text" id="district" placeholder="Ví dụ: Quận 1">
-
-                        </div>
-
-                    </div>
+                </div>
 
 
-                    <div class="form-group">
+                <!-- ================= ĐỊA CHỈ ================= -->
 
-                        <label for="note">
-                            Ghi chú
-                        </label>
+                <div class="address-section">
 
-                        <textarea id="note" rows="4" placeholder="Ghi chú cho đơn hàng (nếu có)">
-                        </textarea>
-
-                    </div>
+                    <h3>
+                        Địa chỉ nhận hàng
+                    </h3>
 
 
-                    <!-- PAYMENT -->
+                    <!-- ĐỊA CHỈ MẶC ĐỊNH -->
 
-                    <h2 class="payment-title">
-                        Phương thức thanh toán
-                    </h2>
+                    <label class="address-option">
 
-
-                    <label class="payment-option">
-
-                        <input type="radio" name="payment" value="cod" checked>
+                        <input type="radio" name="address" id="default-address" checked>
 
                         <span>
-                            Thanh toán khi nhận hàng
+                            Sử dụng địa chỉ mặc định
                         </span>
 
                     </label>
 
 
-                    <label class="payment-option">
+                    <div class="default-address-box">
 
-                        <input type="radio" name="payment" value="bank">
+                        <div class="form-group">
+
+                            <label>
+                                Địa chỉ mặc định
+                            </label>
+
+                            <input type="text" value="123 Nguyễn Trãi, Quận 5, TP.HCM" readonly>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ĐỊA CHỈ KHÁC -->
+
+                    <label class="address-option">
+
+                        <input type="radio" name="address" id="other-address">
 
                         <span>
-                            Chuyển khoản ngân hàng
+                            Sử dụng địa chỉ khác
                         </span>
 
                     </label>
 
-                </section>
+
+                    <div class="other-address-box">
+
+                        <div class="form-group">
+
+                            <label>
+                                Địa chỉ
+                            </label>
+
+                            <input type="text" placeholder="Số nhà, tên đường">
+
+                        </div>
 
 
-                <!-- ================= ORDER ================= -->
+                        <div class="form-row">
 
-                <aside class="order-summary">
+                            <div class="form-group">
 
-                    <h2>
-                        Kiểm tra đơn hàng
-                    </h2>
+                                <label>
+                                    Tỉnh / Thành phố
+                                </label>
+
+                                <input type="text" placeholder="Ví dụ: TP.HCM">
+
+                            </div>
 
 
-                    <div id="checkoutProducts">
+                            <div class="form-group">
+
+                                <label>
+                                    Quận / Huyện
+                                </label>
+
+                                <input type="text" placeholder="Ví dụ: Quận 1">
+
+                            </div>
+
+                        </div>
 
                     </div>
 
-
-                    <div class="summary-line">
-                    </div>
+                </div>
 
 
-                    <div class="summary-row">
+                <!-- ================= GHI CHÚ ================= -->
 
-                        <span>
-                            Tạm tính
-                        </span>
+                <div class="form-group">
 
-                        <strong id="subTotal">
-                            0đ
-                        </strong>
+                    <label>
+                        Ghi chú
+                    </label>
 
-                    </div>
+                    <textarea rows="4" placeholder="Ghi chú cho đơn hàng (nếu có)"></textarea>
+
+                </div>
 
 
-                    <div class="summary-row">
+                <!-- ================= PAYMENT ================= -->
 
-                        <span>
-                            Phí vận chuyển
-                        </span>
+                <h2 class="payment-title">
+                    Phương thức thanh toán
+                </h2>
+
+
+                <label class="payment-option">
+
+                    <input type="radio" name="payment" checked>
+
+                    <span>
+                        Thanh toán khi nhận hàng
+                    </span>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input type="radio" name="payment">
+
+                    <span>
+                        Chuyển khoản ngân hàng
+                    </span>
+
+                </label>
+
+            </section>
+
+
+            <!-- ================= ORDER ================= -->
+
+            <aside class="order-summary">
+
+                <h2>
+                    Kiểm tra đơn hàng
+                </h2>
+
+
+                <!-- PRODUCT 1 -->
+
+                <div class="checkout-product">
+
+                    <div>
 
                         <strong>
-                            0đ
+                            Yonex Nanoflare 1000Z
                         </strong>
-
-                    </div>
-
-
-                    <div class="summary-line">
-                    </div>
-
-
-                    <div class="summary-total">
 
                         <span>
-                            Tổng thanh toán
+                            Số lượng: 1
                         </span>
 
-                        <strong id="totalPrice">
-                            0đ
+                    </div>
+
+                    <strong>
+                        4.590.000đ
+                    </strong>
+
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+
+                <div class="checkout-product">
+
+                    <div>
+
+                        <strong>
+                            Yonex Astrox 100ZZ
                         </strong>
 
+                        <span>
+                            Số lượng: 1
+                        </span>
+
                     </div>
 
+                    <strong>
+                        4.390.000đ
+                    </strong>
 
-                    <div class="checkout-error" id="checkoutError">
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+
+                <div class="checkout-product">
+
+                    <div>
+
+                        <strong>
+                            Victor Thruster Ryuga Metallic
+                        </strong>
+
+                        <span>
+                            Số lượng: 1
+                        </span>
 
                     </div>
 
+                    <strong>
+                        3.690.000đ
+                    </strong>
 
-                    <button type="submit" class="payment-btn">
-
-                        Thanh toán
-
-                    </button>
+                </div>
 
 
-                    <a href="cart.html" class="back-cart">
+                <div class="summary-line">
+                </div>
 
-                        ← Quay lại giỏ hàng
 
-                    </a>
+                <div class="summary-row">
 
-                </aside>
+                    <span>
+                        Tạm tính
+                    </span>
+
+                    <strong>
+                        12.670.000đ
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Phí vận chuyển
+                    </span>
+
+                    <strong>
+                        0đ
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-line">
+                </div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        Tổng thanh toán
+                    </span>
+
+                    <strong>
+                        12.670.000đ
+                    </strong>
+
+                </div>
+
+
+                <!-- ================= THANH TOÁN ================= -->
+
+                <label for="order-success" class="payment-btn">
+                    Thanh toán
+                </label>
+
+
+                <a href="cart.html" class="back-cart">
+                    ← Quay lại giỏ hàng
+                </a>
+
+            </aside>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================================================
+         THÔNG BÁO ĐẶT HÀNG THÀNH CÔNG
+    ================================================== -->
+
+    <div class="success-overlay">
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+
+            <h2>
+                Đặt hàng thành công!
+            </h2>
+
+
+            <p class="success-message">
+                Cảm ơn bạn đã mua hàng tại ZP Badminton.
+            </p>
+
+
+            <div class="success-order">
+
+                <div>
+
+                    <span>
+                        Mã đơn hàng
+                    </span>
+
+                    <strong>
+                        ZP20260001
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Tổng thanh toán
+                    </span>
+
+                    <strong>
+                        12.670.000đ
+                    </strong>
+
+                </div>
 
             </div>
 
-        </form>
 
-    </main>
+            <p class="success-note">
+                Đơn hàng của bạn đang được xử lý.
+                Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.
+            </p>
+
+
+            <div class="success-actions">
+
+                <a href="dashboard.html" class="success-home-btn">
+                    Về trang chủ
+                </a>
+
+
+                <label for="order-success" class="success-close-btn" onclick="window.location.href='dashboard.html'">
+                    Đóng
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!-- ================= FOOTER ================= -->
@@ -315,6 +518,7 @@
     <footer class="footer">
 
         <div class="footer-content">
+
 
             <div>
 
@@ -361,8 +565,13 @@
                     Liên hệ
                 </h3>
 
-                <p>Hotline: 0946 513 954</p>
-                <p>Email: hoangkim200906@gmail.com</p>
+                <p>
+                    Hotline: 0946 513 954
+                </p>
+
+                <p>
+                    Email: hoangkim200906@gmail.com
+                </p>
 
             </div>
 
@@ -376,34 +585,8 @@
         </div>
 
     </footer>
-    <!-- ================= SUCCESS MODAL ================= -->
 
-    <div class="success-overlay" id="successOverlay">
 
-        <div class="success-box">
-
-            <div class="success-icon">
-                ✓
-            </div>
-
-            <h2>
-                Đặt hàng thành công!
-            </h2>
-
-            <p>
-                Cảm ơn bạn đã mua hàng tại ZP Badminton.
-            </p>
-
-            <button id="homeBtn" class="home-btn">
-                Về trang chủ
-            </button>
-
-        </div>
-
-    </div>
-
-    <script src="../JS/login.js"></script>
-    <script src="../JS/checkout.js"></script> <!-- Bổ sung dòng này -->
 </body>
 
 </html>

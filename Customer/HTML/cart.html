@@ -64,24 +64,18 @@
             <div class="account">
 
                 <a href="login.html" id="accountLink">
-
                     Tài khoản
-
                 </a>
 
                 <button id="logoutBtn" class="logout-btn">
-
                     Đăng xuất
-
                 </button>
 
             </div>
 
 
             <a href="cart.html" class="cart-link">
-
                 Giỏ hàng
-
             </a>
 
         </div>
@@ -107,33 +101,15 @@
         </div>
 
 
-        <!-- EMPTY -->
+        <!-- ================= CART CONTENT ================= -->
 
-        <div class="empty-cart" id="emptyCart">
-
-            <h2>
-                Giỏ hàng đang trống
-            </h2>
-
-            <p>
-                Bạn chưa có sản phẩm nào trong giỏ hàng.
-            </p>
-
-            <a href="product.html">
-                Tiếp tục mua hàng
-            </a>
-
-        </div>
+        <section class="cart-content">
 
 
-        <!-- CART CONTENT -->
-
-        <section class="cart-content" id="cartContent">
-
-
-            <!-- PRODUCT LIST -->
+            <!-- ================= PRODUCTS ================= -->
 
             <div class="cart-products">
+
 
                 <div class="cart-header">
 
@@ -154,16 +130,195 @@
                     </span>
 
                     <span>
-
                     </span>
 
                 </div>
 
 
-                <div id="cartList">
+                <!-- ================= PRODUCT 1 ================= -->
+
+                <div class="cart-item">
+
+                    <div class="item-product">
+
+                        <img src="../HinhAnh/1000z.webp" alt="Yonex Nanoflare 1000Z">
+
+                        <div>
+
+                            <h3>
+                                Yonex Nanoflare 1000Z
+                            </h3>
+
+                            <span>
+                                Vợt cầu lông
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="item-price">
+
+                        4.590.000đ
+
+                    </div>
+
+
+                    <div class="item-quantity">
+
+                        <button type="button">
+                            −
+                        </button>
+
+                        <span>
+                            1
+                        </span>
+
+                        <button type="button">
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <div class="item-total">
+
+                        4.590.000đ
+
+                    </div>
+
+
+                    <button type="button" class="delete-btn" aria-label="Xóa sản phẩm">
+                        ×
+                    </button>
 
                 </div>
 
+
+                <!-- ================= PRODUCT 2 ================= -->
+
+                <div class="cart-item">
+
+                    <div class="item-product">
+
+                        <img src="../HinhAnh/100zz.jpg" alt="Yonex Astrox 100ZZ">
+
+                        <div>
+
+                            <h3>
+                                Yonex Astrox 100ZZ
+                            </h3>
+
+                            <span>
+                                Vợt cầu lông
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="item-price">
+
+                        4.390.000đ
+
+                    </div>
+
+
+                    <div class="item-quantity">
+
+                        <button type="button">
+                            −
+                        </button>
+
+                        <span>
+                            1
+                        </span>
+
+                        <button type="button">
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <div class="item-total">
+
+                        4.390.000đ
+
+                    </div>
+
+
+                    <button type="button" class="delete-btn" aria-label="Xóa sản phẩm">
+                        ×
+                    </button>
+
+                </div>
+
+
+                <!-- ================= PRODUCT 3 ================= -->
+
+                <div class="cart-item">
+
+                    <div class="item-product">
+
+                        <img src="../HinhAnh/thruster-metallic.webp" alt="Victor Thruster Ryuga Metallic">
+
+                        <div>
+
+                            <h3>
+                                Victor Thruster Ryuga Metallic
+                            </h3>
+
+                            <span>
+                                Vợt cầu lông
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="item-price">
+
+                        3.690.000đ
+
+                    </div>
+
+
+                    <div class="item-quantity">
+
+                        <button type="button">
+                            −
+                        </button>
+
+                        <span>
+                            1
+                        </span>
+
+                        <button type="button">
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <div class="item-total">
+
+                        3.690.000đ
+
+                    </div>
+
+
+                    <button type="button" class="delete-btn" aria-label="Xóa sản phẩm">
+                        ×
+                    </button>
+
+                </div>
+
+
+                <!-- ================= CART BOTTOM ================= -->
 
                 <div class="cart-bottom">
 
@@ -172,7 +327,7 @@
                     </a>
 
 
-                    <button id="clearCart">
+                    <button type="button">
                         Xóa giỏ hàng
                     </button>
 
@@ -181,7 +336,7 @@
             </div>
 
 
-            <!-- SUMMARY -->
+            <!-- ================= SUMMARY ================= -->
 
             <aside class="cart-summary">
 
@@ -196,8 +351,8 @@
                         Tạm tính
                     </span>
 
-                    <strong id="subTotal">
-                        0đ
+                    <strong>
+                        12.670.000đ
                     </strong>
 
                 </div>
@@ -226,18 +381,16 @@
                         Tổng cộng
                     </span>
 
-                    <strong id="totalPrice">
-                        0đ
+                    <strong>
+                        12.670.000đ
                     </strong>
 
                 </div>
 
 
-                <button id="checkoutBtn" class="checkout-btn">
-
+                <a href="checkout.html" class="checkout-btn">
                     Tiến hành thanh toán
-
-                </button>
+                </a>
 
             </aside>
 
@@ -298,8 +451,13 @@
                     Liên hệ
                 </h3>
 
-                <p>Hotline: 0946 513 954</p>
-                <p>Email: hoangkim200906@gmail.com</p>
+                <p>
+                    Hotline: 0946 513 954
+                </p>
+
+                <p>
+                    Email: hoangkim200906@gmail.com
+                </p>
 
             </div>
 
@@ -314,8 +472,8 @@
 
     </footer>
 
+
     <script src="../JS/login.js"></script>
-    <script src="../JS/cart.js"></script>
 
 </body>
 

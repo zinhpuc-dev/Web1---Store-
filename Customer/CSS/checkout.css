@@ -1,6 +1,6 @@
-/* ================================
+/* ==================================================
    RESET
-================================ */
+================================================== */
 
 * {
   margin: 0;
@@ -8,9 +8,9 @@
   box-sizing: border-box;
 }
 
-/* ================================
+/* ==================================================
    BODY
-================================ */
+================================================== */
 
 body {
   font-family: Arial, sans-serif;
@@ -20,12 +20,25 @@ body {
   color: white;
 }
 
-/* ================================
+a {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* ==================================================
    HEADER
-================================ */
+================================================== */
 
 .header {
-  height: 75px;
+  min-height: 75px;
 
   background-color: #0b0b0b;
 
@@ -48,6 +61,10 @@ body {
   gap: 45px;
 }
 
+/* ==================================================
+   LOGO
+================================================== */
+
 .logo {
   display: flex;
 
@@ -55,13 +72,15 @@ body {
 
   gap: 10px;
 
-  text-decoration: none;
-
   color: #e60012;
 
   font-size: 22px;
 
   font-weight: bold;
+
+  white-space: nowrap;
+
+  text-decoration: none;
 }
 
 .logo img {
@@ -72,8 +91,14 @@ body {
   object-fit: cover;
 }
 
+/* ==================================================
+   MENU
+================================================== */
+
 .menu {
   display: flex;
+
+  align-items: center;
 
   gap: 30px;
 }
@@ -84,11 +109,19 @@ body {
   text-decoration: none;
 
   font-size: 15px;
+
+  white-space: nowrap;
+
+  transition: 0.2s;
 }
 
 .menu a:hover {
   color: #e60012;
 }
+
+/* ==================================================
+   HEADER RIGHT
+================================================== */
 
 .header-right {
   display: flex;
@@ -96,6 +129,8 @@ body {
   align-items: center;
 
   gap: 20px;
+
+  white-space: nowrap;
 }
 
 .account {
@@ -104,6 +139,8 @@ body {
   align-items: center;
 
   gap: 10px;
+
+  white-space: nowrap;
 }
 
 .header-right a {
@@ -114,41 +151,17 @@ body {
   font-size: 14px;
 
   white-space: nowrap;
+
+  transition: 0.2s;
 }
 
 .header-right a:hover {
   color: #e60012;
 }
 
-.logout-btn {
-  display: none;
-
-  height: 32px;
-
-  padding: 0 11px;
-
-  background: transparent;
-
-  border: 1px solid #444;
-
-  border-radius: 4px;
-
-  color: #aaa;
-
-  font-size: 12px;
-
-  cursor: pointer;
-}
-
-.logout-btn:hover {
-  color: #e60012;
-
-  border-color: #e60012;
-}
-
-/* ================================
+/* ==================================================
    CONTAINER
-================================ */
+================================================== */
 
 .checkout-container {
   max-width: 1200px;
@@ -158,9 +171,9 @@ body {
   padding: 60px 30px 90px;
 }
 
-/* ================================
+/* ==================================================
    TITLE
-================================ */
+================================================== */
 
 .page-title {
   margin-bottom: 40px;
@@ -182,30 +195,30 @@ body {
   font-size: 35px;
 }
 
-/* ================================
+/* ==================================================
    GRID
-================================ */
+================================================== */
 
 .checkout-grid {
   display: grid;
 
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: minmax(0, 1fr) 380px;
 
   gap: 30px;
 
   align-items: start;
 }
 
-/* ================================
+/* ==================================================
    CUSTOMER INFO
-================================ */
+================================================== */
 
 .customer-info {
   background-color: #181818;
 
   border: 1px solid #292929;
 
-  border-radius: 7px;
+  border-radius: 8px;
 
   padding: 30px;
 }
@@ -217,9 +230,9 @@ body {
   margin-bottom: 25px;
 }
 
-/* ================================
+/* ==================================================
    FORM
-================================ */
+================================================== */
 
 .form-group {
   margin-bottom: 20px;
@@ -245,20 +258,32 @@ body {
 
   border: 1px solid #444;
 
-  border-radius: 4px;
+  border-radius: 5px;
 
   color: white;
-
-  font-family: Arial, sans-serif;
 
   font-size: 14px;
 
   outline: none;
+
+  transition: border-color 0.2s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: #e60012;
+}
+
+.form-group input[readonly] {
+  color: #aaa;
+
+  background-color: #151515;
+
+  cursor: default;
+}
+
+.form-group textarea {
+  resize: vertical;
 }
 
 .form-row {
@@ -269,13 +294,116 @@ body {
   gap: 15px;
 }
 
-.form-group textarea {
-  resize: vertical;
+/* ==================================================
+   ADDRESS
+================================================== */
+
+.address-section {
+  margin-top: 10px;
+
+  margin-bottom: 25px;
 }
 
-/* ================================
+.address-section h3 {
+  color: #eee;
+
+  font-size: 16px;
+
+  margin-bottom: 15px;
+}
+
+/* ==================================================
+   ADDRESS OPTION
+================================================== */
+
+.address-option {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 13px 15px;
+
+  margin-bottom: 10px;
+
+  background-color: #111;
+
+  border: 1px solid #292929;
+
+  border-radius: 6px;
+
+  color: #ccc;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.address-option:hover {
+  background-color: #191919;
+
+  border-color: #444;
+
+  color: white;
+}
+
+.address-option input {
+  width: 16px;
+
+  height: 16px;
+
+  accent-color: #e60012;
+
+  cursor: pointer;
+}
+
+/* ==================================================
+   DEFAULT ADDRESS
+================================================== */
+
+.default-address-box {
+  padding: 20px;
+
+  margin-bottom: 15px;
+
+  background-color: #151515;
+
+  border: 1px solid #292929;
+
+  border-radius: 6px;
+}
+
+/* ==================================================
+   OTHER ADDRESS
+================================================== */
+
+.other-address-box {
+  padding: 20px;
+
+  margin-bottom: 15px;
+
+  background-color: #151515;
+
+  border: 1px solid #292929;
+
+  border-radius: 6px;
+
+  display: block;
+}
+
+/* ==================================================
    PAYMENT
-================================ */
+================================================== */
 
 .payment-title {
   margin-top: 35px;
@@ -288,7 +416,9 @@ body {
 
   gap: 10px;
 
-  padding: 15px;
+  min-height: 48px;
+
+  padding: 13px 15px;
 
   margin-bottom: 10px;
 
@@ -296,84 +426,95 @@ body {
 
   border: 1px solid #292929;
 
-  border-radius: 5px;
+  border-radius: 6px;
 
   color: #ccc;
 
   font-size: 14px;
 
   cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .payment-option:hover {
-  border-color: #e60012;
+  background-color: #191919;
+
+  border-color: #444;
+
+  color: white;
 }
 
 .payment-option input {
+  width: 16px;
+
+  height: 16px;
+
   accent-color: #e60012;
 }
 
-/* ================================
+/* ==================================================
    ORDER SUMMARY
-================================ */
+================================================== */
 
 .order-summary {
   background-color: #181818;
 
   border: 1px solid #292929;
 
-  border-radius: 7px;
+  border-radius: 8px;
 
   padding: 25px;
+
+  position: sticky;
+
+  top: 20px;
 }
 
-/* ================================
+/* ==================================================
    PRODUCT
-================================ */
+================================================== */
 
 .checkout-product {
   display: flex;
 
   align-items: center;
 
+  justify-content: space-between;
+
   gap: 12px;
 
-  padding: 12px 0;
+  padding: 13px 0;
 
   border-bottom: 1px solid #292929;
 }
 
-.checkout-product img {
-  width: 60px;
+.checkout-product > div {
+  display: flex;
 
-  height: 60px;
+  flex-direction: column;
 
-  object-fit: contain;
+  gap: 5px;
 
-  background-color: white;
-
-  border-radius: 4px;
-
-  padding: 5px;
+  min-width: 0;
 }
 
-.checkout-product-info {
-  flex: 1;
-}
-
-.checkout-product-info h3 {
+.checkout-product strong {
   font-size: 13px;
 
-  margin-bottom: 5px;
+  line-height: 1.4;
 }
 
-.checkout-product-info span {
+.checkout-product span {
   color: #777;
 
   font-size: 12px;
 }
 
-.checkout-product-price {
+.checkout-product > strong:last-child {
   color: #ddd;
 
   font-size: 13px;
@@ -381,9 +522,9 @@ body {
   white-space: nowrap;
 }
 
-/* ================================
+/* ==================================================
    SUMMARY
-================================ */
+================================================== */
 
 .summary-line {
   height: 1px;
@@ -427,47 +568,61 @@ body {
   font-size: 21px;
 }
 
-/* ================================
-   ERROR
-================================ */
-
-.checkout-error {
-  min-height: 20px;
-
-  margin-bottom: 12px;
-
-  color: #e60012;
-
-  font-size: 13px;
-
-  line-height: 1.5;
-}
-
-/* ================================
-   BUTTON
-================================ */
+/* ==================================================
+   PAYMENT BUTTON
+================================================== */
 
 .payment-btn {
   width: 100%;
 
-  height: 45px;
+  min-height: 48px;
 
-  border: none;
+  display: flex;
 
-  border-radius: 5px;
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 12px 20px;
+
+  border: 1px solid #e60012;
+
+  border-radius: 6px;
 
   background-color: #e60012;
 
   color: white;
 
+  font-size: 14px;
+
   font-weight: bold;
 
   cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .payment-btn:hover {
-  background-color: #b9000e;
+  background-color: #c50010;
+
+  border-color: #c50010;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 15px rgba(230, 0, 18, 0.25);
 }
+
+.payment-btn:active {
+  transform: translateY(0);
+}
+
+/* ==================================================
+   BACK CART
+================================================== */
 
 .back-cart {
   display: block;
@@ -481,15 +636,290 @@ body {
   text-decoration: none;
 
   font-size: 13px;
+
+  transition: 0.2s;
 }
 
 .back-cart:hover {
   color: #e60012;
 }
 
-/* ================================
+/* ==================================================
+   SUCCESS CHECKBOX
+================================================== */
+
+.success-checkbox {
+  position: fixed;
+
+  width: 1px;
+
+  height: 1px;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+/* ==================================================
+   SUCCESS OVERLAY
+================================================== */
+
+.success-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background-color: rgba(0, 0, 0, 0.78);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+
+  z-index: 9999;
+}
+
+/* ==================================================
+   HIỆN THÔNG BÁO KHI CHECKBOX ĐƯỢC CHỌN
+================================================== */
+
+.success-checkbox:checked ~ .success-overlay {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+/* ==================================================
+   SUCCESS BOX
+================================================== */
+
+.success-box {
+  width: 100%;
+
+  max-width: 480px;
+
+  padding: 35px;
+
+  background-color: #181818;
+
+  border: 1px solid #333;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(15px) scale(0.97);
+
+  transition: transform 0.25s ease;
+}
+
+.success-checkbox:checked ~ .success-overlay .success-box {
+  transform: translateY(0) scale(1);
+}
+
+/* ==================================================
+   SUCCESS ICON
+================================================== */
+
+.success-icon {
+  width: 64px;
+
+  height: 64px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: #e60012;
+
+  color: white;
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+  box-shadow: 0 0 0 8px rgba(230, 0, 18, 0.08);
+}
+
+/* ==================================================
+   SUCCESS TITLE
+================================================== */
+
+.success-box h2 {
+  margin-bottom: 10px;
+
+  color: white;
+
+  font-size: 24px;
+}
+
+/* ==================================================
+   SUCCESS MESSAGE
+================================================== */
+
+.success-message {
+  color: #aaa;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  margin-bottom: 22px;
+}
+
+/* ==================================================
+   SUCCESS ORDER
+================================================== */
+
+.success-order {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+.success-order > div {
+  padding: 14px;
+
+  background-color: #111;
+
+  border: 1px solid #292929;
+
+  border-radius: 6px;
+}
+
+.success-order span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #777;
+
+  font-size: 12px;
+}
+
+.success-order strong {
+  display: block;
+
+  color: #eee;
+
+  font-size: 13px;
+}
+
+/* ==================================================
+   SUCCESS NOTE
+================================================== */
+
+.success-note {
+  color: #888;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  margin-bottom: 25px;
+}
+
+/* ==================================================
+   SUCCESS ACTIONS
+================================================== */
+
+.success-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+/* ==================================================
+   SUCCESS HOME BUTTON
+================================================== */
+
+.success-home-btn,
+.success-close-btn {
+  min-height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+/* VỀ TRANG CHỦ */
+
+.success-home-btn {
+  background-color: #e60012;
+
+  border: 1px solid #e60012;
+
+  color: white;
+}
+
+.success-home-btn:hover {
+  background-color: #c50010;
+
+  border-color: #c50010;
+}
+
+/* ĐÓNG */
+
+.success-close-btn {
+  background-color: transparent;
+
+  border: 1px solid #444;
+
+  color: #aaa;
+}
+
+.success-close-btn:hover {
+  background-color: #242424;
+
+  border-color: #666;
+
+  color: white;
+}
+
+/* ==================================================
    FOOTER
-================================ */
+================================================== */
 
 .footer {
   background-color: #0b0b0b;
@@ -535,6 +965,8 @@ body {
   margin-bottom: 10px;
 
   font-size: 14px;
+
+  transition: 0.2s;
 }
 
 .footer a:hover {
@@ -553,17 +985,33 @@ body {
   font-size: 13px;
 }
 
-/* ================================
+/* ==================================================
    RESPONSIVE
-================================ */
+================================================== */
 
 @media (max-width: 900px) {
   .header {
     padding: 0 25px;
   }
 
+  .header-left {
+    gap: 25px;
+  }
+
+  .menu {
+    gap: 18px;
+  }
+
+  .header-right {
+    gap: 12px;
+  }
+
   .checkout-grid {
     grid-template-columns: 1fr;
+  }
+
+  .order-summary {
+    position: static;
   }
 }
 
@@ -590,206 +1038,43 @@ body {
     justify-content: center;
   }
 
+  .header-right {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .checkout-container {
+    padding: 40px 15px 60px;
+  }
+
+  .customer-info {
+    padding: 20px;
+  }
+
+  .order-summary {
+    padding: 20px;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }
 
   .footer-content {
     grid-template-columns: 1fr;
+
+    gap: 30px;
   }
-}
-/* ========================================
-   SUCCESS MODAL
-======================================== */
 
-.success-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+  .success-box {
+    padding: 25px 20px;
+  }
 
-  width: 100%;
-  height: 100%;
+  .success-order {
+    grid-template-columns: 1fr;
+  }
 
-  background-color: rgba(0, 0, 0, 0.75);
-
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  z-index: 9999;
-}
-
-/* Hiện modal */
-
-.success-overlay.show {
-  display: flex;
-}
-
-/* Hộp thông báo */
-
-.success-box {
-  width: 420px;
-  max-width: 90%;
-
-  padding: 35px 30px;
-
-  background-color: #181818;
-
-  border: 1px solid #292929;
-  border-radius: 10px;
-
-  text-align: center;
-
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* Dấu tick */
-
-.success-icon {
-  width: 65px;
-  height: 65px;
-
-  margin: 0 auto 20px;
-
-  border-radius: 50%;
-
-  background-color: #e60012;
-
-  color: white;
-
-  font-size: 38px;
-  font-weight: bold;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Tiêu đề */
-
-.success-box h2 {
-  margin-bottom: 12px;
-
-  color: white;
-
-  font-size: 24px;
-}
-
-/* Nội dung */
-
-.success-box p {
-  margin-bottom: 25px;
-
-  color: #aaa;
-
-  font-size: 14px;
-
-  line-height: 1.6;
-}
-
-/* Nút về trang chủ */
-
-.home-btn {
-  width: 100%;
-
-  padding: 12px;
-
-  border: none;
-  border-radius: 6px;
-
-  background-color: #e60012;
-
-  color: white;
-
-  font-size: 15px;
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.home-btn:hover {
-  background-color: #c50010;
-}
-/* ========================================
-   SUCCESS MODAL OVERLAY SETUP
-======================================== */
-.success-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-  z-index: 9999;
-}
-
-.success-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.success-box {
-  background: #ffffff;
-  padding: 30px 40px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transform: scale(0.8);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.success-overlay.active .success-box {
-  transform: scale(1);
-}
-
-.success-icon {
-  width: 60px;
-  height: 60px;
-  background-color: #10b981;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  margin: 0 auto 15px auto;
-}
-
-.success-box h2 {
-  margin-bottom: 10px;
-  color: #111827;
-}
-
-.success-box p {
-  color: #6b7280;
-  margin-bottom: 20px;
-}
-
-.home-btn {
-  background-color: #10b981;
-  color: white;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.home-btn:hover {
-  background-color: #059669;
+  .success-actions {
+    grid-template-columns: 1fr;
+  }
 }

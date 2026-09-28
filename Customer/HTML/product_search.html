@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tìm kiếm sản phẩm - ZP Badminton</title>
+
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+
+    <link rel="stylesheet" href="../CSS/product_search.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ==================================================
+         THÔNG BÁO THÊM GIỎ HÀNG
+    ================================================== -->
+
+    <input type="checkbox" id="cart-success" class="cart-success-toggle">
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header class="header">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <a href="dashboard.html">
+
+                <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo shop">
+
+                ZP Badminton
+
+            </a>
+
+        </div>
+
+
+        <!-- HOTLINE -->
+
+        <div class="hotline">
+
+            <span>HOTLINE:</span>
+
+            <a href="tel:0946513954">
+                <strong>0946 513 954</strong>
+            </a>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <form class="search" action="product_search.html" method="get">
+
+            <input type="text" name="q" placeholder="Tìm sản phẩm..." value="">
+
+            <button type="submit">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+        </form>
+
+
+        <!-- ACCOUNT -->
+
+        <div class="account">
+
+            <a href="login.html" id="accoutText">
+                Tài khoản
+            </a>
+
+        </div>
+
+
+        <!-- CART -->
+
+        <div class="cart">
+
+            <a href="cart.html">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         MENU
+    ================================================== -->
+
+    <nav class="menu">
+
+        <ul>
+
+            <li>
+
+                <a href="dashboard.html">
+                    Trang chủ
+                </a>
+
+            </li>
+
+
+            <li class="has-dropdown">
+
+                <a href="product.html">
+
+                    Sản phẩm
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </a>
+
+
+                <div class="mega-menu">
+
+                    <div class="menu-column">
+
+                        <h3>
+                            Vợt cầu lông
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                <a href="product.html">
+                                    Yonex
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="product.html">
+                                    Victor
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="product.html">
+                                    Li-Ning
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="menu-column">
+
+                        <h3>
+                            Yonex
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                <a href="product_search.html?q=Tour">
+                                    Tour
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="product_search.html?q=Game">
+                                    Game
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="product_search.html?q=Play">
+                                    Play
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="product_search.html?q=Pro">
+                                    Pro
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="menu-column">
+
+                        <h3>
+                            Victor
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                <a href="product.html">
+                                    Vợt Victor
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="menu-column">
+
+                        <h3>
+                            Li-Ning
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                <a href="product.html">
+                                    Vợt Li-Ning
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+
+            <li>
+
+                <a href="sale.html">
+                    Sale
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="gioi-thieu.html">
+                    Giới thiệu
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ==================================================
+         MAIN
+    ================================================== -->
+
+    <main>
+
+        <!-- PAGE TITLE -->
+
+        <section class="product-header">
+
+            <h1>
+                Tìm kiếm sản phẩm
+            </h1>
+
+            <p>
+                Khám phá các mẫu vợt cầu lông theo mức giá và dòng vợt
+            </p>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PRODUCT AREA
+        ================================================== -->
+
+        <section class="product-area">
+
+
+            <!-- ==================================================
+                 SIDEBAR
+            ================================================== -->
+
+            <aside class="filter-sidebar">
+
+
+                <!-- FILTER HEADER -->
+
+                <div class="filter-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-filter"></i>
+
+                        Bộ lọc
+
+                    </h2>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     PRICE
+                ================================================== -->
+
+                <div class="filter-group">
+
+                    <h3>
+                        Mức giá
+                    </h3>
+
+
+                    <a href="product_search.html?q=duoi-2-trieu" class="price-filter">
+
+                        Dưới 2.000.000đ
+
+                    </a>
+
+
+                    <a href="product_search.html?q=2-3-trieu" class="price-filter">
+
+                        2.000.000đ - 3.000.000đ
+
+                    </a>
+
+
+                    <a href="product_search.html?q=3-4-trieu" class="price-filter">
+
+                        3.000.000đ - 4.000.000đ
+
+                    </a>
+
+
+                    <a href="product_search.html?q=tren-4-trieu" class="price-filter">
+
+                        Trên 4.000.000đ
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     RACKET LINE
+                ================================================== -->
+
+                <div class="filter-group">
+
+                    <h3>
+                        Dòng vợt
+                    </h3>
+
+
+                    <label class="filter-option">
+
+                        <input type="checkbox" name="line" value="tour">
+
+                        <span>
+                            Tour
+                        </span>
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <input type="checkbox" name="line" value="game">
+
+                        <span>
+                            Game
+                        </span>
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <input type="checkbox" name="line" value="play">
+
+                        <span>
+                            Play
+                        </span>
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <input type="checkbox" name="line" value="pro">
+
+                        <span>
+                            Pro
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     BRAND
+                ================================================== -->
+
+                <div class="filter-group">
+
+                    <h3>
+                        Thương hiệu
+                    </h3>
+
+
+                    <label class="filter-option">
+
+                        <input type="checkbox" name="brand" value="yonex">
+
+                        <span>
+                            Yonex
+                        </span>
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <input type="checkbox" name="brand" value="victor">
+
+                        <span>
+                            Victor
+                        </span>
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <input type="checkbox" name="brand" value="lining">
+
+                        <span>
+                            Li-Ning
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     STOCK
+                ================================================== -->
+
+                <div class="filter-group">
+
+                    <h3>
+                        Tình trạng
+                    </h3>
+
+
+                    <label class="filter-option">
+
+                        <input type="checkbox" name="stock" value="available">
+
+                        <span>
+                            Còn hàng
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- ==================================================
+                 PRODUCT CONTENT
+            ================================================== -->
+
+            <div class="product-content">
+
+
+                <!-- TOOLBAR -->
+
+                <div class="product-toolbar">
+
+                    <p>
+                        Kết quả tìm kiếm
+                    </p>
+
+
+                    <select>
+
+                        <option>
+                            Sắp xếp mặc định
+                        </option>
+
+                        <option>
+                            Giá thấp đến cao
+                        </option>
+
+                        <option>
+                            Giá cao đến thấp
+                        </option>
+
+                        <option>
+                            Tên A - Z
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     RADIO PHÂN TRANG
+                ================================================== -->
+
+                <input type="radio" name="search-page" id="search-page-1" class="pagination-radio" checked>
+
+                <input type="radio" name="search-page" id="search-page-2" class="pagination-radio">
+
+
+
+                <!-- ==================================================
+                     PAGE 1
+                ================================================== -->
+
+                <div class="search-product-page search-page-1">
+
+
+                    <!-- PRODUCT 1 -->
+
+                    <article class="product-card">
+
+                        <a href="product-detail.html">
+
+                            <div class="product-image">
+
+                                <img src="../HinhAnh/11-pro.webp" alt="Yonex Arcsaber 11 Pro">
+
+                            </div>
+
+
+                            <h3>
+                                Yonex Arcsaber 11 Pro
+                            </h3>
+
+                        </a>
+
+
+                        <p class="price">
+                            5.160.000đ
+                        </p>
+
+
+                        <p class="status">
+                            Còn hàng
+                        </p>
+
+
+                        <a href="cart.html" class="buy-btn">
+                            Mua hàng
+                        </a>
+
+
+                        <!-- THÊM GIỎ HÀNG -->
+
+                        <label for="cart-success" class="cart-btn">
+                            Thêm vào giỏ hàng
+                        </label>
+
+                    </article>
+
+
+
+                    <!-- PRODUCT 2 -->
+
+                    <article class="product-card">
+
+                        <a href="product-detail.html">
+
+                            <div class="product-image">
+
+                                <img src="../HinhAnh/100X.jpg" alt="Victor Auraspeed 100X">
+
+                            </div>
+
+
+                            <h3>
+                                Victor Auraspeed 100X
+                            </h3>
+
+                        </a>
+
+
+                        <p class="price">
+                            3.200.000đ
+                        </p>
+
+
+                        <p class="status">
+                            Còn hàng
+                        </p>
+
+
+                        <a href="cart.html" class="buy-btn">
+                            Mua hàng
+                        </a>
+
+
+                        <!-- THÊM GIỎ HÀNG -->
+
+                        <label for="cart-success" class="cart-btn">
+                            Thêm vào giỏ hàng
+                        </label>
+
+                    </article>
+
+
+
+                    <!-- PRODUCT 3 -->
+
+                    <article class="product-card">
+
+                        <a href="product-detail.html">
+
+                            <div class="product-image">
+
+                                <img src="../HinhAnh/100-tour.webp" alt="Yonex Astrox 100 Tour">
+
+                            </div>
+
+
+                            <h3>
+                                Yonex Astrox 100 Tour
+                            </h3>
+
+                        </a>
+
+
+                        <p class="price">
+                            2.800.000đ
+                        </p>
+
+
+                        <p class="status out-of-stock">
+                            Hết hàng
+                        </p>
+
+
+                        <a href="#" class="contact-btn">
+                            Hết hàng
+                        </a>
+
+
+                        <a href="#" class="contact-btn">
+                            Hết hàng
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- PRODUCT 4 -->
+
+                    <article class="product-card">
+
+                        <a href="product-detail.html">
+
+                            <div class="product-image">
+
+                                <img src="../HinhAnh/88D-pro-2021.jpg" alt="Yonex Astrox 88D Pro 2021">
+
+                            </div>
+
+
+                            <h3>
+                                Yonex Astrox 88D Pro 2021
+                            </h3>
+
+                        </a>
+
+
+                        <p class="price">
+                            4.790.000đ
+                        </p>
+
+
+                        <p class="status">
+                            Còn hàng
+                        </p>
+
+
+                        <a href="cart.html" class="buy-btn">
+                            Mua hàng
+                        </a>
+
+
+                        <!-- THÊM GIỎ HÀNG -->
+
+                        <label for="cart-success" class="cart-btn">
+                            Thêm vào giỏ hàng
+                        </label>
+
+                    </article>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     PAGE 2
+                ================================================== -->
+
+                <div class="search-product-page search-page-2">
+
+
+                    <!-- PRODUCT 5 -->
+
+                    <article class="product-card">
+
+                        <a href="product-detail.html">
+
+                            <div class="product-image">
+
+                                <img src="../HinhAnh/1000z.webp" alt="Yonex Nanoflare 1000Z">
+
+                            </div>
+
+
+                            <h3>
+                                Yonex Nanoflare 1000Z
+                            </h3>
+
+                        </a>
+
+
+                        <p class="price">
+                            4.590.000đ
+                        </p>
+
+
+                        <p class="status">
+                            Còn hàng
+                        </p>
+
+
+                        <a href="cart.html" class="buy-btn">
+                            Mua hàng
+                        </a>
+
+
+                        <!-- THÊM GIỎ HÀNG -->
+
+                        <label for="cart-success" class="cart-btn">
+                            Thêm vào giỏ hàng
+                        </label>
+
+                    </article>
+
+
+
+                    <!-- PRODUCT 6 -->
+
+                    <article class="product-card">
+
+                        <a href="product-detail.html">
+
+                            <div class="product-image">
+
+                                <img src="../HinhAnh/100zz.jpg" alt="Yonex Astrox 100ZZ">
+
+                            </div>
+
+
+                            <h3>
+                                Yonex Astrox 100ZZ
+                            </h3>
+
+                        </a>
+
+
+                        <p class="price">
+                            4.390.000đ
+                        </p>
+
+
+                        <p class="status">
+                            Còn hàng
+                        </p>
+
+
+                        <a href="cart.html" class="buy-btn">
+                            Mua hàng
+                        </a>
+
+
+                        <!-- THÊM GIỎ HÀNG -->
+
+                        <label for="cart-success" class="cart-btn">
+                            Thêm vào giỏ hàng
+                        </label>
+
+                    </article>
+
+
+
+                    <!-- PRODUCT 7 -->
+
+                    <article class="product-card">
+
+                        <a href="product-detail.html">
+
+                            <div class="product-image">
+
+                                <img src="../HinhAnh/thruster-metallic.webp" alt="Victor Thruster Ryuga Metallic">
+
+                            </div>
+
+
+                            <h3>
+                                Victor Thruster Ryuga Metallic
+                            </h3>
+
+                        </a>
+
+
+                        <p class="price">
+                            3.690.000đ
+                        </p>
+
+
+                        <p class="status">
+                            Còn hàng
+                        </p>
+
+
+                        <a href="cart.html" class="buy-btn">
+                            Mua hàng
+                        </a>
+
+
+                        <!-- THÊM GIỎ HÀNG -->
+
+                        <label for="cart-success" class="cart-btn">
+                            Thêm vào giỏ hàng
+                        </label>
+
+                    </article>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     PAGINATION
+                ================================================== -->
+
+                <div class="pagination">
+
+
+                    <!-- TRƯỚC -->
+
+                    <label for="search-page-1" class="page-prev">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                        Trước
+
+                    </label>
+
+
+
+                    <!-- PAGE 1 -->
+
+                    <label for="search-page-1" class="page-number page-number-1">
+                        1
+                    </label>
+
+
+
+                    <!-- PAGE 2 -->
+
+                    <label for="search-page-2" class="page-number page-number-2">
+                        2
+                    </label>
+
+
+
+                    <!-- SAU -->
+
+                    <label for="search-page-2" class="page-next">
+
+                        Sau
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="footer">
+
+
+        <div class="footer-column">
+
+            <h3>
+                VỀ CHÚNG TÔI
+            </h3>
+
+            <p>
+                ZP Badminton
+            </p>
+
+            <p>
+                Cửa hàng chuyên cung cấp sản phẩm cầu lông.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                CHÍNH SÁCH
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="#">
+                        Chính sách bảo hành
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Chính sách đổi trả
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Chính sách giao hàng
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                LIÊN HỆ
+            </h3>
+
+            <p>
+                Hotline: 0946 513 954
+            </p>
+
+            <p>
+                Email: hoangkim200906@gmail.com
+            </p>
+
+        </div>
+
+
+    </footer>
+
+
+    <!-- ==================================================
+         THÔNG BÁO THÊM GIỎ HÀNG
+    ================================================== -->
+
+    <div class="cart-success-message">
+
+        <div class="cart-success-icon">
+            ✓
+        </div>
+
+        <div class="cart-success-text">
+
+            <strong>
+                Thêm vào giỏ hàng thành công!
+            </strong>
+
+            <span>
+                Sản phẩm đã được thêm vào giỏ hàng.
+            </span>
+
+        </div>
+
+        <label for="cart-success" class="cart-success-close">
+            ×
+        </label>
+
+    </div>
+
+
+    <script src="../JS/login.js"></script>
+
+</body>
+
+</html>
