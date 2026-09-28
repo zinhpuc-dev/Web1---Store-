@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thống kê khách hàng - Admin</title>
+
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+
+    <link rel="stylesheet" href="../CSS/common.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+        /* ==================================================
+           BỘ THỐNG KÊ
+        ================================================== */
+
+        .statistics-filter {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .statistics-filter .form-row {
+
+            align-items: flex-end;
+
+        }
+
+
+        /* ==================================================
+           BẢNG THỐNG KÊ
+        ================================================== */
+
+        .customer-rank {
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #333;
+
+            color: #fff;
+
+            font-weight: 600;
+
+        }
+
+
+        .customer-name {
+
+            font-weight: 600;
+
+            color: #fff;
+
+        }
+
+
+        .customer-phone {
+
+            margin-top: 4px;
+
+            color: #888;
+
+            font-size: 12px;
+
+        }
+
+
+        .total-purchase {
+
+            color: #e60012;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* ==================================================
+           DANH SÁCH ĐƠN HÀNG
+        ================================================== */
+
+        .order-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+
+        }
+
+
+        .order-item {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 8px 10px;
+
+            background: #181818;
+
+            border: 1px solid #333;
+
+            border-radius: 5px;
+
+        }
+
+
+        .order-info {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 3px;
+
+        }
+
+
+        .order-code {
+
+            color: #fff;
+
+            font-weight: 600;
+
+        }
+
+
+        .order-date {
+
+            color: #888;
+
+            font-size: 12px;
+
+        }
+
+
+        .order-money {
+
+            color: #ddd;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+        }
+
+
+        .order-detail-btn {
+
+            white-space: nowrap;
+
+        }
+
+
+        /* ==================================================
+           KHÁCH HÀNG
+        ================================================== */
+
+        .customer-box {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .customer-info {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        /* ==================================================
+           THỐNG KÊ TỔNG
+        ================================================== */
+
+        .statistics-summary {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 15px;
+
+            padding: 12px 15px;
+
+            background: #181818;
+
+            border: 1px solid #333;
+
+            border-radius: 5px;
+
+        }
+
+
+        .statistics-summary span {
+
+            color: #aaa;
+
+            font-size: 13px;
+
+        }
+
+
+        .statistics-summary strong {
+
+            color: #fff;
+
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (max-width: 768px) {
+
+            .order-item {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+
+            .statistics-summary {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 5px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header class="admin-header">
+
+
+        <a href="dashboard.html" class="logo">
+
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+
+            ZP Admin
+
+        </a>
+
+
+        <div class="user-info">
+
+            <span>
+
+                Xin chào,
+                <strong>Admin</strong>
+
+            </span>
+
+
+            <a href="login.html">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Đăng xuất
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <div class="admin-layout">
+
+
+        <!-- ==================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+            <h3>Quản trị</h3>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="users.html">
+                        <i class="fa-solid fa-users"></i>
+                        Quản lý người dùng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="categories.html">
+                        <i class="fa-solid fa-tags"></i>
+                        Quản lý loại SP
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        <i class="fa-solid fa-box"></i>
+                        Quản lý sản phẩm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="imports.html">
+                        <i class="fa-solid fa-truck"></i>
+                        Quản lý nhập hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="prices.html">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        Quản lý giá bán
+                    </a>
+                </li>
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        Quản lý đơn hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        Quản lý tồn kho
+                    </a>
+                </li>
+
+                <li>
+                    <a href="statistics.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Thống kê
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- ==================================================
+             CONTENT
+        ================================================== -->
+
+        <main class="content">
+
+
+            <h1>
+
+                Thống kê
+                <span>khách hàng</span>
+
+            </h1>
+
+
+            <!-- ==================================================
+                 BỘ LỌC THỜI GIAN
+            ================================================== -->
+
+            <div class="card statistics-filter">
+
+
+                <h3>
+
+                    Thống kê khách hàng mua hàng
+
+                </h3>
+
+
+                <div class="form-row">
+
+
+                    <!-- TỪ NGÀY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Từ ngày
+                        </label>
+
+                        <input type="date" value="2026-09-01">
+
+                    </div>
+
+
+                    <!-- ĐẾN NGÀY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Đến ngày
+                        </label>
+
+                        <input type="date" value="2026-09-24">
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-actions">
+
+
+                    <!-- NÚT TĨNH -->
+
+                    <button type="button" class="btn btn-primary">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        Thống kê
+
+                    </button>
+
+
+                    <!-- NÚT TĨNH -->
+
+                    <button type="button" class="btn btn-secondary">
+
+                        Xóa
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 TỔNG QUAN
+            ================================================== -->
+
+            <div class="card">
+
+
+                <div class="statistics-summary">
+
+
+                    <span>
+
+                        Khoảng thời gian:
+
+                        <strong>
+                            01/09/2026 - 24/09/2026
+                        </strong>
+
+                    </span>
+
+
+                    <span>
+
+                        Số khách hàng:
+
+                        <strong>
+                            5
+                        </strong>
+
+                    </span>
+
+
+                </div>
+
+
+                <!-- ==================================================
+                     BẢNG TOP 5
+                ================================================== -->
+
+                <div class="table-wrap">
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    STT
+                                </th>
+
+                                <th>
+                                    Khách hàng
+                                </th>
+
+                                <th>
+                                    Các đơn hàng
+                                </th>
+
+                                <th>
+                                    Tổng mua
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <!-- ==================================================
+                                 KHÁCH HÀNG 1
+                            ================================================== -->
+
+                            <tr>
+
+
+                                <td>
+
+                                    <div class="customer-rank">
+                                        1
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="customer-box">
+
+
+                                        <div class="customer-info">
+
+
+                                            <div class="customer-name">
+
+                                                Lê Văn C
+
+                                            </div>
+
+
+                                            <div class="customer-phone">
+
+                                                0912345678
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="order-list">
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH003
+                                                </span>
+
+                                                <span class="order-date">
+                                                    18/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                3.200.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH008
+                                                </span>
+
+                                                <span class="order-date">
+                                                    21/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                2.850.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH011
+                                                </span>
+
+                                                <span class="order-date">
+                                                    23/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                2.400.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="total-purchase">
+
+                                        8.450.000đ
+
+                                    </div>
+
+                                </td>
+
+
+                            </tr>
+
+
+                            <!-- ==================================================
+                                 KHÁCH HÀNG 2
+                            ================================================== -->
+
+                            <tr>
+
+
+                                <td>
+
+                                    <div class="customer-rank">
+                                        2
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="customer-box">
+
+
+                                        <div class="customer-info">
+
+
+                                            <div class="customer-name">
+
+                                                Nguyễn Văn A
+
+                                            </div>
+
+
+                                            <div class="customer-phone">
+
+                                                0901234567
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="order-list">
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH001
+                                                </span>
+
+                                                <span class="order-date">
+                                                    20/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                2.450.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH009
+                                                </span>
+
+                                                <span class="order-date">
+                                                    22/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                2.100.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="total-purchase">
+
+                                        4.550.000đ
+
+                                    </div>
+
+                                </td>
+
+
+                            </tr>
+
+
+                            <!-- ==================================================
+                                 KHÁCH HÀNG 3
+                            ================================================== -->
+
+                            <tr>
+
+
+                                <td>
+
+                                    <div class="customer-rank">
+                                        3
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="customer-box">
+
+
+                                        <div class="customer-info">
+
+
+                                            <div class="customer-name">
+
+                                                Trần Thị B
+
+                                            </div>
+
+
+                                            <div class="customer-phone">
+
+                                                0987654321
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="order-list">
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH002
+                                                </span>
+
+                                                <span class="order-date">
+                                                    19/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                1.890.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH007
+                                                </span>
+
+                                                <span class="order-date">
+                                                    21/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                1.750.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH012
+                                                </span>
+
+                                                <span class="order-date">
+                                                    24/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                650.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="total-purchase">
+
+                                        4.290.000đ
+
+                                    </div>
+
+                                </td>
+
+
+                            </tr>
+
+
+                            <!-- ==================================================
+                                 KHÁCH HÀNG 4
+                            ================================================== -->
+
+                            <tr>
+
+
+                                <td>
+
+                                    <div class="customer-rank">
+                                        4
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="customer-box">
+
+
+                                        <div class="customer-info">
+
+
+                                            <div class="customer-name">
+
+                                                Phạm Thị D
+
+                                            </div>
+
+
+                                            <div class="customer-phone">
+
+                                                0934567890
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="order-list">
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH004
+                                                </span>
+
+                                                <span class="order-date">
+                                                    17/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                980.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH010
+                                                </span>
+
+                                                <span class="order-date">
+                                                    22/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                1.850.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="total-purchase">
+
+                                        2.830.000đ
+
+                                    </div>
+
+                                </td>
+
+
+                            </tr>
+
+
+                            <!-- ==================================================
+                                 KHÁCH HÀNG 5
+                            ================================================== -->
+
+                            <tr>
+
+
+                                <td>
+
+                                    <div class="customer-rank">
+                                        5
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="customer-box">
+
+
+                                        <div class="customer-info">
+
+
+                                            <div class="customer-name">
+
+                                                Hoàng Văn E
+
+                                            </div>
+
+
+                                            <div class="customer-phone">
+
+                                                0961234567
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <div class="order-list">
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH005
+                                                </span>
+
+                                                <span class="order-date">
+                                                    16/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                1.250.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+
+                                        <div class="order-item">
+
+
+                                            <div class="order-info">
+
+                                                <span class="order-code">
+                                                    #DH006
+                                                </span>
+
+                                                <span class="order-date">
+                                                    20/09/2026
+                                                </span>
+
+                                            </div>
+
+
+                                            <span class="order-money">
+                                                1.100.000đ
+                                            </span>
+
+
+                                            <a href="order-detail.html"
+                                                class="btn btn-secondary btn-sm order-detail-btn">
+
+                                                Xem chi tiết
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="total-purchase">
+
+                                        2.350.000đ
+
+                                    </div>
+
+                                </td>
+
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+</body>
+
+</html>

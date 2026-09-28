@@ -4,146 +4,907 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Quản lý đơn hàng - Admin</title>
+
     <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+
     <link rel="stylesheet" href="../CSS/common.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* ==================================================
+           TRẠNG THÁI ĐƠN HÀNG
+        ================================================== */
+
+        .order-status-box {
+            min-width: 180px;
+        }
+
+        .status-progress {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        .status-step {
+            padding: 5px 8px;
+            border-radius: 15px;
+            font-size: 11px;
+            background: #333;
+            color: #999;
+            border: 1px solid #444;
+        }
+
+        /* Trạng thái hiện tại */
+
+        .status-step.active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .status-step.active.status-waiting {
+            background: #8a5a20;
+            border-color: #8a5a20;
+        }
+
+        .status-step.active.status-confirmed {
+            background: #c99700;
+            border-color: #c99700;
+        }
+
+        .status-step.active.status-success {
+            background: #198754;
+            border-color: #198754;
+        }
+
+        .status-step.active.status-cancelled {
+            background: #dc3545;
+            border-color: #dc3545;
+        }
+
+        /* Trạng thái đã đi qua */
+
+        .status-step.passed {
+            background: #222;
+            color: #666;
+            border-color: #333;
+            opacity: 0.55;
+        }
+
+        /* Trạng thái chưa tới */
+
+        .status-step.future {
+            background: #333;
+            color: #888;
+            border-color: #444;
+        }
+
+        /* Thông báo trạng thái */
+
+        .status-message {
+            margin-top: 6px;
+            font-size: 11px;
+            color: #777;
+        }
+
+        .status-message.done {
+            color: #31c454;
+        }
+
+        .status-message.cancelled {
+            color: #e05252;
+        }
+
+        /* Địa điểm */
+
+        .delivery-location {
+            line-height: 1.5;
+        }
+
+        .delivery-location strong {
+            color: #fff;
+        }
+
+        .delivery-location span {
+            color: #aaa;
+            font-size: 12px;
+        }
+    </style>
+
 </head>
 
+
 <body>
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
     <header class="admin-header">
+
         <a href="dashboard.html" class="logo">
+
             <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+
             ZP Admin
+
         </a>
+
+
         <div class="user-info">
-            <span>Xin chào, <strong>Admin</strong></span>
-            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+
+            <span>
+                Xin chào, <strong>Admin</strong>
+            </span>
+
+            <a href="login.html">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Đăng xuất
+
+            </a>
+
         </div>
+
     </header>
 
+
     <div class="admin-layout">
+
+
+        <!-- ==================================================
+             SIDEBAR
+        ================================================== -->
+
         <aside class="sidebar">
+
             <h3>Quản trị</h3>
+
             <ul>
-                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
-                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
-                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
-                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
-                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
-                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
-                <li><a href="orders.html" class="active"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a>
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
                 </li>
-                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+
+                <li>
+                    <a href="users.html">
+                        <i class="fa-solid fa-users"></i>
+                        Quản lý người dùng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="categories.html">
+                        <i class="fa-solid fa-tags"></i>
+                        Quản lý loại SP
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        <i class="fa-solid fa-box"></i>
+                        Quản lý sản phẩm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="imports.html">
+                        <i class="fa-solid fa-truck"></i>
+                        Quản lý nhập hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="prices.html">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        Quản lý giá bán
+                    </a>
+                </li>
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        Quản lý đơn hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        Quản lý tồn kho
+                    </a>
+                </li>
+
+                <li>
+                    <a href="statistics.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Thống kê
+                    </a>
+                </li>
+
             </ul>
+
         </aside>
 
+
+        <!-- ==================================================
+             MAIN
+        ================================================== -->
+
         <main class="content">
-            <h1>Quản lý <span>đơn đặt hàng</span></h1>
 
-            <!-- BỘ LỌC -->
+            <h1>
+                Quản lý <span>đơn đặt hàng</span>
+            </h1>
+
+
+            <!-- ==================================================
+                 BỘ TRA CỨU - GIAO DIỆN TĨNH
+            ================================================== -->
+
             <div class="card">
+
                 <h3>Tra cứu đơn hàng</h3>
+
+
                 <form>
+
                     <div class="form-row">
+
+
+                        <!-- TỪ NGÀY -->
+
                         <div class="form-group">
-                            <label>Từ ngày</label>
+
+                            <label>
+                                Từ ngày
+                            </label>
+
                             <input type="date" value="2026-09-01">
+
                         </div>
+
+
+                        <!-- ĐẾN NGÀY -->
+
                         <div class="form-group">
-                            <label>Đến ngày</label>
+
+                            <label>
+                                Đến ngày
+                            </label>
+
                             <input type="date" value="2026-09-24">
+
                         </div>
+
+
+                        <!-- TRẠNG THÁI -->
+
                         <div class="form-group">
-                            <label>Tình trạng đơn hàng</label>
+
+                            <label>
+                                Tình trạng đơn hàng
+                            </label>
+
                             <select>
-                                <option value="">Tất cả</option>
-                                <option>Mới đặt</option>
-                                <option>Đã xử lý</option>
-                                <option>Đã giao</option>
-                                <option>Hủy</option>
+
+                                <option value="">
+                                    Tất cả
+                                </option>
+
+                                <option>
+                                    Chưa xác nhận
+                                </option>
+
+                                <option>
+                                    Đã xác nhận
+                                </option>
+
+                                <option>
+                                    Đã giao - Thành công
+                                </option>
+
+                                <option>
+                                    Đã giao - Hủy đơn
+                                </option>
+
                             </select>
+
                         </div>
+
+
+                        <!-- THÀNH PHỐ -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Thành phố
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Tất cả thành phố
+                                </option>
+
+                                <option>
+                                    TP. Hồ Chí Minh
+                                </option>
+
+                                <option>
+                                    Hà Nội
+                                </option>
+
+                                <option>
+                                    Đà Nẵng
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- QUẬN / HUYỆN -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Quận / Huyện
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Tất cả quận / huyện
+                                </option>
+
+                                <option>
+                                    Quận 1
+                                </option>
+
+                                <option>
+                                    Quận 3
+                                </option>
+
+                                <option>
+                                    Quận 7
+                                </option>
+
+                                <option>
+                                    Bình Thạnh
+                                </option>
+
+                                <option>
+                                    Tân Định
+                                </option>
+
+                                <option>
+                                    Cầu Giấy
+                                </option>
+
+                                <option>
+                                    Đống Đa
+                                </option>
+
+                                <option>
+                                    Hai Bà Trưng
+                                </option>
+
+                                <option>
+                                    Hải Châu
+                                </option>
+
+                                <option>
+                                    Thanh Khê
+                                </option>
+
+                            </select>
+
+                        </div>
+
                     </div>
+
+
                     <div class="form-actions">
-                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-search"></i> Tra
-                            cứu</button>
-                        <button type="button" class="btn btn-secondary">Xóa bộ lọc</button>
+
+                        <!-- NÚT GIAO DIỆN TĨNH -->
+
+                        <button type="button" class="btn btn-primary">
+
+                            <i class="fa-solid fa-search"></i>
+
+                            Tra cứu
+
+                        </button>
+
+
+                        <!-- NÚT GIAO DIỆN TĨNH -->
+
+                        <button type="button" class="btn btn-secondary">
+
+                            Xóa bộ lọc
+
+                        </button>
+
                     </div>
+
                 </form>
+
             </div>
 
-            <!-- DANH SÁCH ĐƠN -->
+
+            <!-- ==================================================
+                 DANH SÁCH ĐƠN HÀNG
+            ================================================== -->
+
             <div class="card">
+
                 <div class="table-wrap">
+
                     <table>
+
                         <thead>
+
                             <tr>
-                                <th>Mã đơn</th>
-                                <th>Khách hàng</th>
-                                <th>Ngày đặt</th>
-                                <th>Tổng tiền</th>
-                                <th>Thanh toán</th>
-                                <th>Trạng thái</th>
-                                <th>Thao tác</th>
+
+                                <th>
+                                    Mã đơn
+                                </th>
+
+                                <th>
+                                    Khách hàng
+                                </th>
+
+                                <th>
+                                    Ngày đặt
+                                </th>
+
+                                <th>
+                                    Tổng tiền
+                                </th>
+
+                                <th>
+                                    Thanh toán
+                                </th>
+
+                                <th>
+                                    Địa điểm giao
+                                </th>
+
+                                <th>
+                                    Trạng thái
+                                </th>
+
+                                <th>
+                                    Thao tác
+                                </th>
+
                             </tr>
+
                         </thead>
+
+
                         <tbody>
+
+
+                            <!-- ==================================================
+                                 ĐƠN 001
+                            ================================================== -->
+
                             <tr>
-                                <td>#DH001</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>20/09/2026</td>
-                                <td>2.450.000đ</td>
-                                <td>Tiền mặt</td>
-                                <td><span class="badge badge-warning">Mới đặt</span></td>
-                                <td class="btn-group">
-                                    <a href="order-detail.html" class="btn btn-secondary btn-sm">Xem chi tiết</a>
+
+                                <td>
+                                    #DH001
                                 </td>
+
+                                <td>
+                                    Nguyễn Văn A
+                                </td>
+
+                                <td>
+                                    20/09/2026
+                                </td>
+
+                                <td>
+                                    2.450.000đ
+                                </td>
+
+                                <td>
+                                    Tiền mặt
+                                </td>
+
+                                <td>
+
+                                    <div class="delivery-location">
+
+                                        <strong>
+                                            TP. Hồ Chí Minh
+                                        </strong>
+
+                                        <br>
+
+                                        <span>
+                                            Quận 1
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="order-status-box">
+
+                                        <div class="status-progress">
+
+                                            <span class="status-step status-waiting active">
+                                                Chưa xác nhận
+                                            </span>
+
+                                            <span class="status-step future">
+                                                Đã xác nhận
+                                            </span>
+
+                                            <span class="status-step future">
+                                                Đã giao - Thành công
+                                            </span>
+
+                                            <span class="status-step future">
+                                                Đã giao - Hủy đơn
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="status-message">
+
+                                            Có thể cập nhật tiếp
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td class="btn-group">
+
+                                    <a href="order-detail.html" class="btn btn-secondary btn-sm">
+
+                                        Xem chi tiết
+
+                                    </a>
+
+                                </td>
+
                             </tr>
+
+
+                            <!-- ==================================================
+                                 ĐƠN 002
+                            ================================================== -->
+
                             <tr>
-                                <td>#DH002</td>
-                                <td>Trần Thị B</td>
-                                <td>19/09/2026</td>
-                                <td>1.890.000đ</td>
-                                <td>Chuyển khoản</td>
-                                <td><span class="badge badge-info">Đã xử lý</span></td>
-                                <td class="btn-group">
-                                    <a href="order-detail.html" class="btn btn-secondary btn-sm">Xem chi tiết</a>
+
+                                <td>
+                                    #DH002
                                 </td>
+
+                                <td>
+                                    Trần Thị B
+                                </td>
+
+                                <td>
+                                    19/09/2026
+                                </td>
+
+                                <td>
+                                    1.890.000đ
+                                </td>
+
+                                <td>
+                                    Chuyển khoản
+                                </td>
+
+                                <td>
+
+                                    <div class="delivery-location">
+
+                                        <strong>
+                                            TP. Hồ Chí Minh
+                                        </strong>
+
+                                        <br>
+
+                                        <span>
+                                            Bình Thạnh
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="order-status-box">
+
+                                        <div class="status-progress">
+
+                                            <span class="status-step status-waiting passed">
+                                                Chưa xác nhận
+                                            </span>
+
+                                            <span class="status-step status-confirmed active">
+                                                Đã xác nhận
+                                            </span>
+
+                                            <span class="status-step future">
+                                                Đã giao - Thành công
+                                            </span>
+
+                                            <span class="status-step future">
+                                                Đã giao - Hủy đơn
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="status-message">
+
+                                            Có thể cập nhật tiếp
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td class="btn-group">
+
+                                    <a href="order-detail.html" class="btn btn-secondary btn-sm">
+
+                                        Xem chi tiết
+
+                                    </a>
+
+                                </td>
+
                             </tr>
+
+
+                            <!-- ==================================================
+                                 ĐƠN 003
+                            ================================================== -->
+
                             <tr>
-                                <td>#DH003</td>
-                                <td>Lê Văn C</td>
-                                <td>18/09/2026</td>
-                                <td>3.200.000đ</td>
-                                <td>Tiền mặt</td>
-                                <td><span class="badge badge-success">Đã giao</span></td>
-                                <td class="btn-group">
-                                    <a href="order-detail.html" class="btn btn-secondary btn-sm">Xem chi tiết</a>
+
+                                <td>
+                                    #DH003
                                 </td>
+
+                                <td>
+                                    Lê Văn C
+                                </td>
+
+                                <td>
+                                    18/09/2026
+                                </td>
+
+                                <td>
+                                    3.200.000đ
+                                </td>
+
+                                <td>
+                                    Tiền mặt
+                                </td>
+
+                                <td>
+
+                                    <div class="delivery-location">
+
+                                        <strong>
+                                            Hà Nội
+                                        </strong>
+
+                                        <br>
+
+                                        <span>
+                                            Cầu Giấy
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="order-status-box">
+
+                                        <div class="status-progress">
+
+                                            <span class="status-step status-waiting passed">
+                                                Chưa xác nhận
+                                            </span>
+
+                                            <span class="status-step status-confirmed passed">
+                                                Đã xác nhận
+                                            </span>
+
+                                            <span class="status-step status-success active">
+                                                Đã giao - Thành công
+                                            </span>
+
+                                            <span class="status-step future">
+                                                Đã giao - Hủy đơn
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="status-message done">
+
+                                            Đơn hàng đã hoàn thành
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td class="btn-group">
+
+                                    <a href="order-detail.html" class="btn btn-secondary btn-sm">
+
+                                        Xem chi tiết
+
+                                    </a>
+
+                                </td>
+
                             </tr>
+
+
+                            <!-- ==================================================
+                                 ĐƠN 004
+                            ================================================== -->
+
                             <tr>
-                                <td>#DH004</td>
-                                <td>Phạm Thị D</td>
-                                <td>17/09/2026</td>
-                                <td>980.000đ</td>
-                                <td>Online</td>
-                                <td><span class="badge badge-danger">Hủy</span></td>
-                                <td class="btn-group">
-                                    <a href="order-detail.html" class="btn btn-secondary btn-sm">Xem chi tiết</a>
+
+                                <td>
+                                    #DH004
                                 </td>
+
+                                <td>
+                                    Phạm Thị D
+                                </td>
+
+                                <td>
+                                    17/09/2026
+                                </td>
+
+                                <td>
+                                    980.000đ
+                                </td>
+
+                                <td>
+                                    Online
+                                </td>
+
+                                <td>
+
+                                    <div class="delivery-location">
+
+                                        <strong>
+                                            TP. Hồ Chí Minh
+                                        </strong>
+
+                                        <br>
+
+                                        <span>
+                                            Quận 7
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="order-status-box">
+
+                                        <div class="status-progress">
+
+                                            <span class="status-step status-waiting passed">
+                                                Chưa xác nhận
+                                            </span>
+
+                                            <span class="status-step status-confirmed passed">
+                                                Đã xác nhận
+                                            </span>
+
+                                            <span class="status-step status-success future">
+                                                Đã giao - Thành công
+                                            </span>
+
+                                            <span class="status-step status-cancelled active">
+                                                Đã giao - Hủy đơn
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="status-message cancelled">
+
+                                            Đơn hàng đã hủy
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td class="btn-group">
+
+                                    <a href="order-detail.html" class="btn btn-secondary btn-sm">
+
+                                        Xem chi tiết
+
+                                    </a>
+
+                                </td>
+
                             </tr>
+
+
                         </tbody>
+
                     </table>
+
                 </div>
+
+
+                <!-- ==================================================
+                     PAGINATION
+                ================================================== -->
+
                 <div class="pagination">
-                    <span class="active">1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
+
+                    <span class="active">
+                        1
+                    </span>
+
+                    <a href="#">
+                        2
+                    </a>
+
+                    <a href="#">
+                        3
+                    </a>
+
                 </div>
+
             </div>
+
         </main>
+
     </div>
+
+
 </body>
 
 </html>

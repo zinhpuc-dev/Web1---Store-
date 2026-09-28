@@ -4,11 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Quản lý sản phẩm - Admin</title>
+
     <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+
     <link rel="stylesheet" href="../CSS/common.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
+        /* =========================
+           FORM ẨN / HIỆN
+        ========================= */
+
         .form-panel {
             display: none;
         }
@@ -16,165 +25,965 @@
         .form-panel.show {
             display: block;
         }
+
+
+        /* =========================
+           HÌNH PREVIEW
+        ========================= */
+
+        .image-preview {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .image-preview.show {
+            display: block;
+        }
+
+        .image-preview img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: #fff;
+        }
+
+
+        /* =========================
+           INPUT FILE
+        ========================= */
+
+        .image-input {
+            width: 100%;
+        }
     </style>
+
 </head>
 
+
 <body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
     <header class="admin-header">
+
         <a href="dashboard.html" class="logo">
-            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo"> ZP Admin
+
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+
+            ZP Admin
+
         </a>
+
+
         <div class="user-info">
-            <span>Xin chào, <strong>Admin</strong></span>
-            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+
+            <span>
+                Xin chào, <strong>Admin</strong>
+            </span>
+
+            <a href="login.html">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Đăng xuất
+
+            </a>
+
         </div>
+
     </header>
 
+
+
+    <!-- =========================
+         ADMIN LAYOUT
+    ========================= -->
+
     <div class="admin-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================= -->
+
         <aside class="sidebar">
+
             <h3>Quản trị</h3>
+
             <ul>
-                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
-                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
-                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
-                <li><a href="products.html" class="active"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
-                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
-                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
-                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
-                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="users.html">
+                        <i class="fa-solid fa-users"></i>
+                        Quản lý người dùng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="categories.html">
+                        <i class="fa-solid fa-tags"></i>
+                        Quản lý loại SP
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        <i class="fa-solid fa-box"></i>
+                        Quản lý sản phẩm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="imports.html">
+                        <i class="fa-solid fa-truck"></i>
+                        Quản lý nhập hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="prices.html">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        Quản lý giá bán
+                    </a>
+                </li>
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        Quản lý đơn hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        Quản lý tồn kho
+                    </a>
+                </li>
+
+                <li>
+                    <a href="statistics.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Thống kê
+                    </a>
+                </li>
+
             </ul>
+
         </aside>
 
+
+
+        <!-- =========================
+             CONTENT
+        ========================= -->
+
         <main class="content">
-            <h1>Quản lý <span>danh mục sản phẩm</span></h1>
+
+            <h1>
+
+                Quản lý
+
+                <span>danh mục sản phẩm</span>
+
+            </h1>
+
+
+
+            <!-- =========================
+                 NÚT THÊM SẢN PHẨM
+            ========================= -->
 
             <div style="margin-bottom: 20px;">
+
                 <button type="button" class="btn btn-primary" onclick="showAddForm()">
-                    <i class="fa-solid fa-plus"></i> Thêm sản phẩm mới
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Thêm sản phẩm mới
+
                 </button>
+
             </div>
 
-            <!-- FORM THÊM / SỬA (mặc định ẩn) -->
+
+
+            <!-- =========================
+                 FORM THÊM / SỬA
+            ========================= -->
+
             <div class="card form-panel" id="formPanel">
-                <h3 id="formTitle">Thêm sản phẩm</h3>
+
+                <h3 id="formTitle">
+
+                    Thêm sản phẩm
+
+                </h3>
+
+
                 <form>
+
+
+                    <!-- =========================
+                         DÒNG 1
+                    ========================= -->
+
                     <div class="form-row">
+
+
+                        <!-- LOẠI SẢN PHẨM -->
+
                         <div class="form-group">
-                            <label>Loại sản phẩm</label>
+
+                            <label>
+
+                                Loại sản phẩm
+
+                            </label>
+
                             <select id="loaiSP">
-                                <option value="Vợt cầu lông">Vợt cầu lông</option>
-                                <option value="Giày cầu lông">Giày cầu lông</option>
-                                <option value="Áo cầu lông">Áo cầu lông</option>
-                                <option value="Phụ kiện">Phụ kiện</option>
+
+                                <option value="Vợt Yonex">
+
+                                    Vợt Yonex
+
+                                </option>
+
+                                <option value="Vợt Victor">
+
+                                    Vợt Victor
+
+                                </option>
+
+                                <option value="Vợt Li-Ning">
+
+                                    Vợt Li-Ning
+
+                                </option>
+
                             </select>
+
                         </div>
+
+
+
+                        <!-- MÃ SP -->
+
                         <div class="form-group">
-                            <label>Mã SP</label>
+
+                            <label>
+
+                                Mã SP
+
+                            </label>
+
                             <input type="text" id="maSP" placeholder="SP001">
+
                         </div>
+
+
+
+                        <!-- TÊN SẢN PHẨM -->
+
                         <div class="form-group">
-                            <label>Tên sản phẩm</label>
+
+                            <label>
+
+                                Tên sản phẩm
+
+                            </label>
+
                             <input type="text" id="tenSP" placeholder="Tên SP">
+
                         </div>
+
                     </div>
+
+
+
+                    <!-- =========================
+                         DÒNG 2
+                    ========================= -->
+
                     <div class="form-row">
+
+
+                        <!-- HÌNH ẢNH -->
+
                         <div class="form-group">
-                            <label>Hình ảnh</label>
-                            <input type="file" accept="image/*">
+
+                            <label>
+
+                                Hình ảnh
+
+                            </label>
+
+                            <input type="file" id="hinhAnh" class="image-input" accept="image/*">
+
+
+                            <!-- PREVIEW -->
+
+                            <div class="image-preview" id="imagePreview">
+
+                                <img id="previewImage" src="" alt="Xem trước hình ảnh">
+
+                            </div>
+
                         </div>
+
+
+
+                        <!-- MÔ TẢ -->
+
                         <div class="form-group" style="flex:2">
-                            <label>Mô tả</label>
+
+                            <label>
+
+                                Mô tả
+
+                            </label>
+
                             <textarea id="moTa" rows="3" placeholder="Mô tả sản phẩm..."></textarea>
+
                         </div>
+
                     </div>
+
+
+
+                    <!-- =========================
+                         NÚT
+                    ========================= -->
+
                     <div class="form-actions">
-                        <button type="button" class="btn btn-primary" onclick="hideForm()">Lưu sản phẩm</button>
-                        <button type="button" class="btn btn-secondary" onclick="hideForm()">Hủy</button>
+
+                        <button type="button" class="btn btn-primary" onclick="saveForm()">
+
+                            Lưu sản phẩm
+
+                        </button>
+
+
+                        <button type="button" class="btn btn-secondary" onclick="hideForm()">
+
+                            Hủy
+
+                        </button>
+
                     </div>
+
                 </form>
+
             </div>
 
-            <!-- BẢNG DANH SÁCH -->
+
+
+            <!-- =========================
+                 BẢNG DANH SÁCH
+            ========================= -->
+
             <div class="card">
+
                 <div class="toolbar">
+
                     <div class="search-box">
+
                         <input type="text" placeholder="Tìm sản phẩm...">
-                        <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-search"></i></button>
+
+                        <button class="btn btn-secondary btn-sm">
+
+                            <i class="fa-solid fa-search"></i>
+
+                        </button>
+
                     </div>
+
                 </div>
+
+
+
                 <div class="table-wrap">
+
                     <table>
+
                         <thead>
+
                             <tr>
+
                                 <th>Mã</th>
+
                                 <th>Hình</th>
+
                                 <th>Tên</th>
+
                                 <th>Loại</th>
+
                                 <th>Trạng thái</th>
+
                                 <th>Thao tác</th>
+
                             </tr>
+
                         </thead>
+
+
+
                         <tbody>
+
+
+                            <!-- =========================
+                                 SẢN PHẨM 1
+                            ========================= -->
+
                             <tr>
-                                <td>SP001</td>
-                                <td><img src="../HinhAnh/100zz.jpg" alt=""></td>
-                                <td>Yonex Astrox 100ZZ</td>
-                                <td>Vợt cầu lông</td>
-                                <td><span class="badge badge-success">Hiện</span></td>
-                                <td class="btn-group">
-                                    <button class="btn btn-secondary btn-sm"
-                                        onclick="showEditForm('SP001', 'Yonex Astrox 100ZZ', 'Vợt cầu lông', 'Vợt cầu lông cao cấp, khung cứng, phù hợp người chơi tấn công.')">
-                                        Sửa
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">Ẩn</button>
+
+                                <td>
+
+                                    SP001
+
                                 </td>
+
+
+                                <td>
+
+                                    <img src="../HinhAnh/100zz.jpg" alt="Yonex Astrox 100ZZ">
+
+                                </td>
+
+
+                                <td>
+
+                                    Yonex Astrox 100ZZ
+
+                                </td>
+
+
+                                <td>
+
+                                    Vợt Yonex
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="badge badge-success">
+
+                                        Hiện
+
+                                    </span>
+
+                                </td>
+
+
+                                <td class="btn-group">
+
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                                            'SP001',
+                                            'Yonex Astrox 100ZZ',
+                                            'Vợt Yonex',
+                                            'Vợt cầu lông cao cấp, khung cứng, phù hợp người chơi tấn công.',
+                                            '../HinhAnh/100zz.jpg'
+                                        )">
+
+                                        Sửa
+
+                                    </button>
+
+
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP001')">
+
+                                        Xóa
+
+                                    </button>
+
+                                </td>
+
                             </tr>
+
+
+
+                            <!-- =========================
+                                 SẢN PHẨM 2
+                            ========================= -->
+
                             <tr>
-                                <td>SP002</td>
-                                <td><img src="../HinhAnh/thruster-metallic.webp" alt=""></td>
-                                <td>Victor Thruster Metallic</td>
-                                <td>Vợt cầu lông</td>
-                                <td><span class="badge badge-success">Hiện</span></td>
-                                <td class="btn-group">
-                                    <button class="btn btn-secondary btn-sm"
-                                        onclick="showEditForm('SP002', 'Victor Thruster Metallic', 'Vợt cầu lông', 'Vợt cân bằng, phù hợp chơi toàn diện.')">
-                                        Sửa
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">Ẩn</button>
+
+                                <td>
+
+                                    SP002
+
                                 </td>
+
+
+                                <td>
+
+                                    <img src="../HinhAnh/thruster-metallic.webp" alt="Victor Thruster Metallic">
+
+                                </td>
+
+
+                                <td>
+
+                                    Victor Thruster Metallic
+
+                                </td>
+
+
+                                <td>
+
+                                    Vợt Victor
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="badge badge-success">
+
+                                        Hiện
+
+                                    </span>
+
+                                </td>
+
+
+                                <td class="btn-group">
+
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                                            'SP002',
+                                            'Victor Thruster Metallic',
+                                            'Vợt Victor',
+                                            'Vợt cân bằng, phù hợp chơi toàn diện.',
+                                            '../HinhAnh/thruster-metallic.webp'
+                                        )">
+
+                                        Sửa
+
+                                    </button>
+
+
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP002')">
+
+                                        Xóa
+
+                                    </button>
+
+                                </td>
+
                             </tr>
+
+
                         </tbody>
+
                     </table>
+
                 </div>
+
             </div>
+
         </main>
+
     </div>
 
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
     <script>
-        function showAddForm() {
-            document.getElementById('formTitle').textContent = 'Thêm sản phẩm';
+
+
+        /* =========================
+           HIỂN THỊ PREVIEW HÌNH
+        ========================= */
+
+        document.getElementById('hinhAnh').addEventListener('change', function () {
+
+            const file = this.files[0];
+
+            const preview = document.getElementById('imagePreview');
+
+            const previewImage = document.getElementById('previewImage');
+
+
+            if (file) {
+
+                previewImage.src = URL.createObjectURL(file);
+
+                preview.classList.add('show');
+
+            }
+
+        });
+
+
+
+        /* =========================
+           RESET FORM
+        ========================= */
+
+        function resetForm() {
+
             document.getElementById('maSP').value = '';
+
             document.getElementById('tenSP').value = '';
-            document.getElementById('loaiSP').value = 'Vợt cầu lông';
+
+            document.getElementById('loaiSP').value = 'Vợt Yonex';
+
             document.getElementById('moTa').value = '';
-            document.getElementById('formPanel').classList.add('show');
-            document.getElementById('formPanel').scrollIntoView({ behavior: 'smooth' });
+
+            document.getElementById('hinhAnh').value = '';
+
+            document.getElementById('previewImage').src = '';
+
+            document.getElementById('imagePreview').classList.remove('show');
+
         }
 
-        function showEditForm(ma, ten, loai, mota) {
-            document.getElementById('formTitle').textContent = 'Sửa sản phẩm';
-            document.getElementById('maSP').value = ma;
-            document.getElementById('tenSP').value = ten;
-            document.getElementById('loaiSP').value = loai;
-            document.getElementById('moTa').value = mota;
+
+
+        /* =========================
+           THÊM SẢN PHẨM
+        ========================= */
+
+        function showAddForm() {
+
+            // Xóa toàn bộ dữ liệu cũ
+            resetForm();
+
+
+            // Đặt tiêu đề
+            document.getElementById('formTitle').textContent =
+                'Thêm sản phẩm';
+
+
+            // Hiển thị form
             document.getElementById('formPanel').classList.add('show');
-            document.getElementById('formPanel').scrollIntoView({ behavior: 'smooth' });
+
+
+            // Cuộn đến form
+            document.getElementById('formPanel').scrollIntoView({
+                behavior: 'smooth'
+            });
+
         }
+
+
+
+        /* =========================
+           SỬA SẢN PHẨM
+        ========================= */
+
+        function showEditForm(ma, ten, loai, mota, image) {
+
+            document.getElementById('formTitle').textContent =
+                'Sửa sản phẩm';
+
+
+            document.getElementById('maSP').value =
+                ma;
+
+
+            document.getElementById('tenSP').value =
+                ten;
+
+
+            document.getElementById('loaiSP').value =
+                loai;
+
+
+            document.getElementById('moTa').value =
+                mota;
+
+
+            /*
+             * Hiển thị hình hiện tại
+             */
+
+            document.getElementById('hinhAnh').value = '';
+
+            document.getElementById('previewImage').src =
+                image;
+
+            document.getElementById('imagePreview').classList.add('show');
+
+
+            // Hiển thị form
+            document.getElementById('formPanel').classList.add('show');
+
+
+            // Cuộn đến form
+            document.getElementById('formPanel').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+        }
+
+
+
+        /* =========================
+           HỦY
+        ========================= */
 
         function hideForm() {
+
+            // Ẩn form
             document.getElementById('formPanel').classList.remove('show');
+
+
+            // Xóa toàn bộ dữ liệu
+            resetForm();
+
         }
+
+
+
+        /* =========================
+           LƯU
+        ========================= */
+
+        function saveForm() {
+
+            // Đóng form
+            document.getElementById('formPanel').classList.remove('show');
+
+
+            // Xóa hình preview và dữ liệu cũ
+            resetForm();
+
+        }
+
+
+
+        /* =========================
+           XÓA SẢN PHẨM
+        ========================= */
+
+        function deleteProduct(button, maSP) {
+
+            /*
+             * Hỏi trạng thái sản phẩm.
+             *
+             * Nhập 1 = Đã bán
+             * Nhập 2 = Chưa bán
+             * Cancel = Hủy thao tác
+             */
+
+            const luaChon = prompt(
+
+                'Sản phẩm ' + maSP + '\n\n' +
+
+                'Nhập 1: Sản phẩm đã bán ra\n' +
+
+                'Nhập 2: Sản phẩm chưa bán ra\n\n' +
+
+                'Bấm Cancel: Hủy thao tác'
+
+            );
+
+
+            /*
+             * =========================
+             * CANCEL
+             * =========================
+             *
+             * Không làm bất kỳ thay đổi nào.
+             */
+
+            if (luaChon === null) {
+
+                return;
+
+            }
+
+
+
+            /*
+             * =========================
+             * ĐÃ BÁN
+             * =========================
+             *
+             * Sản phẩm đã bán thì không xóa.
+             * Chỉ chuyển sang trạng thái Ẩn.
+             */
+
+            if (luaChon === '1') {
+
+                const row = button.closest('tr');
+
+                const badge = row.querySelector('.badge');
+
+
+                // Chuyển trạng thái
+                badge.textContent = 'Ẩn';
+
+                badge.classList.remove('badge-success');
+
+                badge.classList.add('badge-danger');
+
+
+                // Đổi nút Xóa thành Hiện
+                button.textContent = 'Hiện';
+
+                button.classList.remove('btn-danger');
+
+                button.classList.add('btn-primary');
+
+
+                // Đổi chức năng nút
+                button.onclick = function () {
+
+                    showProduct(this, maSP);
+
+                };
+
+
+                return;
+
+            }
+
+
+
+            /*
+             * =========================
+             * CHƯA BÁN
+             * =========================
+             *
+             * Chỉ hỏi xác nhận.
+             */
+
+            if (luaChon === '2') {
+
+                const xacNhan = confirm(
+
+                    'Sản phẩm ' + maSP +
+
+                    ' chưa được bán ra.\n\n' +
+
+                    'Bạn có chắc chắn muốn xóa sản phẩm này không?'
+
+                );
+
+
+                /*
+                 * Cancel -> không làm gì
+                 */
+
+                if (!xacNhan) {
+
+                    return;
+
+                }
+
+
+                /*
+                 * OK -> chỉ mô phỏng xác nhận xóa.
+                 *
+                 * Không xóa dòng sản phẩm.
+                 * Không display:none.
+                 * Không xóa dữ liệu thật.
+                 */
+
+                alert(
+
+                    'Đã xác nhận xóa sản phẩm ' + maSP +
+
+                    '.\n\n' +
+
+                    'Đây chỉ là thao tác mô phỏng trên HTML tĩnh.'
+
+                );
+
+
+                return;
+
+            }
+
+
+
+            /*
+             * =========================
+             * NHẬP SAI
+             * =========================
+             */
+
+            alert(
+
+                'Vui lòng nhập 1 hoặc 2.'
+
+            );
+
+        }
+
+
+
+        /* =========================
+           HIỆN LẠI SẢN PHẨM
+        ========================= */
+
+        function showProduct(button, maSP) {
+
+            const row = button.closest('tr');
+
+            const badge = row.querySelector('.badge');
+
+
+            /*
+             * Chuyển trạng thái Ẩn -> Hiện
+             */
+
+            badge.textContent = 'Hiện';
+
+            badge.classList.remove('badge-danger');
+
+            badge.classList.add('badge-success');
+
+
+            /*
+             * Đổi nút Hiện -> Xóa
+             */
+
+            button.textContent = 'Xóa';
+
+            button.classList.remove('btn-primary');
+
+            button.classList.add('btn-danger');
+
+
+            /*
+             * Đổi lại chức năng nút
+             */
+
+            button.onclick = function () {
+
+                deleteProduct(this, maSP);
+
+            };
+
+        }
+
     </script>
+
+
 </body>
 
 </html>

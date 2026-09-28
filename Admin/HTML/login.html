@@ -24,21 +24,10 @@
                 <label>Mật khẩu</label>
                 <input type="password" id="adminPassword" placeholder="••••••••" required>
             </div>
-            <button type="submit">Đăng nhập</button>
+            <button type="submit" onclick="window.location.href = 'dashboard.html'">Đăng nhập</button>
             <p class="error-msg" id="adminLoginError"></p>
         </form>
     </div>
-    <script>
-        document.getElementById("adminLoginForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            const email = document.getElementById("adminEmail").value.trim();
-            const pass = document.getElementById("adminPassword").value.trim();
-            const err = document.getElementById("adminLoginError");
-            if (!email || !pass) { err.textContent = "Vui lòng nhập đầy đủ."; return; }
-            // Giả lập: bất kỳ tài khoản nào cũng vào được (prototype)
-            window.location.href = "dashboard.html";
-        });
-    </script>
 </body>
 
 </html>

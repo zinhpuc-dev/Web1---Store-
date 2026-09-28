@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
     <link rel="stylesheet" href="../CSS/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
         .form-panel {
             display: none;
@@ -16,69 +17,258 @@
         .form-panel.show {
             display: block;
         }
+
+        /* =========================
+           TRẠNG THÁI
+        ========================= */
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: 0.2s ease;
+        }
+
+        .status-chua-xac-nhan {
+            background: #3b2a1a;
+            color: #f0a24b;
+        }
+
+        .status-xac-nhan {
+            background: #3b3218;
+            color: #e5b94c;
+        }
+
+        .status-dang-giao {
+            background: #3b2a1a;
+            color: #f0a24b;
+        }
+
+        .status-da-giao {
+            background: #123d1b;
+            color: #31c454;
+        }
+
+        .status-da-huy {
+            background: #451c1c;
+            color: #e05252;
+        }
+
+        .status-preview {
+            margin-top: 10px;
+        }
+
+        /* =========================
+           NÚT XÓA DÒNG
+        ========================= */
+
+        .delete-row-btn {
+            white-space: nowrap;
+        }
     </style>
 </head>
 
 <body>
+
     <header class="admin-header">
         <a href="dashboard.html" class="logo">
-            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo"> ZP Admin
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+            ZP Admin
         </a>
+
         <div class="user-info">
             <span>Xin chào, <strong>Admin</strong></span>
-            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+            <a href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Đăng xuất
+            </a>
         </div>
     </header>
 
     <div class="admin-layout">
+
+        <!-- SIDEBAR -->
         <aside class="sidebar">
+
             <h3>Quản trị</h3>
+
             <ul>
-                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
-                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
-                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
-                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
-                <li><a href="imports.html" class="active"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
-                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
-                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
-                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="users.html">
+                        <i class="fa-solid fa-users"></i>
+                        Quản lý người dùng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="categories.html">
+                        <i class="fa-solid fa-tags"></i>
+                        Quản lý loại SP
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        <i class="fa-solid fa-box"></i>
+                        Quản lý sản phẩm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="imports.html">
+                        <i class="fa-solid fa-truck"></i>
+                        Quản lý nhập hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="prices.html">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        Quản lý giá bán
+                    </a>
+                </li>
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        Quản lý đơn hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        Quản lý tồn kho
+                    </a>
+                </li>
+
+                <li>
+                    <a href="statistics.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Thống kê
+                    </a>
+                </li>
+
             </ul>
+
         </aside>
 
+
+        <!-- CONTENT -->
         <main class="content">
-            <h1>Quản lý <span>nhập sản phẩm</span></h1>
+
+            <h1>
+                Quản lý <span>nhập sản phẩm</span>
+            </h1>
 
             <div style="margin-bottom: 20px;">
                 <button type="button" class="btn btn-primary" onclick="showAddForm()">
-                    <i class="fa-solid fa-plus"></i> Thêm phiếu nhập
+
+                    <i class="fa-solid fa-plus"></i>
+                    Thêm phiếu nhập
                 </button>
             </div>
 
-            <!-- FORM THÊM / SỬA (mặc định ẩn) -->
+
+            <!-- =========================
+                 FORM THÊM / SỬA
+            ========================== -->
+
             <div class="card form-panel" id="formPanel">
-                <h3 id="formTitle">Thêm phiếu nhập hàng</h3>
+
+                <h3 id="formTitle">
+                    Thêm phiếu nhập hàng
+                </h3>
+
                 <form>
+
                     <div class="form-row">
+
+                        <!-- MÃ PHIẾU -->
                         <div class="form-group">
                             <label>Mã phiếu</label>
+
                             <input type="text" id="maPhieu" placeholder="PN001">
                         </div>
+
+
+                        <!-- NGÀY NHẬP -->
                         <div class="form-group">
                             <label>Ngày nhập</label>
+
                             <input type="date" id="ngayNhap" value="2026-09-20">
                         </div>
+
+
+                        <!-- TRẠNG THÁI -->
                         <div class="form-group">
+
                             <label>Trạng thái</label>
-                            <select id="trangThai">
-                                <option>Chưa hoàn thành</option>
-                                <option>Đã hoàn thành</option>
+
+                            <select id="trangThai" onchange="capNhatTrangThai()">
+
+                                <option value="0">
+                                    Chưa xác nhận
+                                </option>
+
+                                <option value="1">
+                                    Xác nhận
+                                </option>
+
+                                <option value="2">
+                                    Đang giao
+                                </option>
+
+                                <option value="3">
+                                    Đã giao
+                                </option>
+
+                                <option value="4">
+                                    Đã hủy
+                                </option>
+
                             </select>
+
+
+                            <!-- HIỂN THỊ TRẠNG THÁI -->
+                            <div class="status-preview">
+
+                                <span id="statusBadge" class="status-badge status-chua-xac-nhan">
+
+                                    Chưa xác nhận
+
+                                </span>
+
+                            </div>
+
                         </div>
+
                     </div>
 
-                    <h3 style="margin: 20px 0 10px; color: #aaa; font-size: 14px;">Chi tiết sản phẩm nhập</h3>
+
+                    <!-- =========================
+                         CHI TIẾT SẢN PHẨM
+                    ========================== -->
+
+                    <h3 style="margin: 20px 0 10px; color: #aaa; font-size: 14px;">
+                        Chi tiết sản phẩm nhập
+                    </h3>
+
+
                     <div class="table-wrap">
+
                         <table>
+
                             <thead>
                                 <tr>
                                     <th>Sản phẩm</th>
@@ -88,50 +278,141 @@
                                     <th></th>
                                 </tr>
                             </thead>
+
+
                             <tbody id="chiTietBody">
+
                                 <tr>
+
                                     <td>
                                         <select>
-                                            <option>Yonex Astrox 100ZZ</option>
-                                            <option>Victor Thruster Metallic</option>
-                                            <option>Giày Lining AYTS012</option>
+                                            <option>
+                                                Yonex Astrox 100ZZ
+                                            </option>
+
+                                            <option>
+                                                Victor Thruster Metallic
+                                            </option>
+
+                                            <option>
+                                                Giày Lining AYTS012
+                                            </option>
                                         </select>
                                     </td>
-                                    <td><input type="number" value="10" min="1" style="width:80px;"></td>
-                                    <td><input type="number" value="1850000" min="0" style="width:120px;"></td>
-                                    <td>18.500.000đ</td>
-                                    <td><button type="button" class="btn btn-danger btn-sm">Xóa</button></td>
+
+
+                                    <td>
+                                        <input type="number" value="10" min="1" style="width:80px;">
+                                    </td>
+
+
+                                    <td>
+                                        <input type="number" value="1850000" min="0" style="width:120px;">
+                                    </td>
+
+
+                                    <td>
+                                        18.500.000đ
+                                    </td>
+
+
+                                    <td>
+
+                                        <button type="button" class="btn btn-danger btn-sm delete-row-btn"
+                                            onclick="xoaDong(this)">
+
+                                            Xóa
+
+                                        </button>
+
+                                    </td>
+
                                 </tr>
+
                             </tbody>
+
                         </table>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <button type="button" class="btn btn-secondary btn-sm"><i class="fa-solid fa-plus"></i> Thêm
-                            dòng SP</button>
+
                     </div>
 
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-primary" onclick="savePhieu()">Lưu phiếu</button>
-                        <button type="button" class="btn btn-success" onclick="completePhieu()">Hoàn thành
-                            phiếu</button>
-                        <button type="button" class="btn btn-secondary" onclick="hideForm()">Hủy</button>
+
+                    <!-- THÊM DÒNG -->
+                    <div style="margin-top:10px;">
+
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="themDongSanPham()">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Thêm dòng SP
+
+                        </button>
+
                     </div>
+
+
+                    <!-- FORM BUTTON -->
+                    <div class="form-actions">
+
+                        <button type="button" class="btn btn-primary" onclick="savePhieu()">
+
+                            Lưu phiếu
+
+                        </button>
+
+
+                        <button type="button" class="btn btn-success" onclick="completePhieu()">
+
+                            Hoàn thành phiếu
+
+                        </button>
+
+
+                        <button type="button" class="btn btn-secondary" onclick="hideForm()">
+
+                            Hủy
+
+                        </button>
+
+                    </div>
+
                 </form>
+
             </div>
 
-            <!-- DANH SÁCH PHIẾU -->
+
+            <!-- =========================
+                 DANH SÁCH PHIẾU
+            ========================== -->
+
             <div class="card">
+
                 <div class="toolbar">
+
                     <div class="search-box">
+
                         <input type="text" placeholder="Tìm mã phiếu...">
+
                         <input type="date">
+
                         <input type="date">
-                        <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-search"></i> Tìm</button>
+
+                        <button type="button" class="btn btn-secondary btn-sm">
+
+                            <i class="fa-solid fa-search"></i>
+                            Tìm
+
+                        </button>
+
                     </div>
+
                 </div>
+
+
                 <div class="table-wrap">
+
                     <table>
+
                         <thead>
+
                             <tr>
                                 <th>Mã phiếu</th>
                                 <th>Ngày nhập</th>
@@ -140,83 +421,429 @@
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
+
                         </thead>
+
+
                         <tbody>
+
+                            <!-- PN001 -->
                             <tr>
+
                                 <td>PN001</td>
+
                                 <td>20/09/2026</td>
+
                                 <td>2</td>
-                                <td>24.500.000đ</td>
-                                <td><span class="badge badge-warning">Chưa hoàn thành</span></td>
-                                <td class="btn-group">
-                                    <button class="btn btn-secondary btn-sm"
-                                        onclick="showEditForm('PN001', '2026-09-20')">Sửa</button>
-                                    <button class="btn btn-success btn-sm">Hoàn thành</button>
+
+                                <td>
+                                    24.500.000đ
                                 </td>
+
+                                <td>
+
+                                    <span class="status-badge status-chua-xac-nhan">
+
+                                        Chưa xác nhận
+
+                                    </span>
+
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="showEditForm(
+                                            'PN001',
+                                            '2026-09-20',
+                                            0
+                                        )">
+
+                                        Sửa
+
+                                    </button>
+
+                                    <button type="button" class="btn btn-success btn-sm">
+
+                                        Hoàn thành
+
+                                    </button>
+
+                                </td>
+
                             </tr>
+
+
+                            <!-- PN002 -->
                             <tr>
+
                                 <td>PN002</td>
+
                                 <td>15/09/2026</td>
+
                                 <td>5</td>
-                                <td>42.800.000đ</td>
-                                <td><span class="badge badge-success">Đã hoàn thành</span></td>
-                                <td class="btn-group">
-                                    <button class="btn btn-secondary btn-sm" disabled
-                                        title="Chỉ sửa trước khi hoàn thành">Sửa</button>
+
+                                <td>
+                                    42.800.000đ
                                 </td>
+
+                                <td>
+
+                                    <span class="status-badge status-dang-giao">
+
+                                        Đang giao
+
+                                    </span>
+
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="showEditForm(
+                                            'PN002',
+                                            '2026-09-15',
+                                            2
+                                        )">
+
+                                        Sửa
+
+                                    </button>
+
+                                </td>
+
                             </tr>
+
+
+                            <!-- PN003 -->
                             <tr>
+
                                 <td>PN003</td>
+
                                 <td>10/09/2026</td>
+
                                 <td>3</td>
-                                <td>15.600.000đ</td>
-                                <td><span class="badge badge-success">Đã hoàn thành</span></td>
-                                <td class="btn-group">
-                                    <button class="btn btn-secondary btn-sm" disabled>Sửa</button>
+
+                                <td>
+                                    15.600.000đ
                                 </td>
+
+                                <td>
+
+                                    <span class="status-badge status-da-giao">
+
+                                        Đã giao
+
+                                    </span>
+
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="showEditForm(
+                                            'PN003',
+                                            '2026-09-10',
+                                            3
+                                        )">
+
+                                        Sửa
+
+                                    </button>
+
+                                </td>
+
                             </tr>
+
                         </tbody>
+
                     </table>
+
                 </div>
+
             </div>
+
         </main>
+
     </div>
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
     <script>
+
+        /*
+         * Hiển thị form thêm phiếu
+         */
         function showAddForm() {
-            document.getElementById('formTitle').textContent = 'Thêm phiếu nhập hàng';
+
+            document.getElementById('formTitle').textContent =
+                'Thêm phiếu nhập hàng';
+
             document.getElementById('maPhieu').value = '';
-            document.getElementById('ngayNhap').value = '2026-09-24';
-            document.getElementById('trangThai').value = 'Chưa hoàn thành';
-            document.getElementById('formPanel').classList.add('show');
-            document.getElementById('formPanel').scrollIntoView({ behavior: 'smooth' });
+
+            document.getElementById('ngayNhap').value =
+                '2026-09-24';
+
+            document.getElementById('trangThai').value = '0';
+
+            capNhatTrangThai();
+
+            document.getElementById('formPanel')
+                .classList.add('show');
+
+            document.getElementById('formPanel')
+                .scrollIntoView({
+                    behavior: 'smooth'
+                });
         }
 
-        function showEditForm(ma, ngay) {
-            document.getElementById('formTitle').textContent = 'Sửa phiếu nhập hàng';
-            document.getElementById('maPhieu').value = ma;
-            document.getElementById('ngayNhap').value = ngay;
-            document.getElementById('trangThai').value = 'Chưa hoàn thành';
-            document.getElementById('formPanel').classList.add('show');
-            document.getElementById('formPanel').scrollIntoView({ behavior: 'smooth' });
+
+        /*
+         * Hiển thị form sửa phiếu
+         */
+        function showEditForm(ma, ngay, trangThai) {
+
+            document.getElementById('formTitle').textContent =
+                'Sửa phiếu nhập hàng';
+
+            document.getElementById('maPhieu').value =
+                ma;
+
+            document.getElementById('ngayNhap').value =
+                ngay;
+
+            document.getElementById('trangThai').value =
+                trangThai;
+
+            capNhatTrangThai();
+
+            document.getElementById('formPanel')
+                .classList.add('show');
+
+            document.getElementById('formPanel')
+                .scrollIntoView({
+                    behavior: 'smooth'
+                });
         }
 
+
+        /*
+         * Ẩn form
+         */
         function hideForm() {
-            document.getElementById('formPanel').classList.remove('show');
+
+            document.getElementById('formPanel')
+                .classList.remove('show');
+
         }
 
-        // Lưu phiếu → ẩn form, về trạng thái ban đầu
+
+        /*
+         * =========================
+         * CẬP NHẬT CSS TRẠNG THÁI
+         * =========================
+         *
+         * JS không khóa trạng thái.
+         * JS chỉ thay đổi class CSS.
+         */
+        function capNhatTrangThai() {
+
+            const select =
+                document.getElementById('trangThai');
+
+            const badge =
+                document.getElementById('statusBadge');
+
+            const trangThai =
+                select.value;
+
+            const tenTrangThai =
+                select.options[
+                    select.selectedIndex
+                ].text;
+
+
+            /*
+             * Đổi nội dung
+             */
+            badge.textContent =
+                tenTrangThai;
+
+
+            /*
+             * Xóa class cũ
+             */
+            badge.classList.remove(
+                'status-chua-xac-nhan',
+                'status-xac-nhan',
+                'status-dang-giao',
+                'status-da-giao',
+                'status-da-huy'
+            );
+
+
+            /*
+             * Thêm class mới
+             */
+            if (trangThai === '0') {
+
+                badge.classList.add(
+                    'status-chua-xac-nhan'
+                );
+
+            }
+
+            else if (trangThai === '1') {
+
+                badge.classList.add(
+                    'status-xac-nhan'
+                );
+
+            }
+
+            else if (trangThai === '2') {
+
+                badge.classList.add(
+                    'status-dang-giao'
+                );
+
+            }
+
+            else if (trangThai === '3') {
+
+                badge.classList.add(
+                    'status-da-giao'
+                );
+
+            }
+
+            else if (trangThai === '4') {
+
+                badge.classList.add(
+                    'status-da-huy'
+                );
+
+            }
+
+        }
+
+
+        /*
+         * =========================
+         * THÊM DÒNG SẢN PHẨM
+         * =========================
+         */
+        function themDongSanPham() {
+
+            const tbody =
+                document.getElementById('chiTietBody');
+
+
+            const row =
+                document.createElement('tr');
+
+
+            row.innerHTML = `
+
+                <td>
+                    <select>
+                        <option>
+                            Yonex Astrox 100ZZ
+                        </option>
+
+                        <option>
+                            Victor Thruster Metallic
+                        </option>
+
+                        <option>
+                            Giày Lining AYTS012
+                        </option>
+                    </select>
+                </td>
+
+                <td>
+                    <input
+                        type="number"
+                        value="1"
+                        min="1"
+                        style="width:80px;">
+                </td>
+
+                <td>
+                    <input
+                        type="number"
+                        value="0"
+                        min="0"
+                        style="width:120px;">
+                </td>
+
+                <td>
+                    0đ
+                </td>
+
+                <td>
+                    <button
+                        type="button"
+                        class="btn btn-danger btn-sm delete-row-btn"
+                        onclick="xoaDong(this)">
+
+                        Xóa
+
+                    </button>
+                </td>
+
+            `;
+
+
+            tbody.appendChild(row);
+
+        }
+
+
+        /*
+         * =========================
+         * XÓA ĐÚNG DÒNG SẢN PHẨM
+         * =========================
+         */
+        function xoaDong(button) {
+
+            const row =
+                button.closest('tr');
+
+            if (row) {
+
+                row.remove();
+
+            }
+
+        }
+
+
+        /*
+         * =========================
+         * LƯU PHIẾU
+         * =========================
+         */
         function savePhieu() {
-            // Prototype: chỉ ẩn form (không xử lý dữ liệu thật)
+
             hideForm();
+
         }
 
-        // Hoàn thành phiếu → ẩn form, về trạng thái ban đầu
+
+        /*
+         * =========================
+         * HOÀN THÀNH PHIẾU
+         * =========================
+         */
         function completePhieu() {
-            // Prototype: chỉ ẩn form (không xử lý dữ liệu thật)
+
             hideForm();
+
         }
+
     </script>
+
 </body>
 
 </html>

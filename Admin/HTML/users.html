@@ -5,91 +5,710 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý người dùng - Admin</title>
+
     <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
     <link rel="stylesheet" href="../CSS/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================
+           NUT THEM TAI KHOAN
+        ========================= */
+
+        .user-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .add-user-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 9px 15px;
+            border-radius: 5px;
+            background-color: #e60012;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-user-label:hover {
+            background-color: #b9000e;
+        }
+
+
+        /* =========================
+           AN FORM THEM / SUA
+        ========================= */
+
+        .user-form-toggle {
+            display: none;
+        }
+
+        .user-form {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background-color: #181818;
+        }
+
+        #add-user-toggle:checked~.add-user-form {
+            display: block;
+        }
+
+        #edit-user-toggle:checked~.edit-user-form {
+            display: block;
+        }
+
+        .user-form h2 {
+            margin: 0 0 20px;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .user-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .user-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .user-form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .user-form-group label {
+            color: #ddd;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .user-form-group input,
+        .user-form-group select {
+            width: 100%;
+            height: 40px;
+            padding: 0 12px;
+            box-sizing: border-box;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #111;
+            color: #fff;
+            outline: none;
+        }
+
+        .user-form-group input:focus,
+        .user-form-group select:focus {
+            border-color: #e60012;
+        }
+
+        .user-form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .form-btn {
+            min-width: 90px;
+            padding: 9px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .form-btn-save {
+            background-color: #e60012;
+            color: #fff;
+        }
+
+        .form-btn-save:hover {
+            background-color: #b9000e;
+        }
+
+        .form-btn-cancel {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .form-btn-cancel:hover {
+            background-color: #444;
+        }
+
+
+        /* =========================
+           NUT SUA
+        ========================= */
+
+        .edit-btn {
+            background-color: #555 !important;
+            color: #fff !important;
+        }
+
+        .edit-btn:hover {
+            background-color: #666 !important;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .user-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .add-user-label {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .user-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .user-form-group.full {
+                grid-column: auto;
+            }
+
+            .user-form-actions {
+                flex-direction: column;
+            }
+
+            .form-btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
+
 <body>
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
     <header class="admin-header">
-        <a href="dashboard.html" class="logo"><img src="../HinhAnh/Logo_hinh.jpg" alt=""> ZP Admin</a>
-        <div class="user-info"><span>Admin</span> <a href="login.html">Đăng xuất</a></div>
+
+        <a href="dashboard.html" class="logo">
+            <img src="../HinhAnh/Logo_hinh.jpg" alt="">
+            ZP Admin
+        </a>
+
+        <div class="user-info">
+            <span>Xin chào, <strong>Admin</strong></span>
+
+            <a href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Đăng xuất
+            </a>
+        </div>
+
     </header>
+
+
     <div class="admin-layout">
+
+        <!-- =========================
+             SIDEBAR
+        ========================= -->
+
         <aside class="sidebar">
+
             <h3>Quản trị</h3>
+
             <ul>
-                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
-                <li><a href="users.html" class="active"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
-                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
-                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
-                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
-                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
-                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
-                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="users.html">
+                        <i class="fa-solid fa-users"></i>
+                        Quản lý người dùng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="categories.html">
+                        <i class="fa-solid fa-tags"></i>
+                        Quản lý loại SP
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        <i class="fa-solid fa-box"></i>
+                        Quản lý sản phẩm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="imports.html">
+                        <i class="fa-solid fa-truck"></i>
+                        Quản lý nhập hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="prices.html">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        Quản lý giá bán
+                    </a>
+                </li>
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        Quản lý đơn hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        Quản lý tồn kho
+                    </a>
+                </li>
+
+                <li>
+                    <a href="statistics.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Thống kê
+                    </a>
+                </li>
+
             </ul>
+
         </aside>
+
+
+        <!-- =========================
+             NOI DUNG
+        ========================= -->
+
         <main class="content">
-            <h1>Quản lý <span>người dùng / khách hàng</span></h1>
+
+            <h1>
+                Quản lý
+                <span>người dùng / khách hàng</span>
+            </h1>
+
+
             <div class="card">
-                <div class="toolbar">
+
+                <!-- Checkbox dieu khien form -->
+                <input type="checkbox" id="add-user-toggle" class="user-form-toggle">
+
+                <input type="checkbox" id="edit-user-toggle" class="user-form-toggle">
+
+
+                <!-- =========================
+                     TOOLBAR
+                ========================= -->
+
+                <div class="toolbar user-toolbar">
+
                     <div class="search-box">
+
                         <input type="text" placeholder="Tìm theo tên, email...">
-                        <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-search"></i></button>
+
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+
                     </div>
+
+
+                    <!-- Mo form them tai khoan -->
+                    <label for="add-user-toggle" class="add-user-label">
+
+                        <i class="fa-solid fa-plus"></i>
+                        Thêm tài khoản
+
+                    </label>
+
                 </div>
+
+
+                <!-- =========================
+                     FORM THEM TAI KHOAN
+                ========================= -->
+
+                <div class="user-form add-user-form">
+
+                    <h2>
+                        <i class="fa-solid fa-user-plus"></i>
+                        Thêm tài khoản
+                    </h2>
+
+                    <div class="user-form-grid">
+
+                        <div class="user-form-group">
+
+                            <label for="add-name">
+                                Họ tên
+                            </label>
+
+                            <input type="text" id="add-name" placeholder="Nhập họ tên">
+
+                        </div>
+
+
+                        <div class="user-form-group">
+
+                            <label for="add-email">
+                                Email
+                            </label>
+
+                            <input type="email" id="add-email" placeholder="Nhập email">
+
+                        </div>
+
+
+                        <div class="user-form-group">
+
+                            <label for="add-phone">
+                                Số điện thoại
+                            </label>
+
+                            <input type="text" id="add-phone" placeholder="Nhập số điện thoại">
+
+                        </div>
+
+
+                        <div class="user-form-group">
+
+                            <label for="add-password">
+                                Mật khẩu
+                            </label>
+
+                            <input type="password" id="add-password" placeholder="Nhập mật khẩu">
+
+                        </div>
+
+
+                        <div class="user-form-group full">
+
+                            <label for="add-status">
+                                Trạng thái
+                            </label>
+
+                            <select id="add-status">
+
+                                <option>
+                                    Hoạt động
+                                </option>
+
+                                <option>
+                                    Đã khóa
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="user-form-actions">
+
+                        <label for="add-user-toggle" class="form-btn form-btn-cancel">
+                            Hủy
+                        </label>
+
+                        <label for="add-user-toggle" class="form-btn form-btn-save">
+                            Lưu tài khoản
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     FORM SUA THONG TIN
+                ========================= -->
+
+                <div class="user-form edit-user-form">
+
+                    <h2>
+                        <i class="fa-solid fa-user-pen"></i>
+                        Sửa thông tin tài khoản
+                    </h2>
+
+                    <div class="user-form-grid">
+
+                        <div class="user-form-group">
+
+                            <label for="edit-name">
+                                Họ tên
+                            </label>
+
+                            <input type="text" id="edit-name" value="Nguyễn Văn A">
+
+                        </div>
+
+
+                        <div class="user-form-group">
+
+                            <label for="edit-email">
+                                Email
+                            </label>
+
+                            <input type="email" id="edit-email" value="nguyenvana@gmail.com">
+
+                        </div>
+
+
+                        <div class="user-form-group">
+
+                            <label for="edit-phone">
+                                Số điện thoại
+                            </label>
+
+                            <input type="text" id="edit-phone" value="0901234567">
+
+                        </div>
+
+
+                        <div class="user-form-group">
+
+                            <label for="edit-status">
+                                Trạng thái
+                            </label>
+
+                            <select id="edit-status">
+
+                                <option selected>
+                                    Hoạt động
+                                </option>
+
+                                <option>
+                                    Đã khóa
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="user-form-actions">
+
+                        <label for="edit-user-toggle" class="form-btn form-btn-cancel">
+                            Hủy
+                        </label>
+
+                        <label for="edit-user-toggle" class="form-btn form-btn-save">
+                            Lưu thay đổi
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     BANG NGUOI DUNG
+                ========================= -->
+
                 <div class="table-wrap">
+
                     <table>
+
                         <thead>
+
                             <tr>
+
                                 <th>STT</th>
+
                                 <th>Họ tên</th>
+
                                 <th>Email</th>
+
                                 <th>SĐT</th>
+
                                 <th>Trạng thái</th>
+
                                 <th>Thao tác</th>
+
                             </tr>
+
                         </thead>
+
+
                         <tbody>
+
+                            <!-- USER 1 -->
+
                             <tr>
+
                                 <td>1</td>
+
                                 <td>Nguyễn Văn A</td>
-                                <td>nguyenvana@gmail.com</td>
-                                <td>0901234567</td>
-                                <td><span class="badge badge-success">Hoạt động</span></td>
-                                <td class="btn-group">
-                                    <button class="btn btn-secondary btn-sm" title="Reset mật khẩu">Reset MK</button>
-                                    <button class="btn btn-danger btn-sm">Khóa</button>
+
+                                <td>
+                                    nguyenvana@gmail.com
                                 </td>
+
+                                <td>
+                                    0901234567
+                                </td>
+
+                                <td>
+
+                                    <span class="badge badge-success">
+                                        Hoạt động
+                                    </span>
+
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <label for="edit-user-toggle" class="btn btn-secondary btn-sm edit-btn">
+                                        Sửa
+                                    </label>
+
+                                    <button class="btn btn-secondary btn-sm" type="button" title="Reset mật khẩu">
+                                        Reset MK
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" type="button" data-action="lock">
+                                        Khóa
+                                    </button>
+
+                                </td>
+
                             </tr>
+
+
+                            <!-- USER 2 -->
+
                             <tr>
+
                                 <td>2</td>
+
                                 <td>Trần Thị B</td>
-                                <td>tranthib@gmail.com</td>
-                                <td>0912345678</td>
-                                <td><span class="badge badge-success">Hoạt động</span></td>
-                                <td class="btn-group">
-                                    <button class="btn btn-secondary btn-sm">Reset MK</button>
-                                    <button class="btn btn-danger btn-sm">Khóa</button>
+
+                                <td>
+                                    tranthib@gmail.com
                                 </td>
+
+                                <td>
+                                    0912345678
+                                </td>
+
+                                <td>
+
+                                    <span class="badge badge-success">
+                                        Hoạt động
+                                    </span>
+
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <label for="edit-user-toggle" class="btn btn-secondary btn-sm edit-btn">
+                                        Sửa
+                                    </label>
+
+                                    <button class="btn btn-secondary btn-sm" type="button">
+                                        Reset MK
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" type="button" data-action="lock">
+                                        Khóa
+                                    </button>
+
+                                </td>
+
                             </tr>
+
+
+                            <!-- USER 3 -->
+
                             <tr>
+
                                 <td>3</td>
+
                                 <td>Lê Văn C</td>
-                                <td>levanc@gmail.com</td>
-                                <td>0923456789</td>
-                                <td><span class="badge badge-danger">Đã khóa</span></td>
-                                <td class="btn-group">
-                                    <button class="btn btn-secondary btn-sm">Reset MK</button>
-                                    <button class="btn btn-primary btn-sm">Mở khóa</button>
+
+                                <td>
+                                    levanc@gmail.com
                                 </td>
+
+                                <td>
+                                    0923456789
+                                </td>
+
+                                <td>
+
+                                    <span class="badge badge-danger">
+                                        Đã khóa
+                                    </span>
+
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <label for="edit-user-toggle" class="btn btn-secondary btn-sm edit-btn">
+                                        Sửa
+                                    </label>
+
+                                    <button class="btn btn-secondary btn-sm" type="button">
+                                        Reset MK
+                                    </button>
+
+                                    <button class="btn btn-primary btn-sm" type="button" data-action="unlock">
+                                        Mở khóa
+                                    </button>
+
+                                </td>
+
                             </tr>
+
                         </tbody>
+
                     </table>
+
                 </div>
+
             </div>
+
         </main>
+
     </div>
+
+
+    <!-- JS CHI XU LY KHOA / MO KHOA -->
+    <script src="../JS/users.js"></script>
+
 </body>
 
 </html>

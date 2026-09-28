@@ -2,137 +2,819 @@
 <html lang="vi">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Chi tiết đơn hàng - Admin</title>
+
     <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+
     <link rel="stylesheet" href="../CSS/common.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+        /* ==================================================
+           TRẠNG THÁI ĐƠN HÀNG
+        ================================================== */
+
+        .status-progress {
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            margin-top: 10px;
+
+        }
+
+
+        .status-item {
+
+            padding: 6px 12px;
+
+            border-radius: 4px;
+
+            background: #333;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            border: 1px solid #444;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        /* Trạng thái hiện tại */
+
+        .status-item.active {
+
+            background: #198754;
+
+            color: #fff;
+
+            border-color: #198754;
+
+        }
+
+
+        /* Trạng thái đã đi qua */
+
+        .status-item.passed {
+
+            background: #222;
+
+            color: #555;
+
+            border-color: #333;
+
+            opacity: 0.5;
+
+        }
+
+
+        /* Trạng thái chưa tới */
+
+        .status-item.future {
+
+            background: #333;
+
+            color: #aaa;
+
+            border-color: #444;
+
+        }
+
+
+        /* Trạng thái hủy */
+
+        .status-item.cancelled {
+
+            background: #dc3545;
+
+            color: #fff;
+
+            border-color: #dc3545;
+
+        }
+
+
+        /* Select trạng thái */
+
+        .status-select {
+
+            width: 100%;
+
+        }
+
+
+        /* Ghi chú */
+
+        .status-note {
+
+            margin-top: 8px;
+
+            font-size: 12px;
+
+            color: #888;
+
+        }
+
+
+        /* Nút cập nhật */
+
+        .btn-update {
+
+            border: none;
+
+            cursor: pointer;
+
+        }
+
+
+        /* Link trong button */
+
+        .btn-update a {
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+    </style>
+
 </head>
 
+
 <body>
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
     <header class="admin-header">
+
+
         <a href="dashboard.html" class="logo">
+
             <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
+
             ZP Admin
+
         </a>
+
+
         <div class="user-info">
-            <span>Xin chào, <strong>Admin</strong></span>
-            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+
+            <span>
+
+                Xin chào, <strong>Admin</strong>
+
+            </span>
+
+
+            <a href="login.html">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Đăng xuất
+
+            </a>
+
         </div>
+
     </header>
 
+
     <div class="admin-layout">
+
+
+        <!-- ==================================================
+             SIDEBAR
+        ================================================== -->
+
         <aside class="sidebar">
+
             <h3>Quản trị</h3>
+
             <ul>
-                <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
-                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
-                <li><a href="categories.html"><i class="fa-solid fa-tags"></i> Quản lý loại SP</a></li>
-                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
-                <li><a href="imports.html"><i class="fa-solid fa-truck"></i> Quản lý nhập hàng</a></li>
-                <li><a href="prices.html"><i class="fa-solid fa-dollar-sign"></i> Quản lý giá bán</a></li>
-                <li><a href="orders.html" class="active"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a>
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
                 </li>
-                <li><a href="inventory.html"><i class="fa-solid fa-warehouse"></i> Quản lý tồn kho</a></li>
+
+                <li>
+                    <a href="users.html">
+                        <i class="fa-solid fa-users"></i>
+                        Quản lý người dùng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="categories.html">
+                        <i class="fa-solid fa-tags"></i>
+                        Quản lý loại SP
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        <i class="fa-solid fa-box"></i>
+                        Quản lý sản phẩm
+                    </a>
+                </li>
+
+                <li>
+                    <a href="imports.html">
+                        <i class="fa-solid fa-truck"></i>
+                        Quản lý nhập hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="prices.html">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        Quản lý giá bán
+                    </a>
+                </li>
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        Quản lý đơn hàng
+                    </a>
+                </li>
+
+                <li>
+                    <a href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        Quản lý tồn kho
+                    </a>
+                </li>
+
+                <li>
+                    <a href="statistics.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Thống kê
+                    </a>
+                </li>
+
             </ul>
+
         </aside>
 
+
+        <!-- ==================================================
+             CONTENT
+        ================================================== -->
+
         <main class="content">
-            <h1>Chi tiết đơn hàng <span>#DH001</span></h1>
+
+
+            <h1>
+
+                Chi tiết đơn hàng
+
+                <span>#DH001</span>
+
+            </h1>
+
+
+            <!-- ==================================================
+                 THÔNG TIN ĐƠN HÀNG
+            ================================================== -->
 
             <div class="card">
-                <h3>Thông tin đơn hàng</h3>
+
+
+                <h3>
+                    Thông tin đơn hàng
+                </h3>
+
+
                 <div class="form-row">
+
+
+                    <!-- MÃ ĐƠN -->
+
                     <div class="form-group">
-                        <label>Mã đơn</label>
+
+                        <label>
+                            Mã đơn
+                        </label>
+
                         <input type="text" value="#DH001" readonly>
+
                     </div>
+
+
+                    <!-- NGÀY ĐẶT -->
+
                     <div class="form-group">
-                        <label>Ngày đặt</label>
+
+                        <label>
+                            Ngày đặt
+                        </label>
+
                         <input type="text" value="20/09/2026 14:30" readonly>
+
                     </div>
+
+
+                    <!-- TRẠNG THÁI -->
+
                     <div class="form-group">
-                        <label>Trạng thái hiện tại</label>
-                        <select>
-                            <option selected>Mới đặt</option>
-                            <option>Đã xử lý</option>
-                            <option>Đã giao</option>
-                            <option>Hủy</option>
+
+
+                        <label>
+                            Trạng thái đơn hàng
+                        </label>
+
+
+                        <select id="trangThai" class="status-select" onchange="capNhatCSSStatus()">
+
+
+                            <option value="0">
+                                Chưa xác nhận
+                            </option>
+
+
+                            <option value="1" selected>
+                                Đã xác nhận
+                            </option>
+
+
+                            <option value="2">
+                                Đã giao - Thành công
+                            </option>
+
+
+                            <option value="3">
+                                Đã giao - Hủy đơn
+                            </option>
+
+
                         </select>
+
+
+                        <!-- ==================================================
+                             THANH TRẠNG THÁI
+                        ================================================== -->
+
+                        <div class="status-progress" id="statusProgress">
+
+
+                            <span class="status-item">
+
+                                Chưa xác nhận
+
+                            </span>
+
+
+                            <span class="status-item">
+
+                                Đã xác nhận
+
+                            </span>
+
+
+                            <span class="status-item">
+
+                                Đã giao - Thành công
+
+                            </span>
+
+
+                            <span class="status-item">
+
+                                Đã giao - Hủy đơn
+
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="status-note">
+
+                            Chọn trạng thái để cập nhật hiển thị.
+
+                        </div>
+
+
                     </div>
+
                 </div>
+
+
+                <!-- ==================================================
+                     BUTTON
+                ================================================== -->
+
                 <div class="form-actions">
-                    <button type="button" class="btn btn-primary"><a href="orders.html">Cập nhật trạng thái</a></button>
-                    <a href="orders.html" class="btn btn-secondary">Quay lại</a>
+
+
+                    <button type="button" class="btn btn-primary btn-update" onclick="capNhatCSSStatus()">
+
+                        Cập nhật trạng thái
+
+                    </button>
+
+
+                    <a href="orders.html" class="btn btn-secondary">
+
+                        Quay lại
+
+                    </a>
+
+
                 </div>
+
+
             </div>
 
+
+            <!-- ==================================================
+                 THÔNG TIN KHÁCH HÀNG
+            ================================================== -->
+
             <div class="card">
-                <h3>Thông tin khách hàng & giao hàng</h3>
+
+
+                <h3>
+
+                    Thông tin khách hàng & giao hàng
+
+                </h3>
+
+
                 <div class="form-row">
+
+
                     <div class="form-group">
-                        <label>Họ tên</label>
+
+                        <label>
+                            Họ tên
+                        </label>
+
                         <input type="text" value="Nguyễn Văn A" readonly>
+
                     </div>
+
+
                     <div class="form-group">
-                        <label>Số điện thoại</label>
+
+                        <label>
+                            Số điện thoại
+                        </label>
+
                         <input type="text" value="0901234567" readonly>
+
                     </div>
+
+
                     <div class="form-group">
-                        <label>Email</label>
+
+                        <label>
+                            Email
+                        </label>
+
                         <input type="text" value="nguyenvana@gmail.com" readonly>
+
                     </div>
+
+
                 </div>
+
+
                 <div class="form-row">
+
+
                     <div class="form-group" style="flex:2">
-                        <label>Địa chỉ giao hàng</label>
+
+
+                        <label>
+                            Địa chỉ giao hàng
+                        </label>
+
+
                         <input type="text" value="123 Nguyễn Trãi, Quận 5, TP.HCM" readonly>
+
+
                     </div>
+
+
                     <div class="form-group">
-                        <label>Thanh toán</label>
+
+
+                        <label>
+                            Thanh toán
+                        </label>
+
+
                         <input type="text" value="Tiền mặt khi nhận hàng" readonly>
+
+
                     </div>
+
+
                 </div>
+
+
             </div>
 
+
+            <!-- ==================================================
+                 CHI TIẾT SẢN PHẨM
+            ================================================== -->
+
             <div class="card">
-                <h3>Chi tiết sản phẩm</h3>
+
+
+                <h3>
+                    Chi tiết sản phẩm
+                </h3>
+
+
                 <div class="table-wrap">
+
+
                     <table>
+
+
                         <thead>
+
                             <tr>
-                                <th>Sản phẩm</th>
-                                <th>Đơn giá</th>
-                                <th>Số lượng</th>
-                                <th>Thành tiền</th>
+
+                                <th>
+                                    Sản phẩm
+                                </th>
+
+                                <th>
+                                    Đơn giá
+                                </th>
+
+                                <th>
+                                    Số lượng
+                                </th>
+
+                                <th>
+                                    Thành tiền
+                                </th>
+
                             </tr>
+
                         </thead>
+
+
                         <tbody>
+
+
                             <tr>
-                                <td>Yonex Astrox 100ZZ</td>
-                                <td>2.405.000đ</td>
-                                <td>1</td>
-                                <td>2.405.000đ</td>
+
+
+                                <td>
+                                    Yonex Astrox 100ZZ
+                                </td>
+
+
+                                <td>
+                                    2.405.000đ
+                                </td>
+
+
+                                <td>
+                                    1
+                                </td>
+
+
+                                <td>
+                                    2.405.000đ
+                                </td>
+
+
                             </tr>
+
+
                             <tr>
-                                <td>Quấn cán Yonex</td>
-                                <td>45.000đ</td>
-                                <td>1</td>
-                                <td>45.000đ</td>
+
+
+                                <td>
+                                    Quấn cán Yonex
+                                </td>
+
+
+                                <td>
+                                    45.000đ
+                                </td>
+
+
+                                <td>
+                                    1
+                                </td>
+
+
+                                <td>
+                                    45.000đ
+                                </td>
+
+
                             </tr>
+
+
                         </tbody>
+
+
                         <tfoot>
+
+
                             <tr>
-                                <td colspan="3" style="text-align:right;font-weight:bold;">Tổng cộng:</td>
-                                <td style="color:#e60012;font-weight:bold;font-size:16px;">2.450.000đ</td>
+
+
+                                <td colspan="3" style="
+                                        text-align:right;
+                                        font-weight:bold;
+                                    ">
+
+                                    Tổng cộng:
+
+                                </td>
+
+
+                                <td style="
+                                        color:#e60012;
+                                        font-weight:bold;
+                                        font-size:16px;
+                                    ">
+
+                                    2.450.000đ
+
+                                </td>
+
+
                             </tr>
+
+
                         </tfoot>
+
+
                     </table>
+
                 </div>
+
             </div>
+
+
         </main>
+
     </div>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+         CHỈ DÙNG ĐỂ THAY ĐỔI CSS TRẠNG THÁI
+    ================================================== -->
+
+    <script>
+
+
+        function capNhatCSSStatus() {
+
+
+            const trangThai =
+                parseInt(
+                    document.getElementById(
+                        'trangThai'
+                    ).value
+                );
+
+
+            const items =
+                document.querySelectorAll(
+                    '#statusProgress .status-item'
+                );
+
+
+            /*
+             * Xóa CSS cũ
+             */
+
+            items.forEach(function (item) {
+
+                item.classList.remove(
+                    'active',
+                    'passed',
+                    'future',
+                    'cancelled'
+                );
+
+            });
+
+
+            /*
+             * Trạng thái "Đã giao - Hủy đơn"
+             */
+
+            if (trangThai === 3) {
+
+
+                items.forEach(function (item, index) {
+
+
+                    if (index === 3) {
+
+                        item.classList.add(
+                            'cancelled'
+                        );
+
+                    }
+
+                    else {
+
+                        item.classList.add(
+                            'passed'
+                        );
+
+                    }
+
+                });
+
+
+                return;
+
+            }
+
+
+            /*
+             * Các trạng thái bình thường
+             */
+
+            items.forEach(function (item, index) {
+
+
+                if (index === trangThai) {
+
+
+                    item.classList.add(
+                        'active'
+                    );
+
+
+                }
+
+                else if (index < trangThai) {
+
+
+                    item.classList.add(
+                        'passed'
+                    );
+
+
+                }
+
+                else {
+
+
+                    item.classList.add(
+                        'future'
+                    );
+
+                }
+
+            });
+
+        }
+
+
+        /*
+         * Khởi tạo trạng thái khi mở trang
+         */
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            function () {
+
+                capNhatCSSStatus();
+
+            }
+        );
+
+
+    </script>
+
+
 </body>
 
 </html>
