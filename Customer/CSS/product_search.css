@@ -447,11 +447,17 @@ main {
 }
 
 /* ==================================================
-   FILTER SIDEBAR
+   ADVANCED SEARCH SIDEBAR
 ================================================== */
 
 .filter-sidebar {
+  position: sticky;
+
+  top: 20px;
+
   width: 100%;
+
+  padding: 18px;
 
   background: linear-gradient(180deg, #1b1b1b 0%, #161616 100%);
 
@@ -459,17 +465,11 @@ main {
 
   border-radius: 10px;
 
-  padding: 18px;
-
-  position: sticky;
-
-  top: 20px;
-
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
 }
 
 /* ==================================================
-   FILTER HEADER
+   ADVANCED SEARCH HEADER
 ================================================== */
 
 .filter-header {
@@ -493,13 +493,13 @@ main {
 
   gap: 9px;
 
-  font-size: 18px;
-
-  line-height: 1;
-
   color: #fff;
 
+  font-size: 18px;
+
   font-weight: 700;
+
+  line-height: 1;
 }
 
 .filter-header h2 i {
@@ -509,7 +509,7 @@ main {
 }
 
 /* ==================================================
-   FILTER GROUP
+   ADVANCED SEARCH GROUP
 ================================================== */
 
 .filter-group {
@@ -520,17 +520,13 @@ main {
   border-bottom: 1px solid #2d2d2d;
 }
 
-.filter-group:last-child {
+.filter-group:last-of-type {
   padding-bottom: 2px;
 
-  margin-bottom: 0;
+  margin-bottom: 18px;
 
   border-bottom: none;
 }
-
-/* ==================================================
-   FILTER GROUP TITLE
-================================================== */
 
 .filter-group h3 {
   display: flex;
@@ -548,6 +544,92 @@ main {
   font-weight: 700;
 
   line-height: 1.3;
+}
+
+/* ==================================================
+   SEARCH INPUT
+================================================== */
+
+.advanced-search {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.advanced-search input[type="text"] {
+  width: 100%;
+
+  height: 40px;
+
+  padding: 0 12px;
+
+  border: 1px solid #373737;
+
+  border-radius: 6px;
+
+  outline: none;
+
+  background-color: #111;
+
+  color: #eee;
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.advanced-search input[type="text"]::placeholder {
+  color: #777;
+}
+
+.advanced-search input[type="text"]:focus {
+  background-color: #151515;
+
+  border-color: #e60012;
+}
+
+.advanced-search-button {
+  width: 100%;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border: 1px solid #e60012;
+
+  border-radius: 6px;
+
+  background-color: #e60012;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.advanced-search-button:hover {
+  background-color: #c50010;
+
+  border-color: #c50010;
 }
 
 /* ==================================================
@@ -603,6 +685,8 @@ main {
 
   -webkit-appearance: none;
 
+  position: relative;
+
   width: 17px;
 
   height: 17px;
@@ -618,8 +702,6 @@ main {
   background-color: #101010;
 
   cursor: pointer;
-
-  position: relative;
 
   transition:
     border-color 0.2s ease,
@@ -641,9 +723,9 @@ main {
 
   position: absolute;
 
-  left: 50%;
-
   top: 50%;
+
+  left: 50%;
 
   transform: translate(-50%, -53%);
 
@@ -667,10 +749,78 @@ main {
 }
 
 /* ==================================================
-   PRICE FILTER
+   PRICE RANGE
 ================================================== */
 
-.price-filter {
+.price-range {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.price-range input {
+  width: 100%;
+
+  min-width: 0;
+
+  height: 38px;
+
+  padding: 0 9px;
+
+  border: 1px solid #373737;
+
+  border-radius: 6px;
+
+  outline: none;
+
+  background-color: #111;
+
+  color: #eee;
+
+  font-size: 12px;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.price-range input::placeholder {
+  color: #777;
+}
+
+.price-range input:focus {
+  background-color: #151515;
+
+  border-color: #e60012;
+}
+
+.price-range span {
+  color: #777;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+/* ==================================================
+   ADVANCED SEARCH ACTIONS
+================================================== */
+
+.advanced-search-actions {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.advanced-search-submit {
   width: 100%;
 
   min-height: 38px;
@@ -679,41 +829,70 @@ main {
 
   align-items: center;
 
-  padding: 0 12px;
+  justify-content: center;
 
-  margin-bottom: 8px;
+  gap: 7px;
 
-  border: 1px solid #373737;
+  border: 1px solid #e60012;
 
   border-radius: 6px;
 
-  background-color: #111;
+  background-color: #e60012;
 
-  color: #aaa;
+  color: white;
 
   font-size: 13px;
 
-  line-height: 1;
+  font-weight: bold;
+
+  cursor: pointer;
 
   transition:
-    border-color 0.2s ease,
     background-color 0.2s ease,
-    color 0.2s ease,
-    padding-left 0.2s ease;
+    border-color 0.2s ease;
 }
 
-.price-filter:last-child {
-  margin-bottom: 0;
+.advanced-search-submit:hover {
+  background-color: #c50010;
+
+  border-color: #c50010;
 }
 
-.price-filter:hover {
-  border-color: #e60012;
+.advanced-search-reset {
+  width: 100%;
 
-  background-color: #241010;
+  min-height: 34px;
 
-  color: #fff;
+  display: flex;
 
-  padding-left: 15px;
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 6px;
+
+  background-color: transparent;
+
+  color: #999;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.advanced-search-reset:hover {
+  background-color: #242424;
+
+  border-color: #555;
+
+  color: white;
 }
 
 /* ==================================================
@@ -1287,145 +1466,50 @@ main {
   }
 }
 /* ==================================================
-   CART SUCCESS NOTIFICATION
+   THÔNG BÁO THÊM GIỎ HÀNG (giống product-detail)
 ================================================== */
 
-.cart-success-toggle {
-  display: none;
-}
-
-.cart-success-message {
+.toast-notification {
   position: fixed;
-
-  top: 95px;
-  right: 30px;
-
-  width: 350px;
-  min-height: 75px;
-
-  display: none;
-
+  top: 20px;
+  right: -350px; /* Ẩn ngoài màn hình */
+  display: flex;
   align-items: center;
-
-  gap: 14px;
-
-  padding: 15px 18px;
-
-  background-color: #181818;
-
-  border: 1px solid #333;
-
-  border-left: 4px solid #e60012;
-
-  border-radius: 6px;
-
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-
+  gap: 12px;
+  background-color: #10b981; /* Màu xanh lá tươi */
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   z-index: 9999;
+  font-size: 15px;
+  font-weight: 500;
+  transition:
+    right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* HIỂN THỊ THÔNG BÁO */
-
-.cart-success-toggle:checked ~ .cart-success-message {
-  display: flex;
-
-  animation: cartSuccessShow 0.3s ease;
+.toast-notification.show {
+  right: 20px; /* Trượt vào màn hình */
+  opacity: 1;
 }
 
-/* ICON */
-
-.cart-success-icon {
-  width: 35px;
-
-  height: 35px;
-
-  min-width: 35px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 50%;
-
-  background-color: #e60012;
-
-  color: white;
-
-  font-size: 20px;
-
-  font-weight: bold;
-}
-
-/* NỘI DUNG */
-
-.cart-success-text {
-  flex: 1;
-
   display: flex;
-
-  flex-direction: column;
-
-  gap: 5px;
-}
-
-.cart-success-text strong {
-  color: white;
-
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
   font-size: 14px;
 }
 
-.cart-success-text span {
-  color: #999;
-
-  font-size: 12px;
-
+.toast-message {
   line-height: 1.4;
-}
-
-/* NÚT ĐÓNG */
-
-.cart-success-close {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  width: 25px;
-
-  height: 25px;
-
-  color: #888;
-
-  font-size: 22px;
-
-  line-height: 1;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.cart-success-close:hover {
-  color: #e60012;
-}
-
-/* ANIMATION */
-
-@keyframes cartSuccessShow {
-  from {
-    opacity: 0;
-
-    transform: translateX(30px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateX(0);
-  }
 }
 
 /* ==================================================
@@ -1484,13 +1568,4 @@ main {
 ================================================== */
 
 @media (max-width: 700px) {
-  .cart-success-message {
-    top: 85px;
-
-    right: 15px;
-
-    left: 15px;
-
-    width: auto;
-  }
 }

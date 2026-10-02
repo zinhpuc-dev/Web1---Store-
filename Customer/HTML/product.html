@@ -21,13 +21,6 @@
 <body>
 
     <!-- ==================================================
-         CART SUCCESS TOGGLE
-    ================================================== -->
-
-    <input type="checkbox" id="cart-success" class="cart-success-toggle">
-
-
-    <!-- ==================================================
          HEADER
     ================================================== -->
 
@@ -67,7 +60,7 @@
 
         <form class="search" action="product_search.html" method="get">
 
-            <input type="text" name="q" placeholder="Tìm sản phẩm..." required>
+            <input type="text" name="q" placeholder="Tìm sản phẩm...">
 
             <button type="submit">
 
@@ -300,20 +293,50 @@
                  SIDEBAR
             ================================================== -->
 
-            <aside class="filter-sidebar">
+            <form class="filter-sidebar" action="product_search.html" method="get">
 
-
-                <!-- FILTER HEADER -->
+                <!-- ==================================================
+                     TÌM KIẾM NÂNG CAO
+                ================================================== -->
 
                 <div class="filter-header">
 
                     <h2>
 
-                        <i class="fa-solid fa-filter"></i>
+                        <i class="fa-solid fa-sliders"></i>
 
-                        Bộ lọc
+                        Tìm kiếm nâng cao
 
                     </h2>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     THANH TÌM KIẾM
+                ================================================== -->
+
+                <div class="filter-group">
+
+                    <h3>
+                        Từ khóa
+                    </h3>
+
+
+                    <div class="advanced-search">
+
+                        <input type="text" name="q" placeholder="Nhập tên sản phẩm...">
+
+                        <button type="submit" class="advanced-search-button">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            Tìm kiếm
+
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -377,90 +400,19 @@
                     </h3>
 
 
-                    <a href="product_search.html?q=duoi-1-trieu" class="price-filter">
+                    <div class="price-range">
 
-                        Dưới 1 triệu
+                        <input type="number" name="min_price" min="0" placeholder="Từ (VNĐ)">
 
-                    </a>
-
-
-                    <a href="product_search.html?q=1-3-trieu" class="price-filter">
-
-                        1 - 3 triệu
-
-                    </a>
-
-
-                    <a href="product_search.html?q=3-5-trieu" class="price-filter">
-
-                        3 - 5 triệu
-
-                    </a>
-
-
-                    <a href="product_search.html?q=tren-5-trieu" class="price-filter">
-
-                        Trên 5 triệu
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- ==================================================
-                     DÒNG VỢT
-                ================================================== -->
-
-                <div class="filter-group">
-
-                    <h3>
-                        Dòng vợt
-                    </h3>
-
-
-                    <label class="filter-option">
-
-                        <input type="checkbox" name="line" value="tour">
 
                         <span>
-                            Tour
+                            -
                         </span>
 
-                    </label>
 
+                        <input type="number" name="max_price" min="0" placeholder="Đến (VNĐ)">
 
-                    <label class="filter-option">
-
-                        <input type="checkbox" name="line" value="game">
-
-                        <span>
-                            Game
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input type="checkbox" name="line" value="play">
-
-                        <span>
-                            Play
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input type="checkbox" name="line" value="pro">
-
-                        <span>
-                            Pro
-                        </span>
-
-                    </label>
+                    </div>
 
                 </div>
 
@@ -489,7 +441,32 @@
 
                 </div>
 
-            </aside>
+
+
+                <!-- ==================================================
+                     BUTTON
+                ================================================== -->
+
+                <div class="advanced-search-actions">
+
+                    <button type="submit" class="advanced-search-submit">
+
+                        <i class="fa-solid fa-filter"></i>
+
+                        Áp dụng tìm kiếm
+
+                    </button>
+
+
+                    <a href="product.html" class="advanced-search-reset">
+
+                        Xóa bộ lọc
+
+                    </a>
+
+                </div>
+
+            </form>
 
 
 
@@ -594,9 +571,9 @@
                             </button>
 
 
-                            <label for="cart-success" class="cart-btn">
+                            <button type="button" class="cart-btn add-cart-btn">
                                 Thêm vào giỏ hàng
-                            </label>
+                            </button>
 
                         </article>
 
@@ -637,9 +614,9 @@
                             </button>
 
 
-                            <label for="cart-success" class="cart-btn">
+                            <button type="button" class="cart-btn add-cart-btn">
                                 Thêm vào giỏ hàng
-                            </label>
+                            </button>
 
                         </article>
 
@@ -718,9 +695,9 @@
                             </button>
 
 
-                            <label for="cart-success" class="cart-btn">
+                            <button type="button" class="cart-btn add-cart-btn">
                                 Thêm vào giỏ hàng
-                            </label>
+                            </button>
 
                         </article>
 
@@ -770,9 +747,9 @@
                             </button>
 
 
-                            <label for="cart-success" class="cart-btn">
+                            <button type="button" class="cart-btn add-cart-btn">
                                 Thêm vào giỏ hàng
-                            </label>
+                            </button>
 
                         </article>
 
@@ -813,9 +790,9 @@
                             </button>
 
 
-                            <label for="cart-success" class="cart-btn">
+                            <button type="button" class="cart-btn add-cart-btn">
                                 Thêm vào giỏ hàng
-                            </label>
+                            </button>
 
                         </article>
 
@@ -856,9 +833,9 @@
                             </button>
 
 
-                            <label for="cart-success" class="cart-btn">
+                            <button type="button" class="cart-btn add-cart-btn">
                                 Thêm vào giỏ hàng
-                            </label>
+                            </button>
 
                         </article>
 
@@ -939,40 +916,6 @@
         </div>
 
 
-        <div class="footer-column">
-
-            <h3>
-                CHÍNH SÁCH
-            </h3>
-
-            <ul>
-
-                <li>
-
-                    <a href="policy.html">
-                        Chính sách bảo hành
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="policy.html">
-                        Chính sách đổi trả
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="policy.html">
-                        Chính sách giao hàng
-                    </a>
-
-                </li>
-
-            </ul>
-
         </div>
 
 
@@ -997,37 +940,23 @@
 
 
     <!-- ==================================================
-         CART SUCCESS NOTIFICATION
-    ================================================== -->
+     CART SUCCESS NOTIFICATION
+================================================== -->
 
-    <div class="cart-success-message">
+    <!-- ================= THÔNG BÁO ================= -->
 
-        <div class="cart-success-icon">
+    <div id="toastNotification" class="toast-notification">
+        <div class="toast-icon">
             ✓
         </div>
-
-        <div class="cart-success-text">
-
-            <strong>
-                Thêm vào giỏ hàng thành công!
-            </strong>
-
-            <span>
-                Sản phẩm đã được thêm vào giỏ hàng.
-            </span>
-
+        <div class="toast-message">
+            Đã thêm sản phẩm vào giỏ hàng!
         </div>
-
-        <label for="cart-success" class="cart-success-close">
-            ×
-        </label>
-
     </div>
 
 
-
     <script src="../JS/login.js"></script>
-
+    <script src="../JS/cart.js"></script>
 </body>
 
 </html>
