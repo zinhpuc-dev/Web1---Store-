@@ -4,7 +4,6 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Thống kê khách hàng - Admin</title>
@@ -15,23 +14,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-
     <style>
         /* ==================================================
            BỘ THỐNG KÊ
         ================================================== */
 
         .statistics-filter {
-
             margin-bottom: 20px;
-
         }
 
-
         .statistics-filter .form-row {
-
             align-items: flex-end;
-
         }
 
 
@@ -40,141 +33,33 @@
         ================================================== */
 
         .customer-rank {
-
             width: 45px;
-
             height: 45px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             border-radius: 50%;
-
             background: #333;
-
             color: #fff;
-
             font-weight: 600;
-
         }
-
 
         .customer-name {
-
             font-weight: 600;
-
             color: #fff;
-
         }
-
 
         .customer-phone {
-
             margin-top: 4px;
-
             color: #888;
-
             font-size: 12px;
-
         }
-
 
         .total-purchase {
-
             color: #e60012;
-
             font-size: 16px;
-
             font-weight: 700;
-
             white-space: nowrap;
-
-        }
-
-
-        /* ==================================================
-           DANH SÁCH ĐƠN HÀNG
-        ================================================== */
-
-        .order-list {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 6px;
-
-        }
-
-
-        .order-item {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            padding: 8px 10px;
-
-            background: #181818;
-
-            border: 1px solid #333;
-
-            border-radius: 5px;
-
-        }
-
-
-        .order-info {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 3px;
-
-        }
-
-
-        .order-code {
-
-            color: #fff;
-
-            font-weight: 600;
-
-        }
-
-
-        .order-date {
-
-            color: #888;
-
-            font-size: 12px;
-
-        }
-
-
-        .order-money {
-
-            color: #ddd;
-
-            font-weight: 600;
-
-            white-space: nowrap;
-
-        }
-
-
-        .order-detail-btn {
-
-            white-space: nowrap;
-
         }
 
 
@@ -183,22 +68,112 @@
         ================================================== */
 
         .customer-box {
-
             display: flex;
-
             align-items: center;
-
             gap: 12px;
+        }
 
+        .customer-info {
+            display: flex;
+            flex-direction: column;
         }
 
 
-        .customer-info {
+        /* ==================================================
+           SỐ LƯỢNG ĐƠN HÀNG
+        ================================================== */
 
+        .order-toggle {
+            display: none;
+        }
+
+        .order-count-box {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 12px;
+            background: #181818;
+            border: 1px solid #333;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
 
+        .order-count {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .order-toggle-label {
+            display: inline-block;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .order-toggle-label::after {
+            content: "Xem đơn hàng";
+        }
+
+        .order-toggle:checked+.order-count-box .order-toggle-label::after {
+            content: "Ẩn đơn hàng";
+        }
+
+
+        /* ==================================================
+           DANH SÁCH ĐƠN HÀNG
+        ================================================== */
+
+        .order-list {
+            display: none;
             flex-direction: column;
+            gap: 6px;
+        }
 
+        .order-toggle:checked+.order-count-box+.order-list {
+            display: flex;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 8px 10px;
+            background: #181818;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+
+        .order-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .order-code {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .order-date {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .order-money {
+            color: #ddd;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .order-detail-btn {
+            white-space: nowrap;
+        }
+
+        .static-detail-btn {
+            display: inline-block;
+            white-space: nowrap;
+            cursor: default;
         }
 
 
@@ -207,39 +182,23 @@
         ================================================== */
 
         .statistics-summary {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             margin-bottom: 15px;
-
             padding: 12px 15px;
-
             background: #181818;
-
             border: 1px solid #333;
-
             border-radius: 5px;
-
         }
-
 
         .statistics-summary span {
-
             color: #aaa;
-
             font-size: 13px;
-
         }
 
-
         .statistics-summary strong {
-
             color: #fff;
-
         }
 
 
@@ -250,22 +209,19 @@
         @media (max-width: 768px) {
 
             .order-item {
-
                 flex-direction: column;
-
                 align-items: flex-start;
-
             }
 
+            .order-count-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
             .statistics-summary {
-
                 flex-direction: column;
-
                 align-items: flex-start;
-
                 gap: 5px;
-
             }
 
         }
@@ -283,7 +239,6 @@
 
     <header class="admin-header">
 
-
         <a href="dashboard.html" class="logo">
 
             <img src="../HinhAnh/Logo_hinh.jpg" alt="Logo">
@@ -296,12 +251,9 @@
         <div class="user-info">
 
             <span>
-
                 Xin chào,
                 <strong>Admin</strong>
-
             </span>
-
 
             <a href="login.html">
 
@@ -315,6 +267,11 @@
 
     </header>
 
+
+
+    <!-- ==================================================
+         ADMIN LAYOUT
+    ================================================== -->
 
     <div class="admin-layout">
 
@@ -331,70 +288,62 @@
 
                 <li>
                     <a href="dashboard.html">
+
                         <i class="fa-solid fa-gauge"></i>
+
                         Dashboard
+
                     </a>
                 </li>
+
 
                 <li>
                     <a href="users.html">
+
                         <i class="fa-solid fa-users"></i>
+
                         Quản lý người dùng
+
                     </a>
                 </li>
 
-                <li>
-                    <a href="categories.html">
-                        <i class="fa-solid fa-tags"></i>
-                        Quản lý loại SP
-                    </a>
-                </li>
 
                 <li>
                     <a href="products.html">
+
                         <i class="fa-solid fa-box"></i>
+
                         Quản lý sản phẩm
+
                     </a>
                 </li>
 
-                <li>
-                    <a href="imports.html">
-                        <i class="fa-solid fa-truck"></i>
-                        Quản lý nhập hàng
-                    </a>
-                </li>
-
-                <li>
-                    <a href="prices.html">
-                        <i class="fa-solid fa-dollar-sign"></i>
-                        Quản lý giá bán
-                    </a>
-                </li>
 
                 <li>
                     <a href="orders.html">
+
                         <i class="fa-solid fa-file-invoice"></i>
+
                         Quản lý đơn hàng
+
                     </a>
                 </li>
 
-                <li>
-                    <a href="inventory.html">
-                        <i class="fa-solid fa-warehouse"></i>
-                        Quản lý tồn kho
-                    </a>
-                </li>
 
                 <li>
                     <a href="statistics.html">
+
                         <i class="fa-solid fa-chart-column"></i>
+
                         Thống kê
+
                     </a>
                 </li>
 
             </ul>
 
         </aside>
+
 
 
         <!-- ==================================================
@@ -407,9 +356,11 @@
             <h1>
 
                 Thống kê
+
                 <span>khách hàng</span>
 
             </h1>
+
 
 
             <!-- ==================================================
@@ -417,7 +368,6 @@
             ================================================== -->
 
             <div class="card statistics-filter">
-
 
                 <h3>
 
@@ -454,7 +404,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -480,10 +429,10 @@
 
                     </button>
 
-
                 </div>
 
             </div>
+
 
 
             <!-- ==================================================
@@ -492,9 +441,7 @@
 
             <div class="card">
 
-
                 <div class="statistics-summary">
-
 
                     <span>
 
@@ -517,8 +464,8 @@
 
                     </span>
 
-
                 </div>
+
 
 
                 <!-- ==================================================
@@ -527,9 +474,7 @@
 
                 <div class="table-wrap">
 
-
                     <table>
-
 
                         <thead>
 
@@ -544,7 +489,7 @@
                                 </th>
 
                                 <th>
-                                    Các đơn hàng
+                                    Đơn hàng
                                 </th>
 
                                 <th>
@@ -559,12 +504,12 @@
                         <tbody>
 
 
+
                             <!-- ==================================================
                                  KHÁCH HÀNG 1
                             ================================================== -->
 
                             <tr>
-
 
                                 <td>
 
@@ -577,12 +522,9 @@
 
                                 <td>
 
-
                                     <div class="customer-box">
 
-
                                         <div class="customer-info">
-
 
                                             <div class="customer-name">
 
@@ -590,18 +532,15 @@
 
                                             </div>
 
-
                                             <div class="customer-phone">
 
                                                 0912345678
 
                                             </div>
 
-
                                         </div>
 
                                     </div>
-
 
                                 </td>
 
@@ -609,11 +548,35 @@
                                 <td>
 
 
+                                    <!-- CHECKBOX CSS -->
+                                    <input type="checkbox" id="orders-customer-1" class="order-toggle">
+
+
+                                    <!-- SỐ LƯỢNG ĐƠN -->
+
+                                    <div class="order-count-box">
+
+                                        <span class="order-count">
+
+                                            3 đơn hàng
+
+                                        </span>
+
+
+                                        <label for="orders-customer-1"
+                                            class="btn btn-secondary btn-sm order-toggle-label">
+
+                                        </label>
+
+                                    </div>
+
+
+                                    <!-- CHI TIẾT ĐƠN -->
+
                                     <div class="order-list">
 
 
                                         <div class="order-item">
-
 
                                             <div class="order-info">
 
@@ -634,17 +597,15 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
 
 
-                                        <div class="order-item">
 
+                                        <div class="order-item">
 
                                             <div class="order-info">
 
@@ -665,17 +626,15 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
 
 
-                                        <div class="order-item">
 
+                                        <div class="order-item">
 
                                             <div class="order-info">
 
@@ -696,10 +655,8 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
@@ -719,8 +676,8 @@
 
                                 </td>
 
-
                             </tr>
+
 
 
                             <!-- ==================================================
@@ -728,7 +685,6 @@
                             ================================================== -->
 
                             <tr>
-
 
                                 <td>
 
@@ -741,12 +697,9 @@
 
                                 <td>
 
-
                                     <div class="customer-box">
 
-
                                         <div class="customer-info">
-
 
                                             <div class="customer-name">
 
@@ -754,18 +707,15 @@
 
                                             </div>
 
-
                                             <div class="customer-phone">
 
                                                 0901234567
 
                                             </div>
 
-
                                         </div>
 
                                     </div>
-
 
                                 </td>
 
@@ -773,11 +723,30 @@
                                 <td>
 
 
+                                    <input type="checkbox" id="orders-customer-2" class="order-toggle">
+
+
+                                    <div class="order-count-box">
+
+                                        <span class="order-count">
+
+                                            2 đơn hàng
+
+                                        </span>
+
+
+                                        <label for="orders-customer-2"
+                                            class="btn btn-secondary btn-sm order-toggle-label">
+
+                                        </label>
+
+                                    </div>
+
+
                                     <div class="order-list">
 
 
                                         <div class="order-item">
-
 
                                             <div class="order-info">
 
@@ -798,17 +767,15 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
 
 
-                                        <div class="order-item">
 
+                                        <div class="order-item">
 
                                             <div class="order-info">
 
@@ -829,14 +796,11 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
-
 
                                     </div>
 
@@ -853,8 +817,8 @@
 
                                 </td>
 
-
                             </tr>
+
 
 
                             <!-- ==================================================
@@ -862,7 +826,6 @@
                             ================================================== -->
 
                             <tr>
-
 
                                 <td>
 
@@ -875,12 +838,9 @@
 
                                 <td>
 
-
                                     <div class="customer-box">
 
-
                                         <div class="customer-info">
-
 
                                             <div class="customer-name">
 
@@ -888,18 +848,15 @@
 
                                             </div>
 
-
                                             <div class="customer-phone">
 
                                                 0987654321
 
                                             </div>
 
-
                                         </div>
 
                                     </div>
-
 
                                 </td>
 
@@ -907,11 +864,30 @@
                                 <td>
 
 
+                                    <input type="checkbox" id="orders-customer-3" class="order-toggle">
+
+
+                                    <div class="order-count-box">
+
+                                        <span class="order-count">
+
+                                            3 đơn hàng
+
+                                        </span>
+
+
+                                        <label for="orders-customer-3"
+                                            class="btn btn-secondary btn-sm order-toggle-label">
+
+                                        </label>
+
+                                    </div>
+
+
                                     <div class="order-list">
 
 
                                         <div class="order-item">
-
 
                                             <div class="order-info">
 
@@ -932,17 +908,15 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
 
 
-                                        <div class="order-item">
 
+                                        <div class="order-item">
 
                                             <div class="order-info">
 
@@ -963,17 +937,15 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
 
 
-                                        <div class="order-item">
 
+                                        <div class="order-item">
 
                                             <div class="order-info">
 
@@ -994,10 +966,8 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
@@ -1017,8 +987,8 @@
 
                                 </td>
 
-
                             </tr>
+
 
 
                             <!-- ==================================================
@@ -1026,7 +996,6 @@
                             ================================================== -->
 
                             <tr>
-
 
                                 <td>
 
@@ -1039,12 +1008,9 @@
 
                                 <td>
 
-
                                     <div class="customer-box">
 
-
                                         <div class="customer-info">
-
 
                                             <div class="customer-name">
 
@@ -1052,18 +1018,15 @@
 
                                             </div>
 
-
                                             <div class="customer-phone">
 
                                                 0934567890
 
                                             </div>
 
-
                                         </div>
 
                                     </div>
-
 
                                 </td>
 
@@ -1071,11 +1034,30 @@
                                 <td>
 
 
+                                    <input type="checkbox" id="orders-customer-4" class="order-toggle">
+
+
+                                    <div class="order-count-box">
+
+                                        <span class="order-count">
+
+                                            2 đơn hàng
+
+                                        </span>
+
+
+                                        <label for="orders-customer-4"
+                                            class="btn btn-secondary btn-sm order-toggle-label">
+
+                                        </label>
+
+                                    </div>
+
+
                                     <div class="order-list">
 
 
                                         <div class="order-item">
-
 
                                             <div class="order-info">
 
@@ -1096,17 +1078,15 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
 
 
-                                        <div class="order-item">
 
+                                        <div class="order-item">
 
                                             <div class="order-info">
 
@@ -1127,10 +1107,8 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
@@ -1150,8 +1128,8 @@
 
                                 </td>
 
-
                             </tr>
+
 
 
                             <!-- ==================================================
@@ -1159,7 +1137,6 @@
                             ================================================== -->
 
                             <tr>
-
 
                                 <td>
 
@@ -1172,12 +1149,9 @@
 
                                 <td>
 
-
                                     <div class="customer-box">
 
-
                                         <div class="customer-info">
-
 
                                             <div class="customer-name">
 
@@ -1185,18 +1159,15 @@
 
                                             </div>
 
-
                                             <div class="customer-phone">
 
                                                 0961234567
 
                                             </div>
 
-
                                         </div>
 
                                     </div>
-
 
                                 </td>
 
@@ -1204,11 +1175,30 @@
                                 <td>
 
 
+                                    <input type="checkbox" id="orders-customer-5" class="order-toggle">
+
+
+                                    <div class="order-count-box">
+
+                                        <span class="order-count">
+
+                                            2 đơn hàng
+
+                                        </span>
+
+
+                                        <label for="orders-customer-5"
+                                            class="btn btn-secondary btn-sm order-toggle-label">
+
+                                        </label>
+
+                                    </div>
+
+
                                     <div class="order-list">
 
 
                                         <div class="order-item">
-
 
                                             <div class="order-info">
 
@@ -1229,17 +1219,15 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
 
 
-                                        <div class="order-item">
 
+                                        <div class="order-item">
 
                                             <div class="order-info">
 
@@ -1260,10 +1248,8 @@
 
 
                                             <a href="order-detail.html"
-                                                class="btn btn-secondary btn-sm order-detail-btn">
-
-                                                Xem chi tiết
-
+                                                class="btn btn-secondary btn-sm static-detail-btn">
+                                                Chi tiết đơn hàng
                                             </a>
 
                                         </div>
@@ -1282,7 +1268,6 @@
                                     </div>
 
                                 </td>
-
 
                             </tr>
 

@@ -133,13 +133,6 @@
                 </li>
 
                 <li>
-                    <a href="categories.html">
-                        <i class="fa-solid fa-tags"></i>
-                        Quản lý loại SP
-                    </a>
-                </li>
-
-                <li>
                     <a href="products.html">
                         <i class="fa-solid fa-box"></i>
                         Quản lý sản phẩm
@@ -147,30 +140,9 @@
                 </li>
 
                 <li>
-                    <a href="imports.html">
-                        <i class="fa-solid fa-truck"></i>
-                        Quản lý nhập hàng
-                    </a>
-                </li>
-
-                <li>
-                    <a href="prices.html">
-                        <i class="fa-solid fa-dollar-sign"></i>
-                        Quản lý giá bán
-                    </a>
-                </li>
-
-                <li>
                     <a href="orders.html">
                         <i class="fa-solid fa-file-invoice"></i>
                         Quản lý đơn hàng
-                    </a>
-                </li>
-
-                <li>
-                    <a href="inventory.html">
-                        <i class="fa-solid fa-warehouse"></i>
-                        Quản lý tồn kho
                     </a>
                 </li>
 
@@ -620,14 +592,17 @@
 
             const file = this.files[0];
 
-            const preview = document.getElementById('imagePreview');
+            const preview =
+                document.getElementById('imagePreview');
 
-            const previewImage = document.getElementById('previewImage');
+            const previewImage =
+                document.getElementById('previewImage');
 
 
             if (file) {
 
-                previewImage.src = URL.createObjectURL(file);
+                previewImage.src =
+                    URL.createObjectURL(file);
 
                 preview.classList.add('show');
 
@@ -647,7 +622,8 @@
 
             document.getElementById('tenSP').value = '';
 
-            document.getElementById('loaiSP').value = 'Vợt Yonex';
+            document.getElementById('loaiSP').value =
+                'Vợt Yonex';
 
             document.getElementById('moTa').value = '';
 
@@ -655,7 +631,8 @@
 
             document.getElementById('previewImage').src = '';
 
-            document.getElementById('imagePreview').classList.remove('show');
+            document.getElementById('imagePreview')
+                .classList.remove('show');
 
         }
 
@@ -677,13 +654,15 @@
 
 
             // Hiển thị form
-            document.getElementById('formPanel').classList.add('show');
+            document.getElementById('formPanel')
+                .classList.add('show');
 
 
             // Cuộn đến form
-            document.getElementById('formPanel').scrollIntoView({
-                behavior: 'smooth'
-            });
+            document.getElementById('formPanel')
+                .scrollIntoView({
+                    behavior: 'smooth'
+                });
 
         }
 
@@ -693,7 +672,13 @@
            SỬA SẢN PHẨM
         ========================= */
 
-        function showEditForm(ma, ten, loai, mota, image) {
+        function showEditForm(
+            ma,
+            ten,
+            loai,
+            mota,
+            image
+        ) {
 
             document.getElementById('formTitle').textContent =
                 'Sửa sản phẩm';
@@ -724,17 +709,20 @@
             document.getElementById('previewImage').src =
                 image;
 
-            document.getElementById('imagePreview').classList.add('show');
+            document.getElementById('imagePreview')
+                .classList.add('show');
 
 
             // Hiển thị form
-            document.getElementById('formPanel').classList.add('show');
+            document.getElementById('formPanel')
+                .classList.add('show');
 
 
             // Cuộn đến form
-            document.getElementById('formPanel').scrollIntoView({
-                behavior: 'smooth'
-            });
+            document.getElementById('formPanel')
+                .scrollIntoView({
+                    behavior: 'smooth'
+                });
 
         }
 
@@ -747,7 +735,8 @@
         function hideForm() {
 
             // Ẩn form
-            document.getElementById('formPanel').classList.remove('show');
+            document.getElementById('formPanel')
+                .classList.remove('show');
 
 
             // Xóa toàn bộ dữ liệu
@@ -764,7 +753,8 @@
         function saveForm() {
 
             // Đóng form
-            document.getElementById('formPanel').classList.remove('show');
+            document.getElementById('formPanel')
+                .classList.remove('show');
 
 
             // Xóa hình preview và dữ liệu cũ
@@ -781,156 +771,116 @@
         function deleteProduct(button, maSP) {
 
             /*
-             * Hỏi trạng thái sản phẩm.
+             * OK = Sản phẩm chưa bán
+             *       -> thông báo đã xóa
              *
-             * Nhập 1 = Đã bán
-             * Nhập 2 = Chưa bán
-             * Cancel = Hủy thao tác
+             * Cancel = Sản phẩm đã bán
+             *          -> chỉ ẩn sản phẩm
              */
 
-            const luaChon = prompt(
+            const xacNhan = confirm(
 
                 'Sản phẩm ' + maSP + '\n\n' +
 
-                'Nhập 1: Sản phẩm đã bán ra\n' +
+                'Nếu sản phẩm CHƯA BÁN, bấm OK để xóa.\n' +
 
-                'Nhập 2: Sản phẩm chưa bán ra\n\n' +
-
-                'Bấm Cancel: Hủy thao tác'
+                'Nếu sản phẩm ĐÃ BÁN, bấm Cancel để ẩn sản phẩm.'
 
             );
 
 
             /*
              * =========================
-             * CANCEL
+             * OK = CHƯA BÁN
              * =========================
              *
-             * Không làm bất kỳ thay đổi nào.
-             */
-
-            if (luaChon === null) {
-
-                return;
-
-            }
-
-
-
-            /*
-             * =========================
-             * ĐÃ BÁN
-             * =========================
+             * Chỉ thông báo.
              *
-             * Sản phẩm đã bán thì không xóa.
-             * Chỉ chuyển sang trạng thái Ẩn.
+             * KHÔNG xóa dòng sản phẩm
+             * vì đây là website HTML tĩnh.
              */
 
-            if (luaChon === '1') {
-
-                const row = button.closest('tr');
-
-                const badge = row.querySelector('.badge');
-
-
-                // Chuyển trạng thái
-                badge.textContent = 'Ẩn';
-
-                badge.classList.remove('badge-success');
-
-                badge.classList.add('badge-danger');
-
-
-                // Đổi nút Xóa thành Hiện
-                button.textContent = 'Hiện';
-
-                button.classList.remove('btn-danger');
-
-                button.classList.add('btn-primary');
-
-
-                // Đổi chức năng nút
-                button.onclick = function () {
-
-                    showProduct(this, maSP);
-
-                };
-
-
-                return;
-
-            }
-
-
-
-            /*
-             * =========================
-             * CHƯA BÁN
-             * =========================
-             *
-             * Chỉ hỏi xác nhận.
-             */
-
-            if (luaChon === '2') {
-
-                const xacNhan = confirm(
-
-                    'Sản phẩm ' + maSP +
-
-                    ' chưa được bán ra.\n\n' +
-
-                    'Bạn có chắc chắn muốn xóa sản phẩm này không?'
-
-                );
-
-
-                /*
-                 * Cancel -> không làm gì
-                 */
-
-                if (!xacNhan) {
-
-                    return;
-
-                }
-
-
-                /*
-                 * OK -> chỉ mô phỏng xác nhận xóa.
-                 *
-                 * Không xóa dòng sản phẩm.
-                 * Không display:none.
-                 * Không xóa dữ liệu thật.
-                 */
+            if (xacNhan) {
 
                 alert(
 
-                    'Đã xác nhận xóa sản phẩm ' + maSP +
-
+                    'Đã xóa sản phẩm ' +
+                    maSP +
                     '.\n\n' +
 
-                    'Đây chỉ là thao tác mô phỏng trên HTML tĩnh.'
+                    'Đây chỉ là thông báo mô phỏng trên HTML tĩnh.'
 
                 );
-
 
                 return;
 
             }
 
 
-
             /*
              * =========================
-             * NHẬP SAI
+             * CANCEL = ĐÃ BÁN
              * =========================
+             *
+             * Không xóa sản phẩm.
+             *
+             * Chỉ đổi trạng thái:
+             *
+             * Hiện -> Ẩn
+             * badge xanh -> badge đỏ
+             * Xóa -> Hiện
              */
 
-            alert(
+            const row =
+                button.closest('tr');
 
-                'Vui lòng nhập 1 hoặc 2.'
+            const badge =
+                row.querySelector('.badge');
 
+
+            /*
+             * Đổi trạng thái
+             */
+
+            badge.textContent = 'Ẩn';
+
+            badge.classList.remove(
+                'badge-success'
             );
+
+            badge.classList.add(
+                'badge-danger'
+            );
+
+
+            /*
+             * Đổi nút Xóa -> Hiện
+             */
+
+            button.textContent = 'Hiện';
+
+            button.classList.remove(
+                'btn-danger'
+            );
+
+            button.classList.add(
+                'btn-primary'
+            );
+
+
+            /*
+             * Đổi chức năng nút
+             * để có thể hiện lại sản phẩm.
+             */
+
+            button.onclick = function () {
+
+                showProduct(
+                    this,
+                    maSP
+                );
+
+            };
 
         }
 
@@ -940,33 +890,50 @@
            HIỆN LẠI SẢN PHẨM
         ========================= */
 
-        function showProduct(button, maSP) {
+        function showProduct(
+            button,
+            maSP
+        ) {
 
-            const row = button.closest('tr');
+            const row =
+                button.closest('tr');
 
-            const badge = row.querySelector('.badge');
+            const badge =
+                row.querySelector('.badge');
 
 
             /*
-             * Chuyển trạng thái Ẩn -> Hiện
+             * =========================
+             * CHUYỂN ẨN -> HIỆN
+             * =========================
              */
 
             badge.textContent = 'Hiện';
 
-            badge.classList.remove('badge-danger');
+            badge.classList.remove(
+                'badge-danger'
+            );
 
-            badge.classList.add('badge-success');
+            badge.classList.add(
+                'badge-success'
+            );
 
 
             /*
-             * Đổi nút Hiện -> Xóa
+             * =========================
+             * ĐỔI NÚT HIỆN -> XÓA
+             * =========================
              */
 
             button.textContent = 'Xóa';
 
-            button.classList.remove('btn-primary');
+            button.classList.remove(
+                'btn-primary'
+            );
 
-            button.classList.add('btn-danger');
+            button.classList.add(
+                'btn-danger'
+            );
 
 
             /*
@@ -975,7 +942,10 @@
 
             button.onclick = function () {
 
-                deleteProduct(this, maSP);
+                deleteProduct(
+                    this,
+                    maSP
+                );
 
             };
 
