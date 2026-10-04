@@ -338,55 +338,90 @@ select {
 
   z-index: 1000;
 
-  width: 850px;
+  /* Kích thước menu */
+  width: 220px;
 
+  /* Ẩn mặc định */
   display: none;
 
-  grid-template-columns: repeat(4, 1fr);
+  /* Xếp các thương hiệu theo chiều dọc */
+  grid-template-columns: 1fr;
 
-  gap: 25px;
+  gap: 0;
 
-  padding: 25px;
+  padding: 8px 0;
 
   background-color: #181818;
 
   border: 1px solid #333;
 
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
+
+/* Hiện menu khi rê chuột vào Sản phẩm */
 
 .has-dropdown:hover .mega-menu {
   display: grid;
 }
 
+/* ==================================================
+   MENU COLUMN
+================================================== */
+
+.menu-column {
+  width: 100%;
+
+  padding: 8px 15px 10px;
+}
+
+/* Tên thương hiệu */
+
 .menu-column h3 {
-  margin-bottom: 15px;
+  margin: 0 0 5px;
 
   color: #e60012;
 
-  font-size: 16px;
+  font-size: 15px;
+
+  font-weight: bold;
 }
 
 .menu-column h3 a {
   color: #e60012;
 }
 
+/* ==================================================
+   MENU LIST
+================================================== */
+
 .menu-column ul {
   list-style: none;
+
+  margin: 0;
+
+  padding: 0;
 }
 
 .menu-column li {
-  margin-bottom: 10px;
+  margin: 0;
 }
+
+/* Link "Vợt Yonex", "Vợt Li-Ning", "Vợt Victor" */
 
 .menu-column li a,
 .menu-column > a {
+  display: block;
+
+  padding: 3px 0;
+
   color: #ccc;
 
-  font-size: 14px;
+  font-size: 13px;
 
   transition: color 0.2s ease;
 }
+
+/* Hover */
 
 .menu-column li a:hover,
 .menu-column > a:hover {
