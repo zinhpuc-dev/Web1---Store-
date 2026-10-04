@@ -58,6 +58,43 @@
         .image-input {
             width: 100%;
         }
+
+        /* =========================
+   PHÂN TRANG
+========================= */
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            min-width: 38px;
+            height: 38px;
+            padding: 0 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: #222;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background: #333;
+        }
+
+        .pagination button.active {
+            background: #e60012;
+            border-color: #e60012;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     </style>
 
 </head>
@@ -415,158 +452,538 @@
 
                         <tbody>
 
-
                             <!-- =========================
-                                 SẢN PHẨM 1
-                            ========================= -->
+         SẢN PHẨM 1
+    ========================= -->
 
                             <tr>
 
-                                <td>
-
-                                    SP001
-
-                                </td>
-
+                                <td>SP001</td>
 
                                 <td>
-
                                     <img src="../HinhAnh/100zz.jpg" alt="Yonex Astrox 100ZZ">
-
                                 </td>
 
+                                <td>Yonex Astrox 100ZZ</td>
+
+                                <td>Vợt Yonex</td>
 
                                 <td>
-
-                                    Yonex Astrox 100ZZ
-
-                                </td>
-
-
-                                <td>
-
-                                    Vợt Yonex
-
-                                </td>
-
-
-                                <td>
-
                                     <span class="badge badge-success">
-
                                         Hiện
-
                                     </span>
-
                                 </td>
-
 
                                 <td class="btn-group">
 
-
                                     <button class="btn btn-secondary btn-sm" onclick="showEditForm(
-                                            'SP001',
-                                            'Yonex Astrox 100ZZ',
-                                            'Vợt Yonex',
-                                            'Vợt cầu lông cao cấp, khung cứng, phù hợp người chơi tấn công.',
-                                            '../HinhAnh/100zz.jpg'
-                                        )">
-
+                'SP001',
+                'Yonex Astrox 100ZZ',
+                'Vợt Yonex',
+                'Vợt cầu lông cao cấp, khung cứng, phù hợp người chơi tấn công.',
+                '../HinhAnh/100zz.jpg'
+            )">
                                         Sửa
-
                                     </button>
-
-
 
                                     <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP001')">
-
                                         Xóa
-
                                     </button>
 
                                 </td>
 
                             </tr>
-
 
 
                             <!-- =========================
-                                 SẢN PHẨM 2
-                            ========================= -->
+         SẢN PHẨM 2
+    ========================= -->
 
                             <tr>
 
-                                <td>
-
-                                    SP002
-
-                                </td>
-
+                                <td>SP002</td>
 
                                 <td>
-
                                     <img src="../HinhAnh/thruster-metallic.webp" alt="Victor Thruster Metallic">
-
                                 </td>
 
+                                <td>Victor Thruster Metallic</td>
+
+                                <td>Vợt Victor</td>
 
                                 <td>
-
-                                    Victor Thruster Metallic
-
-                                </td>
-
-
-                                <td>
-
-                                    Vợt Victor
-
-                                </td>
-
-
-                                <td>
-
                                     <span class="badge badge-success">
-
                                         Hiện
-
                                     </span>
-
                                 </td>
-
 
                                 <td class="btn-group">
 
-
                                     <button class="btn btn-secondary btn-sm" onclick="showEditForm(
-                                            'SP002',
-                                            'Victor Thruster Metallic',
-                                            'Vợt Victor',
-                                            'Vợt cân bằng, phù hợp chơi toàn diện.',
-                                            '../HinhAnh/thruster-metallic.webp'
-                                        )">
-
+                'SP002',
+                'Victor Thruster Metallic',
+                'Vợt Victor',
+                'Vợt cân bằng, phù hợp chơi toàn diện.',
+                '../HinhAnh/thruster-metallic.webp'
+            )">
                                         Sửa
-
                                     </button>
 
-
-
                                     <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP002')">
-
                                         Xóa
-
                                     </button>
 
                                 </td>
 
                             </tr>
 
+
+                            <!-- =========================
+         SẢN PHẨM 3
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP003</td>
+
+                                <td>
+                                    <img src="../HinhAnh/100zz.jpg" alt="Yonex Astrox 88D Pro">
+                                </td>
+
+                                <td>Yonex Astrox 88D Pro</td>
+
+                                <td>Vợt Yonex</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP003',
+                'Yonex Astrox 88D Pro',
+                'Vợt Yonex',
+                'Vợt thiên công, phù hợp người chơi có lối đánh mạnh.',
+                '../HinhAnh/100zz.jpg'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP003')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 4
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP004</td>
+
+                                <td>
+                                    <img src="../HinhAnh/thruster-metallic.webp" alt="Victor Thruster Ryuga">
+                                </td>
+
+                                <td>Victor Thruster Ryuga</td>
+
+                                <td>Vợt Victor</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP004',
+                'Victor Thruster Ryuga',
+                'Vợt Victor',
+                'Vợt thiên công với khả năng tấn công mạnh.',
+                '../HinhAnh/thruster-metallic.webp'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP004')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 5
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP005</td>
+
+                                <td>
+                                    <img src="../HinhAnh/100zz.jpg" alt="Li-Ning Axforce 100">
+                                </td>
+
+                                <td>Li-Ning Axforce 100</td>
+
+                                <td>Vợt Li-Ning</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP005',
+                'Li-Ning Axforce 100',
+                'Vợt Li-Ning',
+                'Vợt cao cấp dành cho người chơi thiên công.',
+                '../HinhAnh/100zz.jpg'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP005')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 6
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP006</td>
+
+                                <td>
+                                    <img src="../HinhAnh/thruster-metallic.webp" alt="Victor Auraspeed 100X">
+                                </td>
+
+                                <td>Victor Auraspeed 100X</td>
+
+                                <td>Vợt Victor</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP006',
+                'Victor Auraspeed 100X',
+                'Vợt Victor',
+                'Vợt tốc độ, phù hợp đánh nhanh và phản tạt.',
+                '../HinhAnh/thruster-metallic.webp'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP006')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 7
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP007</td>
+
+                                <td>
+                                    <img src="../HinhAnh/100zz.jpg" alt="Yonex Astrox 77 Pro">
+                                </td>
+
+                                <td>Yonex Astrox 77 Pro</td>
+
+                                <td>Vợt Yonex</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP007',
+                'Yonex Astrox 77 Pro',
+                'Vợt Yonex',
+                'Vợt cân bằng giữa sức mạnh và tốc độ.',
+                '../HinhAnh/100zz.jpg'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP007')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 8
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP008</td>
+
+                                <td>
+                                    <img src="../HinhAnh/thruster-metallic.webp" alt="Victor Thruster K">
+                                </td>
+
+                                <td>Victor Thruster K</td>
+
+                                <td>Vợt Victor</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP008',
+                'Victor Thruster K',
+                'Vợt Victor',
+                'Vợt công thủ toàn diện, dễ kiểm soát.',
+                '../HinhAnh/thruster-metallic.webp'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP008')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 9
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP009</td>
+
+                                <td>
+                                    <img src="../HinhAnh/100zz.jpg" alt="Li-Ning Axforce 80">
+                                </td>
+
+                                <td>Li-Ning Axforce 80</td>
+
+                                <td>Vợt Li-Ning</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP009',
+                'Li-Ning Axforce 80',
+                'Vợt Li-Ning',
+                'Vợt thiên công mạnh mẽ, phù hợp người chơi nâng cao.',
+                '../HinhAnh/100zz.jpg'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP009')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 10
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP010</td>
+
+                                <td>
+                                    <img src="../HinhAnh/thruster-metallic.webp" alt="Victor Auraspeed 90K">
+                                </td>
+
+                                <td>Victor Auraspeed 90K</td>
+
+                                <td>Vợt Victor</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP010',
+                'Victor Auraspeed 90K',
+                'Vợt Victor',
+                'Vợt tốc độ cao, phù hợp đánh phản tạt.',
+                '../HinhAnh/thruster-metallic.webp'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP010')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 11
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP011</td>
+
+                                <td>
+                                    <img src="../HinhAnh/100zz.jpg" alt="Yonex Astrox 99 Pro">
+                                </td>
+
+                                <td>Yonex Astrox 99 Pro</td>
+
+                                <td>Vợt Yonex</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP011',
+                'Yonex Astrox 99 Pro',
+                'Vợt Yonex',
+                'Vợt thiên công dành cho người chơi có lực tay tốt.',
+                '../HinhAnh/100zz.jpg'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP011')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =========================
+         SẢN PHẨM 12
+    ========================= -->
+
+                            <tr>
+
+                                <td>SP012</td>
+
+                                <td>
+                                    <img src="../HinhAnh/thruster-metallic.webp" alt="Li-Ning Tectonic 9">
+                                </td>
+
+                                <td>Li-Ning Tectonic 9</td>
+
+                                <td>Vợt Li-Ning</td>
+
+                                <td>
+                                    <span class="badge badge-success">
+                                        Hiện
+                                    </span>
+                                </td>
+
+                                <td class="btn-group">
+
+                                    <button class="btn btn-secondary btn-sm" onclick="showEditForm(
+                'SP012',
+                'Li-Ning Tectonic 9',
+                'Vợt Li-Ning',
+                'Vợt công thủ toàn diện với khả năng kiểm soát tốt.',
+                '../HinhAnh/thruster-metallic.webp'
+            )">
+                                        Sửa
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(this, 'SP012')">
+                                        Xóa
+                                    </button>
+
+                                </td>
+
+                            </tr>
 
                         </tbody>
 
                     </table>
 
+                    <div class="pagination">
+
+                        <button type="button">‹</button>
+
+                        <button type="button" class="active">1</button>
+
+                        <button type="button" onclick="window.location.href='#'">2</button>
+
+                        <button type="button" onclick="window.location.href='#'">3</button>
+
+                        <button type="button">›</button>
+
+                    </div>
                 </div>
 
             </div>
@@ -950,7 +1367,6 @@
             };
 
         }
-
     </script>
 
 
