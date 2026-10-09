@@ -8,6 +8,134 @@
     <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
     <link rel="stylesheet" href="../CSS/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            border-color: #e60012;
+            transform: translateY(-2px);
+        }
+
+        .stat-card .stat-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .stat-card .stat-icon.products {
+            background: #1a2a3a;
+            color: #2196f3;
+        }
+
+        .stat-card .stat-icon.orders {
+            background: #3a2a1a;
+            color: #ff9800;
+        }
+
+        .stat-card .stat-icon.users {
+            background: #1a3a1a;
+            color: #4caf50;
+        }
+
+        .stat-card .stat-icon.revenue {
+            background: #2a1a3a;
+            color: #ce93d8;
+        }
+
+        .stat-card .stat-body h4 {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .stat-card .stat-body .num {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .stat-card .stat-body .sub {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .quick-action {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: #1a1a1a;
+            border: 1px solid #292929;
+            border-radius: 8px;
+            color: #ccc;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .quick-action:hover {
+            border-color: #e60012;
+            color: #e60012;
+            background: #1f1a1a;
+        }
+
+        .quick-action i {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            color: #e60012;
+            font-size: 16px;
+        }
+
+        .card-header a {
+            font-size: 13px;
+            color: #888;
+            transition: 0.2s;
+        }
+
+        .card-header a:hover {
+            color: #e60012;
+        }
+
+        table td a.order-link {
+            color: #e60012;
+            font-weight: 600;
+        }
+
+        table td a.order-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,7 +146,9 @@
         </a>
         <div class="user-info">
             <span>Xin chào, <strong>Admin</strong></span>
-            <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+            <a href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+            </a>
         </div>
     </header>
 
@@ -26,37 +156,98 @@
         <aside class="sidebar">
             <h3>Quản trị</h3>
             <ul>
-                <li><a href="dashboard.html" class="active"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
-                <li><a href="users.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li>
-                <li><a href="products.html"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</a></li>
-                <li><a href="orders.html"><i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng</a></li>
-                <li><a href="statistics.html"><i class="fa-solid fa-chart-column"></i> Thống kê</a></li>
+                <li>
+                    <a href="dashboard.html" class="active">
+                        <i class="fa-solid fa-gauge"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="fa-solid fa-users"></i> Quản lý người dùng
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html">
+                        <i class="fa-solid fa-box"></i> Quản lý sản phẩm
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-file-invoice"></i> Quản lý đơn hàng
+                    </a>
+                </li>
+                <li>
+                    <a href="statistics.html">
+                        <i class="fa-solid fa-chart-column"></i> Thống kê
+                    </a>
+                </li>
             </ul>
         </aside>
 
         <main class="content">
             <h1>Dashboard <span>Admin</span></h1>
+
+            <!-- STATS -->
             <div class="stats">
-                <div class="stat-card">
-                    <h4>Tổng sản phẩm</h4>
-                    <div class="num">48</div>
-                </div>
-                <div class="stat-card">
-                    <h4>Đơn hàng mới</h4>
-                    <div class="num">12</div>
-                </div>
-                <div class="stat-card">
-                    <h4>Khách hàng</h4>
-                    <div class="num">156</div>
-                </div>
-                <div class="stat-card">
-                    <h4>Sắp hết hàng</h4>
-                    <div class="num">5</div>
-                </div>
+                <a href="products.html" class="stat-card">
+                    <div class="stat-icon products"><i class="fa-solid fa-box"></i></div>
+                    <div class="stat-body">
+                        <h4>Tổng sản phẩm</h4>
+                        <div class="num">48</div>
+                        <div class="sub">Đang bán trên cửa hàng</div>
+                    </div>
+                </a>
+
+                <a href="orders.html" class="stat-card">
+                    <div class="stat-icon orders"><i class="fa-solid fa-file-invoice"></i></div>
+                    <div class="stat-body">
+                        <h4>Đơn hàng mới</h4>
+                        <div class="num">12</div>
+                        <div class="sub">Chờ xử lý hôm nay</div>
+                    </div>
+                </a>
+
+                <a href="users.html" class="stat-card">
+                    <div class="stat-icon users"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-body">
+                        <h4>Khách hàng</h4>
+                        <div class="num">156</div>
+                        <div class="sub">Tài khoản đã đăng ký</div>
+                    </div>
+                </a>
+
+                <a href="statistics.html" class="stat-card">
+                    <div class="stat-icon revenue"><i class="fa-solid fa-dong-sign"></i></div>
+                    <div class="stat-body">
+                        <h4>Doanh thu tháng</h4>
+                        <div class="num">86.5tr</div>
+                        <div class="sub">Tháng 09/2026</div>
+                    </div>
+                </a>
             </div>
 
+            <!-- QUICK ACTIONS -->
+            <div class="quick-actions">
+                <a href="products.html" class="quick-action">
+                    <i class="fa-solid fa-plus"></i> Thêm sản phẩm mới
+                </a>
+                <a href="orders.html" class="quick-action">
+                    <i class="fa-solid fa-clipboard-list"></i> Xử lý đơn hàng
+                </a>
+                <a href="users.html" class="quick-action">
+                    <i class="fa-solid fa-user-plus"></i> Thêm tài khoản
+                </a>
+                <a href="statistics.html" class="quick-action">
+                    <i class="fa-solid fa-chart-line"></i> Xem thống kê
+                </a>
+            </div>
+
+            <!-- ĐƠN HÀNG GẦN ĐÂY -->
             <div class="card">
-                <h3 style="margin-bottom:15px;color:#e60012;">Đơn hàng gần đây</h3>
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-clock-rotate-left"></i> Đơn hàng gần đây</h3>
+                    <a href="orders.html">Xem tất cả →</a>
+                </div>
                 <div class="table-wrap">
                     <table>
                         <thead>
@@ -70,28 +261,57 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>#DH001</td>
+                                <td><a href="order-detail.html" class="order-link">#DH001</a></td>
                                 <td>Nguyễn Văn A</td>
                                 <td>20/09/2026</td>
                                 <td>2.450.000đ</td>
                                 <td><span class="badge badge-warning">Mới đặt</span></td>
                             </tr>
                             <tr>
-                                <td>#DH002</td>
+                                <td><a href="order-detail.html" class="order-link">#DH002</a></td>
                                 <td>Trần Thị B</td>
                                 <td>19/09/2026</td>
                                 <td>1.890.000đ</td>
                                 <td><span class="badge badge-info">Đã xử lý</span></td>
                             </tr>
                             <tr>
-                                <td>#DH003</td>
+                                <td><a href="order-detail.html" class="order-link">#DH003</a></td>
                                 <td>Lê Văn C</td>
                                 <td>18/09/2026</td>
                                 <td>3.200.000đ</td>
                                 <td><span class="badge badge-success">Đã giao</span></td>
                             </tr>
+                            <tr>
+                                <td><a href="order-detail.html" class="order-link">#DH004</a></td>
+                                <td>Phạm Minh D</td>
+                                <td>17/09/2026</td>
+                                <td>1.150.000đ</td>
+                                <td><span class="badge badge-warning">Mới đặt</span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="order-detail.html" class="order-link">#DH005</a></td>
+                                <td>Hoàng Thị E</td>
+                                <td>16/09/2026</td>
+                                <td>4.780.000đ</td>
+                                <td><span class="badge badge-info">Đã xử lý</span></td>
+                            </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- THÔNG BÁO -->
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-bell"></i> Thông báo hệ thống</h3>
+                </div>
+                <div class="alert alert-info" style="margin-bottom:10px;">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Có <strong>12 đơn hàng mới</strong> đang chờ xác nhận và xử lý.
+                </div>
+                <div class="alert alert-danger" style="margin-bottom:0;">
+                    <i class="fa-solid fa-clock"></i>
+                    <strong>3 đơn hàng</strong> đã quá 48 giờ chưa được xử lý.
                 </div>
             </div>
         </main>
