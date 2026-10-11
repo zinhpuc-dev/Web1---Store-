@@ -14,7 +14,7 @@
 
 <body>
     <header class="login-header">
-        <a href="dashboard.html" class="logo">
+        <a href="index.html" class="logo">
             <img src="../HinhAnh/Logo_hinh.jpg" alt="ZP Badminton">
             <span>ZP Badminton</span>
         </a>
@@ -62,13 +62,21 @@
                 </button>
             </form>
 
-            <div class="back-home" style="margin-top: 20px; text-align: center;">
-                <a href="dashboard.html">
-                    <i class="fa-solid fa-arrow-left"></i> Quay về trang chủ
+
+            <div class="profile-actions">
+                <a href="index.html" class="profile-action-btn btn-home">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Quay về trang chủ</span>
+                    <i class="fa-solid fa-arrow-right action-arrow"></i>
                 </a>
-                &nbsp;|&nbsp;
-                <a href="orders.html">Đơn hàng của tôi</a>
+
+                <a href="orders.html" class="profile-action-btn btn-orders">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Xem đơn hàng</span>
+                    <i class="fa-solid fa-arrow-right action-arrow"></i>
+                </a>
             </div>
+
         </section>
     </main>
 
@@ -93,7 +101,7 @@
 
             // Đợi 1.5 giây cho người dùng thấy Toast rồi mới chuyển về trang chủ
             setTimeout(() => {
-                window.location.href = "dashboard.html";
+                window.location.href = "index.html";
             }, 1500);
         });
     </script>

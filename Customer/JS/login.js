@@ -5,22 +5,17 @@
   const ACCOUNT_KEY = "zpAccount";
 
   /* ========================================
-       KIỂM TRA TRẠNG THÁI TÀI KHOẢN
-    ======================================== */
+     KIỂM TRA TRẠNG THÁI TÀI KHOẢN
+  ======================================== */
 
   function isLoggedIn() {
     return localStorage.getItem(LOGIN_KEY) === "true";
   }
 
   /* ========================================
-       ĐĂNG NHẬP
-
-       KHÔNG CHECK:
-       - Email
-       - Mật khẩu
-       - Định dạng email
-       - Nội dung form
-    ======================================== */
+     ĐĂNG NHẬP
+     Không kiểm tra email và mật khẩu
+  ======================================== */
 
   const loginForm = document.getElementById("loginForm");
 
@@ -28,53 +23,38 @@
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      /*
-       * Bấm Đăng nhập
-       * = chuyển sang trạng thái
-       * đã có tài khoản.
-       */
-
       const account = {
         fullName: "Zinh",
-
         email: "",
-
         password: "",
-
         phone: "",
-
         address: "",
-
         district: "",
-
         city: "",
       };
 
       localStorage.setItem(ACCOUNT_KEY, JSON.stringify(account));
-
       localStorage.setItem(LOGIN_KEY, "true");
 
-      /*
-       * Chuyển về trang chủ.
-       */
-
-      window.location.href = "dashboard.html";
+      /* Chuyển về trang chủ */
+      window.location.href = "index.html";
     });
   }
 
   /* ========================================
-       ĐĂNG XUẤT
-    ======================================== */
+     ĐĂNG XUẤT
+  ======================================== */
 
   window.logout = function () {
     localStorage.setItem(LOGIN_KEY, "false");
 
-    window.location.href = "dashboard.html";
+    /* Chuyển về trang chủ */
+    window.location.href = "index.html";
   };
 
   /* ========================================
-       LẤY THÔNG TIN TÀI KHOẢN
-    ======================================== */
+     LẤY THÔNG TIN TÀI KHOẢN
+  ======================================== */
 
   function getAccount() {
     try {
@@ -85,14 +65,8 @@
   }
 
   /* ========================================
-       THAY ĐỔI GIAO DIỆN
-
-       CHƯA ĐĂNG NHẬP:
-       Tài khoản
-
-       ĐÃ ĐĂNG NHẬP:
-       Xin chào, Zinh
-    ======================================== */
+     CẬP NHẬT GIAO DIỆN TÀI KHOẢN
+  ======================================== */
 
   function updateAccountUI() {
     const accountBox = document.querySelector(".account");
@@ -107,80 +81,49 @@
       return;
     }
 
+    /* Tìm nút đăng xuất đã có trong HTML */
+    let logoutButton = accountBox.querySelector(".logout-btn");
+
+    /* Nếu chưa có thì tạo nút mới */
+    if (!logoutButton) {
+      logoutButton = document.createElement("button");
+      logoutButton.className = "logout-btn";
+      logoutButton.type = "button";
+      logoutButton.textContent = "Đăng xuất";
+
+      accountBox.appendChild(logoutButton);
+    }
+
+    /*
+      SỬA LỖI:
+      Gắn sự kiện cho nút dù nút đã có sẵn
+      trong HTML hay vừa được JavaScript tạo.
+    */
+    logoutButton.onclick = window.logout;
+
     if (isLoggedIn()) {
-      /*
-       * ĐÃ ĐĂNG NHẬP
-       */
+      /* ĐÃ ĐĂNG NHẬP */
 
       const account = getAccount();
-
       const fullName = account.fullName || "Zinh";
 
-      /*
-       * THAY TRỰC TIẾP CHỮ "Tài khoản"
-       * THÀNH "Xin chào, Zinh"
-       */
       accountLink.textContent = "Xin chào, " + fullName;
-
-      /*
-       * Bấm "Xin chào, Zinh"
-       * -> trang thông tin cá nhân
-       */
       accountLink.href = "profile.html";
-
-      /*
-       * Tạo nút Đăng xuất
-       */
-
-      let logoutButton = accountBox.querySelector(".logout-btn");
-
-      if (!logoutButton) {
-        logoutButton = document.createElement("button");
-
-        logoutButton.className = "logout-btn";
-
-        logoutButton.type = "button";
-
-        logoutButton.textContent = "Đăng xuất";
-
-        logoutButton.addEventListener("click", window.logout);
-
-        accountBox.appendChild(logoutButton);
-      }
-
-      /*
-       * Hiện nút Đăng xuất
-       */
 
       logoutButton.style.display = "inline-block";
     } else {
-      /*
-       * CHƯA ĐĂNG NHẬP
-       */
+      /* CHƯA ĐĂNG NHẬP */
 
       accountLink.href = "login.html";
-
-      /*
-       * Hiển thị lại "Tài khoản"
-       */
-
       accountLink.textContent = "Tài khoản";
 
-      /*
-       * Ẩn nút Đăng xuất
-       */
-
-      const logoutButton = accountBox.querySelector(".logout-btn");
-
-      if (logoutButton) {
-        logoutButton.style.display = "none";
-      }
+      logoutButton.style.display = "none";
     }
   }
 
   /* ========================================
-       BẢO VỆ CHỨC NĂNG CẦN TÀI KHOẢN
-    ======================================== */
+     BẢO VỆ CÁC CHỨC NĂNG CẦN ĐĂNG NHẬP
+  ======================================== */
 
   function protectAccountLink() {
     if (isLoggedIn()) {
@@ -204,21 +147,11 @@
   }
 
   /* ========================================
-       KHI TRANG LOAD
-    ======================================== */
+     KHỞI TẠO KHI TRANG TẢI XONG
+  ======================================== */
 
   document.addEventListener("DOMContentLoaded", function () {
-    /*
-     * Thay đổi giao diện
-     * theo trạng thái tài khoản.
-     */
-
     updateAccountUI();
-
-    /*
-     * Bảo vệ chức năng
-     */
-
     protectAccountLink();
   });
 })();

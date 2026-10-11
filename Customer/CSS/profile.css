@@ -1,19 +1,171 @@
-/* Bổ sung nhỏ cho trang profile – phần lớn dùng login.css */
+/* ==================================================
+   PROFILE PAGE
+================================================== */
 
 .login-box {
   max-width: 520px;
 }
+
+/* Email chỉ đọc */
 
 .login-box input[readonly] {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-.back-home a {
-  color: #e60012;
-  font-size: 14px;
+/* ==================================================
+   PROFILE ACTION BUTTONS
+================================================== */
+
+.profile-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 20px;
+
+  border-top: 1px solid #303030;
+  box-sizing: border-box;
 }
 
-.back-home a:hover {
-  text-decoration: underline;
+/* Nút chung */
+
+.profile-action-btn {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 48px;
+  padding: 12px 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #383838;
+  border-radius: 8px;
+
+  color: #f5f5f5;
+  background: linear-gradient(145deg, #222222, #171717);
+
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  overflow: hidden;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Icon chính */
+
+.profile-action-btn > i:first-child {
+  flex-shrink: 0;
+  font-size: 15px;
+  transition: transform 0.25s ease;
+}
+
+/* Mũi tên */
+
+.profile-action-btn .action-arrow {
+  flex-shrink: 0;
+  margin-left: auto;
+  color: #888;
+  font-size: 12px;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Hover chung */
+
+.profile-action-btn:hover {
+  transform: translateY(-2px);
+  border-color: #e60012;
+  color: #fff;
+  background: linear-gradient(145deg, #2a1719, #1a1112);
+  box-shadow: 0 6px 18px rgba(230, 0, 18, 0.12);
+}
+
+.profile-action-btn:hover > i:first-child {
+  color: #ff3948;
+  transform: scale(1.1);
+}
+
+.profile-action-btn:hover .action-arrow {
+  color: #ff3948;
+  transform: translateX(3px);
+}
+
+/* Nút quay về trang chủ */
+
+.btn-home > i:first-child {
+  color: #ddd;
+}
+
+/* Nút xem đơn hàng */
+
+.btn-orders {
+  border-color: rgba(230, 0, 18, 0.45);
+}
+
+.btn-orders > i:first-child {
+  color: #e60012;
+}
+
+/* Hiệu ứng khi nhấn */
+
+.profile-action-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Hỗ trợ bàn phím */
+
+.profile-action-btn:focus-visible {
+  outline: 2px solid #e60012;
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 480px) {
+  .profile-actions {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .profile-action-btn {
+    min-height: 46px;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .profile-action-btn .action-arrow {
+    margin-left: auto;
+  }
+}
+
+/* Giảm chuyển động nếu người dùng yêu cầu */
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-action-btn,
+  .profile-action-btn > i:first-child,
+  .profile-action-btn .action-arrow {
+    transition: none;
+  }
 }

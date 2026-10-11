@@ -11,7 +11,10 @@
 
     <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
 
+
     <link rel="stylesheet" href="../CSS/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 
 </head>
 
@@ -20,67 +23,50 @@
 
 
     <!-- ================= HEADER ================= -->
-
     <header class="header">
 
-        <div class="header-left">
-
-            <a href="dashboard.html" class="logo">
-
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">
                 <img src="../HinhAnh/Logo_hinh.jpg" alt="ZP Badminton">
-
-                <span>
-                    ZP Badminton
-                </span>
-
+                ZP Badminton
             </a>
-
-
-            <nav class="menu">
-
-                <a href="dashboard.html">
-                    Trang chủ
-                </a>
-
-                <a href="product.html">
-                    Sản phẩm
-                </a>
-
-                <a href="sale.html">
-                    Sale
-                </a>
-
-                <a href="gioi-thieu.html">
-                    Giới thiệu
-                </a>
-
-            </nav>
-
         </div>
 
 
-        <div class="header-right">
-
-            <div class="account">
-
-                <a href="login.html" id="accountLink">
-                    Tài khoản
-                </a>
-
-                <button id="logoutBtn" class="logout-btn">
-                    Đăng xuất
-                </button>
-
-            </div>
-
-
-            <a href="cart.html" class="cart-link">
-                Giỏ hàng
+        <!-- Hotline -->
+        <div class="hotline">
+            <span>HOTLINE:</span>
+            <a href="tel:0946513954">
+                <strong>0946 513 954</strong>
             </a>
+        </div>
 
+        <!-- Tìm kiếm -->
+        <form class="search" action="product_search.html" method="get">
+            <input type="text" name="q" placeholder="Tìm sản phẩm...">
+            <button type="submit" aria-label="Tìm kiếm">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+
+        <!-- Tài khoản -->
+        <div class="account">
+            <a href="login.html" id="accountLink">Tài khoản</a>
+            <button id="logoutBtn" class="logout-btn" type="button">
+                Đăng xuất
+            </button>
+        </div>
+        <!-- Giỏ hàng -->
+        <div class="cart">
+            <a href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
         </div>
 
     </header>
+
+
 
 
     <!-- ================= CART ================= -->
@@ -426,7 +412,7 @@
                     Liên kết
                 </h3>
 
-                <a href="dashboard.html">
+                <a href="index.html">
                     Trang chủ
                 </a>
 
