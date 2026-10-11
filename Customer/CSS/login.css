@@ -127,7 +127,7 @@ body {
 }
 
 .login-title p {
-  color: #999;
+  color: #f3eeee;
 
   font-size: 14px;
 
@@ -181,7 +181,7 @@ body {
 
   text-align: center;
 
-  color: #999;
+  color: #dd2121;
 }
 
 .input-box input {
@@ -375,5 +375,897 @@ body {
     align-items: flex-start;
 
     gap: 10px;
+  }
+}
+
+/* ==================================================
+   AUTH PAGES - LOGIN & REGISTER ENHANCEMENT
+================================================== */
+
+body {
+  color: #f5f5f5;
+  background:
+    radial-gradient(ellipse at top, rgba(230, 0, 18, 0.07), transparent 55%),
+    #101010;
+  line-height: 1.5;
+}
+
+/* HEADER */
+
+.login-header {
+  background: rgba(10, 10, 10, 0.97);
+  border-bottom: 1px solid #333;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.logo img {
+  border: 1px solid #383838;
+}
+
+/* KHUNG ĐĂNG NHẬP / ĐĂNG KÝ */
+
+.login-container {
+  padding: 45px 20px;
+}
+
+.login-box {
+  position: relative;
+  width: 430px;
+  padding: 38px 35px;
+
+  background: linear-gradient(145deg, #1d1d1d, #151515);
+  border: 1px solid #363636;
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(230, 0, 18, 0.035);
+}
+
+/* TIÊU ĐỀ */
+
+.login-title {
+  margin-bottom: 30px;
+}
+
+.login-title h1 {
+  color: #ffffff;
+  font-size: 29px;
+  font-weight: 750;
+  letter-spacing: 0.3px;
+}
+
+.login-title p {
+  color: #c0c0c0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* NHÃN TRƯỜNG NHẬP */
+
+.form-group label {
+  color: #eeeeee;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Ô NHẬP */
+
+.input-box {
+  min-height: 48px;
+  background: #101010;
+  border: 1px solid #414141;
+  border-radius: 8px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.input-box:hover {
+  border-color: #606060;
+}
+
+.input-box:focus-within {
+  background: #151515;
+  border-color: #ff3344;
+  box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.13);
+}
+
+.input-box i {
+  color: #bdbdbd;
+  transition: color 0.2s ease;
+}
+
+.input-box:focus-within i {
+  color: #ff4654;
+}
+
+.input-box input {
+  height: 48px;
+  color: #ffffff;
+  font-size: 14px;
+  caret-color: #ff3344;
+}
+
+.input-box input::placeholder {
+  color: #858585;
+  opacity: 1;
+}
+
+.input-box input:-webkit-autofill,
+.input-box input:-webkit-autofill:hover,
+.input-box input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* GHI NHỚ ĐĂNG NHẬP */
+
+.login-options {
+  color: #dedede;
+}
+
+.remember {
+  color: #dedede;
+}
+
+.remember input {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.login-options a {
+  color: #ff5b67;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.login-options a:hover {
+  color: #ff929a;
+}
+
+/* THÔNG BÁO LỖI */
+
+.login-error {
+  color: #ff6975;
+  line-height: 1.5;
+}
+
+/* NÚT CHÍNH */
+
+.login-button {
+  min-height: 48px;
+  background: linear-gradient(135deg, #f0182a, #c90012);
+  border: 1px solid #ff3445;
+  border-radius: 8px;
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  box-shadow: 0 5px 15px rgba(230, 0, 18, 0.16);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+  background: linear-gradient(135deg, #ff3344, #df0015);
+  box-shadow: 0 7px 20px rgba(230, 0, 18, 0.28);
+  transform: translateY(-1px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+/* LIÊN KẾT ĐĂNG KÝ / ĐĂNG NHẬP */
+
+.register-link {
+  color: #c9c9c9;
+  border-top-color: #383838;
+  line-height: 1.8;
+}
+
+.register-link a {
+  color: #ff5b67;
+  font-weight: 700;
+}
+
+.register-link a:hover {
+  color: #ff929a;
+}
+
+/* QUAY VỀ TRANG CHỦ */
+
+.back-home a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  color: #c9c9c9;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.back-home a:hover {
+  color: #ff5b67;
+}
+
+/* TRẠNG THÁI FOCUS BẰNG BÀN PHÍM */
+
+.login-button:focus-visible,
+.input-box input:focus-visible,
+.login-options a:focus-visible,
+.register-link a:focus-visible,
+.back-home a:focus-visible {
+  outline: 2px solid #ff5967;
+  outline-offset: 3px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 500px) {
+  .login-container {
+    padding: 28px 15px;
+  }
+
+  .login-box {
+    padding: 30px 22px;
+    border-radius: 12px;
+  }
+
+  .login-title h1 {
+    font-size: 26px;
+  }
+
+  .login-title p {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .input-box,
+  .input-box i,
+  .login-options a,
+  .login-button,
+  .register-link a,
+  .back-home a {
+    transition: none;
+  }
+}
+
+/* ==================================================
+   REGISTER PAGE - ENHANCEMENT
+================================================== */
+
+/* Khung đăng ký */
+
+.login-box.register-box {
+  width: 100%;
+  max-width: 520px;
+  padding: 38px 35px;
+
+  background: linear-gradient(145deg, #1d1d1d, #151515);
+  border: 1px solid #383838;
+  border-radius: 14px;
+
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+}
+
+/* Tiêu đề */
+
+.login-box.register-box .login-title h1 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 750;
+}
+
+.login-box.register-box .login-title p {
+  color: #c5c5c5;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Nhãn */
+
+.login-box.register-box .form-group label {
+  color: #eeeeee;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Ô nhập */
+
+.login-box.register-box .input-box {
+  background: #101010;
+  border: 1px solid #414141;
+  border-radius: 8px;
+}
+
+.login-box.register-box .input-box input {
+  color: #ffffff;
+  caret-color: #ff3344;
+}
+
+.login-box.register-box .input-box input::placeholder {
+  color: #858585;
+  opacity: 1;
+}
+
+.login-box.register-box .input-box:focus-within {
+  border-color: #ff3344;
+  box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.13);
+}
+
+.login-box.register-box .input-box i {
+  color: #c4c4c4;
+}
+
+.login-box.register-box .input-box:focus-within i {
+  color: #ff4654;
+}
+
+/* Select giới tính và các trường chọn */
+
+.login-box.register-box select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+
+  color: #ffffff;
+  background: #101010;
+  border: 1px solid #414141;
+  border-radius: 8px;
+
+  font-size: 14px;
+  outline: none;
+}
+
+.login-box.register-box select:focus {
+  border-color: #ff3344;
+  box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.13);
+}
+
+.login-box.register-box select option {
+  color: #ffffff;
+  background: #181818;
+}
+
+/* Checkbox và điều khoản */
+
+.login-box.register-box input[type="checkbox"] {
+  accent-color: #e60012;
+  cursor: pointer;
+}
+
+.login-box.register-box .remember,
+.login-box.register-box .form-group small {
+  color: #d0d0d0;
+}
+
+/* Nút tạo tài khoản */
+
+.login-box.register-box .login-button {
+  width: 100%;
+  min-height: 49px;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, #f0182a, #c90012);
+  border: 1px solid #ff3445;
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  box-shadow: 0 5px 15px rgba(230, 0, 18, 0.16);
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.login-box.register-box .login-button:hover {
+  background: linear-gradient(135deg, #ff3344, #df0015);
+  box-shadow: 0 7px 20px rgba(230, 0, 18, 0.28);
+  transform: translateY(-1px);
+}
+
+/* Liên kết đăng nhập */
+
+.login-box.register-box .register-link {
+  color: #d0d0d0;
+  border-top: 1px solid #383838;
+}
+
+.login-box.register-box .register-link a {
+  color: #ff5b67;
+  font-weight: 700;
+}
+
+.login-box.register-box .register-link a:hover {
+  color: #ff929a;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .login-box.register-box {
+    padding: 30px 22px;
+  }
+
+  .login-box.register-box .login-title h1 {
+    font-size: 25px;
+  }
+}
+
+/* =========================================
+   ZP BADMINTON - LOGIN & REGISTER
+   Theme: Black / Red / White
+========================================= */
+
+.login-box {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 440px;
+  padding: 38px 34px;
+  margin: 0 auto;
+
+  color: #f5f5f5;
+  background: linear-gradient(145deg, #202020, #141414);
+  border: 1px solid #383838;
+  border-radius: 18px;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.login-box:hover {
+  border-color: #503035;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.48);
+}
+
+/* Register rộng hơn để chứa nhiều trường */
+.login-box.register-box {
+  max-width: 540px;
+}
+
+/* Tiêu đề */
+.login-box .login-title h1 {
+  color: #ffffff;
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
+.login-box .login-title p {
+  color: #c5c5c5;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Nhãn trường nhập liệu */
+.login-box .form-group label {
+  display: block;
+  color: #eeeeee;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+/* Ô nhập liệu */
+.login-box .input-box {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 13px;
+
+  background: #101010;
+  border: 1px solid #414141;
+  border-radius: 9px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-box .input-box:focus-within {
+  border-color: #ff3548;
+  box-shadow: 0 0 0 3px rgba(255, 53, 72, 0.15);
+}
+
+.login-box .input-box input {
+  width: 100%;
+  min-width: 0;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  caret-color: #ff4658;
+}
+
+.login-box .input-box input::placeholder {
+  color: #858585;
+  opacity: 1;
+}
+
+.login-box .input-box i {
+  color: #bdbdbd;
+  transition: color 0.2s ease;
+}
+
+.login-box .input-box:focus-within i {
+  color: #ff4658;
+}
+
+/* Select - dùng cho giới tính hoặc lựa chọn khác */
+.login-box select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+
+  color: #ffffff;
+  background: #101010;
+  border: 1px solid #414141;
+  border-radius: 9px;
+  outline: none;
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-box select:focus {
+  border-color: #ff3548;
+  box-shadow: 0 0 0 3px rgba(255, 53, 72, 0.15);
+}
+
+.login-box select option {
+  color: #ffffff;
+  background: #191919;
+}
+
+/* Checkbox */
+.login-box input[type="checkbox"] {
+  accent-color: #ed2438;
+  cursor: pointer;
+}
+
+.login-box .remember,
+.login-box .form-group small {
+  color: #cccccc;
+  font-size: 13px;
+}
+
+/* Nút đăng nhập / đăng ký */
+.login-box .login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 49px;
+  margin-top: 10px;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff3548, #c90019);
+  border: 1px solid #ff4a5b;
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(230, 0, 25, 0.2);
+  transition: all 0.25s ease;
+}
+
+.login-box .login-button:hover {
+  background: linear-gradient(135deg, #ff5968, #e00020);
+  box-shadow: 0 9px 24px rgba(230, 0, 25, 0.35);
+  transform: translateY(-2px);
+}
+
+.login-box .login-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(230, 0, 25, 0.2);
+}
+
+/* Liên kết */
+.login-box a {
+  color: #ff6876;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-box a:hover {
+  color: #ff9ca5;
+  text-decoration: underline;
+}
+
+.login-box .register-link {
+  color: #cccccc;
+  border-top: 1px solid #383838;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+.login-box .register-link a {
+  font-weight: 700;
+}
+
+/* Thông báo lỗi / thành công nếu dùng các class này */
+.login-box .error,
+.login-box .error-message {
+  color: #ff7c87;
+}
+
+.login-box .success,
+.login-box .success-message {
+  color: #72e6a1;
+}
+
+/* Điện thoại */
+@media (max-width: 600px) {
+  .login-box {
+    max-width: 100%;
+    padding: 30px 22px;
+    border-radius: 14px;
+  }
+
+  .login-box.register-box {
+    max-width: 100%;
+  }
+
+  .login-box .login-title h1 {
+    font-size: 25px;
+  }
+}
+
+/* ==========================================
+   ZP BADMINTON - REGISTER PAGE
+   Giao diện đen đỏ hiện đại
+========================================== */
+
+/* Khung đăng ký */
+.login-container .login-box {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: 480px;
+  margin: 35px auto;
+  padding: 36px 34px;
+
+  color: #f5f5f5;
+  background: linear-gradient(145deg, #202020, #141414);
+  border: 1px solid #3a3a3a;
+  border-radius: 18px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.login-container .login-box:hover {
+  border-color: #70313a;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Tiêu đề */
+.login-container .login-title {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.login-container .login-title h1 {
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.login-container .login-title p {
+  color: #c7c7c7;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Khoảng cách giữa các trường */
+.login-container .form-group {
+  margin-bottom: 20px;
+}
+
+.login-container .form-group label {
+  display: block;
+  margin-bottom: 9px;
+  color: #eeeeee;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Ô nhập liệu */
+.login-container .input-box {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 49px;
+  padding: 0 14px;
+
+  background: #101010;
+  border: 1px solid #424242;
+  border-radius: 10px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.login-container .input-box:focus-within {
+  background: #151010;
+  border-color: #ff3548;
+  box-shadow: 0 0 0 3px rgba(255, 53, 72, 0.15);
+}
+
+.login-container .input-box input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 47px;
+
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  font-family: inherit;
+  font-size: 14px;
+  caret-color: #ff4658;
+}
+
+.login-container .input-box input::placeholder {
+  color: #858585;
+  opacity: 1;
+}
+
+/* Nút đăng ký */
+.login-container .login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 51px;
+  margin-top: 8px;
+  padding: 12px 18px;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff3548, #c90019);
+  border: 1px solid #ff4a5b;
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(230, 0, 25, 0.22);
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.login-container .login-button:hover {
+  background: linear-gradient(135deg, #ff5968, #e00020);
+  box-shadow: 0 9px 24px rgba(230, 0, 25, 0.36);
+  transform: translateY(-2px);
+}
+
+.login-container .login-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(230, 0, 25, 0.2);
+}
+
+.login-container .login-button:focus-visible {
+  outline: 2px solid #ff8b96;
+  outline-offset: 4px;
+}
+
+/* Đường phân cách và đăng nhập */
+.login-container .register-link {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #393939;
+
+  color: #d0d0d0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-container .register-link a {
+  margin-left: 5px;
+  color: #ff6574;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-container .register-link a:hover {
+  color: #ff9ca5;
+  text-decoration: underline;
+}
+
+/* Quay về trang chủ */
+.login-container .back-home {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.login-container .back-home a {
+  display: inline-block;
+  padding: 9px 14px;
+
+  color: #c9c9c9;
+  background: #242424;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.login-container .back-home a:hover {
+  color: #ffffff;
+  background: #352024;
+  border-color: #ff3548;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .login-container .login-box {
+    padding: 28px 22px;
+    margin: 22px auto;
+    border-radius: 14px;
+  }
+
+  .login-container .login-title h1 {
+    font-size: 26px;
+  }
+
+  .login-container .form-group {
+    margin-bottom: 17px;
   }
 }
