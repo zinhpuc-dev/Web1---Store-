@@ -351,7 +351,8 @@
 
                     <div class="price-range">
 
-                        <input type="number" name="min_price" min="0" placeholder="Từ (VNĐ)">
+                        <input type="text" name="min_price" inputmode="numeric" placeholder="VD: 500.000"
+                            class="price-input" autocomplete="off">
 
 
                         <span>
@@ -359,7 +360,8 @@
                         </span>
 
 
-                        <input type="number" name="max_price" min="0" placeholder="Đến (VNĐ)">
+                        <input type="text" name="max_price" inputmode="numeric" placeholder="VD: 2.000.000"
+                            class="price-input" autocomplete="off">
 
                     </div>
 
@@ -898,7 +900,66 @@
     <script src="../JS/login.js"></script>
 
     <script src="../JS/cart.js"></script>
+    <script>
+        (function () {
+            function formatPrice(value) {
+                var digits = String(value || '').replace(/\D/g, '');
+                if (!digits) return '';
+                return digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            }
 
+            function attachPriceFormat(input) {
+                function applyFormat() {
+                    var start = input.selectionStart;
+                    var oldVal = input.value;
+                    var formatted = formatPrice(oldVal);
+                    if (formatted === oldVal) return;
+
+                    var digitsBefore = oldVal.slice(0, start).replace(/\D/g, '').length;
+                    input.value = formatted;
+
+                    var pos = 0, count = 0;
+                    for (var i = 0; i < formatted.length; i++) {
+                        if (/\d/.test(formatted[i])) count++;
+                        if (count >= digitsBefore) {
+                            pos = i + 1;
+                            break;
+                        }
+                    }
+                    if (count < digitsBefore) pos = formatted.length;
+                    try { input.setSelectionRange(pos, pos); } catch (e) { }
+                }
+
+                input.addEventListener('input', applyFormat);
+                input.addEventListener('blur', function () {
+                    input.value = formatPrice(input.value);
+                });
+                input.addEventListener('paste', function () {
+                    setTimeout(applyFormat, 0);
+                });
+            }
+
+            document.querySelectorAll('.price-input').forEach(attachPriceFormat);
+
+            var params = new URLSearchParams(window.location.search);
+            ['min_price', 'max_price'].forEach(function (name) {
+                var raw = params.get(name);
+                if (raw) {
+                    var input = document.querySelector('input[name="' + name + '"]');
+                    if (input) input.value = formatPrice(raw);
+                }
+            });
+
+            var form = document.querySelector('form.filter-sidebar');
+            if (form) {
+                form.addEventListener('submit', function () {
+                    form.querySelectorAll('.price-input').forEach(function (input) {
+                        input.value = String(input.value).replace(/\./g, '');
+                    });
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>
