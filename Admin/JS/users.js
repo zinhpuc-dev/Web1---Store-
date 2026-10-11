@@ -35,4 +35,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Bấm kính lúp → xóa nội dung ô tìm kiếm
+  var searchInput = document.getElementById("userSearchInput");
+  var searchBtn = document.getElementById("userSearchBtn");
+  if (searchInput && searchBtn) {
+    searchBtn.addEventListener("click", function () {
+      searchInput.value = "";
+      searchInput.focus();
+    });
+  }
 });

@@ -449,3 +449,69 @@ table img {
     padding: 20px 15px;
   }
 }
+/* ========================================
+   DATE TABLE INPUT (Ngày / Tháng / Năm)
+======================================== */
+.date-table-input {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.date-table-input select {
+  background: #111;
+  border: 1px solid #373737;
+  color: #eee;
+  border-radius: 6px;
+  height: 38px;
+  padding: 0 8px;
+  outline: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.date-table-input select:focus {
+  border-color: #e60012;
+}
+
+.date-table-input .date-day {
+  min-width: 64px;
+}
+
+.date-table-input .date-month {
+  min-width: 72px;
+}
+
+.date-table-input .date-year {
+  min-width: 84px;
+}
+
+.date-table-input span {
+  color: #888;
+  font-size: 14px;
+}
+.date-table-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.date-table-input select {
+  width: auto !important;
+  flex: 0 0 auto;
+  /* ... */
+}
+
+.date-table-input .date-day {
+  width: 64px !important;
+}
+.date-table-input .date-month {
+  width: 72px !important;
+}
+.date-table-input .date-year {
+  width: 84px !important;
+}

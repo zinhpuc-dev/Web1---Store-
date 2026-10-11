@@ -170,7 +170,7 @@
                 </li>
 
                 <li>
-                    <a href="products.html">
+                    <a href="products.html" class="active">
                         <i class="fa-solid fa-box"></i>
                         Quản lý sản phẩm
                     </a>
@@ -324,7 +324,41 @@
 
 
                     <!-- =========================
-                         DÒNG 2
+                         DÒNG 2: GIÁ + TÌNH TRẠNG
+                    ========================= -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                Giá (VNĐ)
+                            </label>
+
+                            <input type="text" id="giaSP" inputmode="numeric" placeholder="VD: 5.160.000"
+                                class="price-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Tình trạng kho
+                            </label>
+
+                            <select id="tinhTrangSP">
+                                <option value="Còn hàng">Còn hàng</option>
+                                <option value="Hết hàng">Hết hàng</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================
+                         DÒNG 3
                     ========================= -->
 
                     <div class="form-row">
@@ -412,7 +446,7 @@
 
                         <input type="text" placeholder="Tìm sản phẩm...">
 
-                        <button class="btn btn-secondary btn-sm">
+                        <button type="button" class="btn btn-secondary btn-sm">
 
                             <i class="fa-solid fa-search"></i>
 
@@ -439,6 +473,8 @@
                                 <th>Tên</th>
 
                                 <th>Loại</th>
+
+                                <th>Giá</th>
 
                                 <th>Trạng thái</th>
 
@@ -468,6 +504,8 @@
 
                                 <td>Vợt Yonex</td>
 
+                                <td>4.390.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -481,7 +519,9 @@
                 'Yonex Astrox 100ZZ',
                 'Vợt Yonex',
                 'Vợt cầu lông cao cấp, khung cứng, phù hợp người chơi tấn công.',
-                '../HinhAnh/100zz.jpg'
+                '../HinhAnh/100zz.jpg',
+                '4.390.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -511,6 +551,8 @@
 
                                 <td>Vợt Victor</td>
 
+                                <td>3.690.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -524,7 +566,9 @@
                 'Victor Thruster Metallic',
                 'Vợt Victor',
                 'Vợt cân bằng, phù hợp chơi toàn diện.',
-                '../HinhAnh/thruster-metallic.webp'
+                '../HinhAnh/thruster-metallic.webp',
+                '3.690.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -554,6 +598,8 @@
 
                                 <td>Vợt Yonex</td>
 
+                                <td>4.790.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -567,7 +613,9 @@
                 'Yonex Astrox 88D Pro',
                 'Vợt Yonex',
                 'Vợt thiên công, phù hợp người chơi có lối đánh mạnh.',
-                '../HinhAnh/100zz.jpg'
+                '../HinhAnh/100zz.jpg',
+                '4.790.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -597,6 +645,8 @@
 
                                 <td>Vợt Victor</td>
 
+                                <td>3.690.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -610,7 +660,9 @@
                 'Victor Thruster Ryuga',
                 'Vợt Victor',
                 'Vợt thiên công với khả năng tấn công mạnh.',
-                '../HinhAnh/thruster-metallic.webp'
+                '../HinhAnh/thruster-metallic.webp',
+                '3.690.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -640,6 +692,8 @@
 
                                 <td>Vợt Li-Ning</td>
 
+                                <td>3.500.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -653,7 +707,9 @@
                 'Li-Ning Axforce 100',
                 'Vợt Li-Ning',
                 'Vợt cao cấp dành cho người chơi thiên công.',
-                '../HinhAnh/100zz.jpg'
+                '../HinhAnh/100zz.jpg',
+                '3.500.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -683,6 +739,8 @@
 
                                 <td>Vợt Victor</td>
 
+                                <td>3.200.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -696,7 +754,9 @@
                 'Victor Auraspeed 100X',
                 'Vợt Victor',
                 'Vợt tốc độ, phù hợp đánh nhanh và phản tạt.',
-                '../HinhAnh/thruster-metallic.webp'
+                '../HinhAnh/thruster-metallic.webp',
+                '3.200.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -726,6 +786,8 @@
 
                                 <td>Vợt Yonex</td>
 
+                                <td>3.900.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -739,7 +801,9 @@
                 'Yonex Astrox 77 Pro',
                 'Vợt Yonex',
                 'Vợt cân bằng giữa sức mạnh và tốc độ.',
-                '../HinhAnh/100zz.jpg'
+                '../HinhAnh/100zz.jpg',
+                '3.900.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -769,6 +833,8 @@
 
                                 <td>Vợt Victor</td>
 
+                                <td>2.900.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -782,7 +848,9 @@
                 'Victor Thruster K',
                 'Vợt Victor',
                 'Vợt công thủ toàn diện, dễ kiểm soát.',
-                '../HinhAnh/thruster-metallic.webp'
+                '../HinhAnh/thruster-metallic.webp',
+                '2.900.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -812,6 +880,8 @@
 
                                 <td>Vợt Li-Ning</td>
 
+                                <td>2.800.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -825,7 +895,9 @@
                 'Li-Ning Axforce 80',
                 'Vợt Li-Ning',
                 'Vợt thiên công mạnh mẽ, phù hợp người chơi nâng cao.',
-                '../HinhAnh/100zz.jpg'
+                '../HinhAnh/100zz.jpg',
+                '2.800.000',
+                'Hết hàng'
             )">
                                         Sửa
                                     </button>
@@ -855,6 +927,8 @@
 
                                 <td>Vợt Victor</td>
 
+                                <td>3.500.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -868,7 +942,9 @@
                 'Victor Auraspeed 90K',
                 'Vợt Victor',
                 'Vợt tốc độ cao, phù hợp đánh phản tạt.',
-                '../HinhAnh/thruster-metallic.webp'
+                '../HinhAnh/thruster-metallic.webp',
+                '3.500.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -898,6 +974,8 @@
 
                                 <td>Vợt Yonex</td>
 
+                                <td>4.200.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -911,7 +989,9 @@
                 'Yonex Astrox 99 Pro',
                 'Vợt Yonex',
                 'Vợt thiên công dành cho người chơi có lực tay tốt.',
-                '../HinhAnh/100zz.jpg'
+                '../HinhAnh/100zz.jpg',
+                '4.200.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -941,6 +1021,8 @@
 
                                 <td>Vợt Li-Ning</td>
 
+                                <td>3.100.000đ</td>
+
                                 <td>
                                     <span class="badge badge-success">
                                         Hiện
@@ -954,7 +1036,9 @@
                 'Li-Ning Tectonic 9',
                 'Vợt Li-Ning',
                 'Vợt công thủ toàn diện với khả năng kiểm soát tốt.',
-                '../HinhAnh/thruster-metallic.webp'
+                '../HinhAnh/thruster-metallic.webp',
+                '3.100.000',
+                'Còn hàng'
             )">
                                         Sửa
                                     </button>
@@ -1042,6 +1126,11 @@
             document.getElementById('loaiSP').value =
                 'Vợt Yonex';
 
+            document.getElementById('giaSP').value = '';
+
+            document.getElementById('tinhTrangSP').value =
+                'Còn hàng';
+
             document.getElementById('moTa').value = '';
 
             document.getElementById('hinhAnh').value = '';
@@ -1094,7 +1183,9 @@
             ten,
             loai,
             mota,
-            image
+            image,
+            gia,
+            tinhTrang
         ) {
 
             document.getElementById('formTitle').textContent =
@@ -1111,6 +1202,14 @@
 
             document.getElementById('loaiSP').value =
                 loai;
+
+
+            document.getElementById('giaSP').value =
+                gia || '';
+
+
+            document.getElementById('tinhTrangSP').value =
+                tinhTrang || 'Còn hàng';
 
 
             document.getElementById('moTa').value =
@@ -1367,6 +1466,49 @@
             };
 
         }
+
+
+        /* =========================
+           FORMAT GIÁ xx.xxx.xxx
+        ========================= */
+        (function () {
+            function formatPrice(value) {
+                var digits = String(value || '').replace(/\D/g, '');
+                if (!digits) return '';
+                return digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            }
+
+            function attachPriceFormat(input) {
+                function applyFormat() {
+                    var start = input.selectionStart;
+                    var oldVal = input.value;
+                    var formatted = formatPrice(oldVal);
+                    if (formatted === oldVal) return;
+
+                    var digitsBefore = oldVal.slice(0, start).replace(/\D/g, '').length;
+                    input.value = formatted;
+
+                    var pos = 0, count = 0;
+                    for (var i = 0; i < formatted.length; i++) {
+                        if (/\d/.test(formatted[i])) count++;
+                        if (count >= digitsBefore) {
+                            pos = i + 1;
+                            break;
+                        }
+                    }
+                    if (count < digitsBefore) pos = formatted.length;
+                    try { input.setSelectionRange(pos, pos); } catch (e) { }
+                }
+
+                input.addEventListener('input', applyFormat);
+                input.addEventListener('blur', function () {
+                    input.value = formatPrice(input.value);
+                });
+            }
+
+            var el = document.getElementById('giaSP');
+            if (el) attachPriceFormat(el);
+        })();
     </script>
 
 
