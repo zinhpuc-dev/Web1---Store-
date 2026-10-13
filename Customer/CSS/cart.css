@@ -472,7 +472,7 @@ nav.menu .menu-column li a:hover {
 
   border-bottom: 1px solid #292929;
 
-  color: #777;
+  color: #ff0000;
 
   font-size: 11px;
 
@@ -726,7 +726,7 @@ nav.menu .menu-column li a:hover {
 
   background: transparent;
 
-  color: #777;
+  color: #ffff;
 
   cursor: pointer;
 
@@ -774,7 +774,7 @@ nav.menu .menu-column li a:hover {
 }
 
 .summary-row span {
-  color: #888;
+  color: #ffff;
 }
 
 .summary-row strong {
