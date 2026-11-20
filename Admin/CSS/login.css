@@ -93,7 +93,7 @@
 
 .admin-login-box .form-group label i {
   font-size: 11px;
-  color: #e60012;
+  color: #fff;
 }
 
 .input-wrap {
@@ -136,7 +136,7 @@
 
 .input-wrap input:focus ~ .input-icon,
 .input-wrap:focus-within .input-icon {
-  color: #e60012;
+  color: #fff;
 }
 
 /* Toggle password */
@@ -222,7 +222,7 @@
 }
 
 .error-msg {
-  color: #ff6b6b;
+  color: #fff;
   font-size: 13px;
   margin-top: 14px;
   text-align: center;
@@ -240,7 +240,7 @@
 }
 
 .admin-login-footer i {
-  color: #e60012;
+  color: #fff;
   margin-right: 4px;
   font-size: 11px;
 }

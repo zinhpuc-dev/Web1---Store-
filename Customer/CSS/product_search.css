@@ -71,7 +71,7 @@ select {
 
   gap: 10px;
 
-  color: #e60012;
+  color: #fff;
 
   font-size: 24px;
 
@@ -101,7 +101,7 @@ select {
 }
 
 .hotline strong {
-  color: #e60012;
+  color: #fff;
 
   margin-left: 5px;
 }
@@ -189,7 +189,7 @@ select {
 }
 
 .account a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ==================================================
@@ -236,7 +236,7 @@ select {
   border: 1px solid #e60012;
   border-radius: 5px;
   background-color: transparent;
-  color: #e60012;
+  color: #fff;
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
@@ -273,7 +273,7 @@ select {
 }
 
 .cart a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ==================================================
@@ -376,7 +376,7 @@ select {
 .menu-column h3 {
   margin: 0 0 5px;
 
-  color: #e60012;
+  color: #fff;
 
   font-size: 15px;
 
@@ -384,7 +384,7 @@ select {
 }
 
 .menu-column h3 a {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ==================================================
@@ -422,7 +422,7 @@ select {
 
 .menu-column li a:hover,
 .menu-column > a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ==================================================
@@ -450,7 +450,7 @@ main {
 .product-header h1 {
   font-size: 30px;
 
-  color: #e60012;
+  color: #fff;
 
   margin-bottom: 10px;
 }
@@ -534,7 +534,7 @@ main {
 }
 
 .filter-header h2 i {
-  color: #e60012;
+  color: #fff;
 
   font-size: 16px;
 }
@@ -1095,7 +1095,7 @@ main {
 }
 
 .product-card h3:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ==================================================
@@ -1103,7 +1103,7 @@ main {
 ================================================== */
 
 .price {
-  color: #e60012;
+  color: #fff;
 
   font-size: 18px;
 
@@ -1125,7 +1125,7 @@ main {
 }
 
 .out-of-stock {
-  color: #dc3545;
+  color: #fff;
 }
 
 /* ==================================================
@@ -1177,7 +1177,7 @@ main {
 
   background-color: transparent;
 
-  color: #e60012;
+  color: #fff;
 }
 
 .cart-btn:hover {
@@ -1328,7 +1328,7 @@ main {
 }
 
 .footer-column h3 {
-  color: #e60012;
+  color: #fff;
 
   font-size: 16px;
 
@@ -1362,7 +1362,7 @@ main {
 }
 
 .footer-column a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ==================================================
@@ -1568,7 +1568,7 @@ main {
 
   background-color: transparent;
 
-  color: #e60012;
+  color: #fff;
 
   font-size: 13px;
 

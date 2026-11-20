@@ -57,7 +57,7 @@ body {
 
   text-decoration: none;
 
-  color: #e60012;
+  color: #fff;
 
   font-size: 22px;
 
@@ -92,7 +92,7 @@ body {
 
 .menu a:hover,
 .menu a.active {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ================================
@@ -146,7 +146,7 @@ body {
 }
 
 .header-right a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ================================
@@ -184,7 +184,7 @@ body {
 }
 
 .logout-btn:hover {
-  color: #e60012;
+  color: #fff;
 
   border-color: #e60012;
 }
@@ -215,7 +215,7 @@ body {
 }
 
 .about-hero p {
-  color: #e60012;
+  color: #fff;
 
   font-size: 14px;
 
@@ -229,7 +229,7 @@ body {
 .about-hero h1 {
   font-size: 60px;
 
-  color: #e60012;
+  color: #fff;
 
   margin-bottom: 15px;
 }
@@ -269,7 +269,7 @@ body {
 }
 
 .title-small {
-  color: #e60012;
+  color: #fff;
 
   font-size: 14px;
 
@@ -331,7 +331,7 @@ body {
 }
 
 .section-title p {
-  color: #e60012;
+  color: #fff;
 
   font-size: 13px;
 
@@ -381,7 +381,7 @@ body {
 }
 
 .value-number {
-  color: #e60012;
+  color: #fff;
 
   font-size: 30px;
 
@@ -445,7 +445,7 @@ body {
 }
 
 .brand-box:hover {
-  color: #e60012;
+  color: #fff;
 
   border-color: #e60012;
 }
@@ -475,7 +475,7 @@ body {
 }
 
 .footer h3 {
-  color: #e60012;
+  color: #fff;
 
   margin-bottom: 15px;
 }
@@ -501,7 +501,7 @@ body {
 }
 
 .footer a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 .copyright {

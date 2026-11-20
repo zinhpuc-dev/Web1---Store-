@@ -45,7 +45,7 @@
 }
 .badge-danger {
   background: #3a1a1a;
-  color: #f44336;
+  color: #fff;
 }
 
 .order-body {
@@ -78,7 +78,7 @@
 }
 .item-price {
   margin-left: auto;
-  color: #e60012;
+  color: #fff;
   font-weight: 600;
 }
 
@@ -111,7 +111,7 @@
 }
 
 .eyebrow {
-  color: #e60012;
+  color: #fff;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -125,7 +125,7 @@
 }
 
 .orders-title-row h1 span {
-  color: #e60012;
+  color: #fff;
 }
 
 .orders-subtitle {
@@ -148,7 +148,7 @@
 }
 
 .orders-count i {
-  color: #e60012;
+  color: #fff;
 }
 
 /* =========================
@@ -262,7 +262,7 @@
 }
 
 .order-info-panel h2 i {
-  color: #e60012;
+  color: #fff;
 }
 
 .info-row {
@@ -307,7 +307,7 @@
 }
 
 .info-total strong {
-  color: #e60012;
+  color: #fff;
   font-size: 18px;
 }
 
@@ -347,7 +347,7 @@
   place-items: center;
   border-radius: 9px;
   background: rgba(230, 0, 18, 0.12);
-  color: #e60012;
+  color: #fff;
 }
 
 .detail-toggle-text {
@@ -376,7 +376,7 @@
 
 .order-detail-panel.is-open .chevron {
   transform: rotate(180deg);
-  color: #e60012;
+  color: #fff;
 }
 
 /* =========================
@@ -455,7 +455,7 @@
 
 .item-price {
   margin: 0;
-  color: #e60012;
+  color: #fff;
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
@@ -488,7 +488,7 @@
 }
 
 .detail-grand-total strong {
-  color: #e60012;
+  color: #fff;
   font-size: 16px;
 }
 
@@ -564,6 +564,327 @@
   }
 }
 
+/* Danh sách đơn hàng theo bố cục bảng tham khảo */
+.customer-orders-table {
+  margin: 0 0 24px;
+  padding: 16px;
+  overflow: hidden;
+  background: #1a1a1a;
+  border: 1px solid #292929;
+  border-radius: 9px;
+}
+
+.customer-orders-scroll {
+  overflow-x: auto;
+}
+
+.customer-orders-table table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.customer-orders-table th {
+  padding: 14px 10px;
+  color: #fff;
+  background: #0b0b0b;
+  text-align: left;
+  white-space: normal;
+}
+
+.customer-orders-table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #292929;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.customer-orders-table th:nth-child(1),
+.customer-orders-table td:nth-child(1) { width: 8%; }
+.customer-orders-table th:nth-child(2),
+.customer-orders-table td:nth-child(2) { width: 11%; }
+.customer-orders-table th:nth-child(3),
+.customer-orders-table td:nth-child(3) { width: 10%; }
+.customer-orders-table th:nth-child(4),
+.customer-orders-table td:nth-child(4) { width: 11%; }
+.customer-orders-table th:nth-child(5),
+.customer-orders-table td:nth-child(5) { width: 11%; }
+.customer-orders-table th:nth-child(6),
+.customer-orders-table td:nth-child(6) { width: 12%; }
+.customer-orders-table th:nth-child(7),
+.customer-orders-table td:nth-child(7) { width: 25%; }
+.customer-orders-table th:nth-child(8),
+.customer-orders-table td:nth-child(8) { width: 12%; }
+
+.customer-orders-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.customer-orders-table td:first-child,
+.customer-orders-table td:nth-child(4) {
+  white-space: nowrap;
+}
+
+.customer-orders-table td:nth-child(6) strong,
+.customer-orders-table td:nth-child(6) small,
+.customer-orders-table td:nth-child(7) > small {
+  display: block;
+}
+
+.customer-orders-table td:nth-child(6) small,
+.customer-orders-table td:nth-child(7) > small {
+  margin-top: 5px;
+  color: #888;
+  font-size: 12px;
+}
+
+.customer-orders-table .status-complete {
+  color: #31c454 !important;
+}
+
+.table-status-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-width: 100%;
+}
+
+.table-status {
+  display: inline-block;
+  padding: 5px 9px;
+  color: #888;
+  background: #303030;
+  border: 1px solid #414141;
+  border-radius: 20px;
+  font-size: 10px;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.table-status.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+.table-status.status-pending.active {
+  background: #8a5a20;
+  border-color: #8a5a20;
+}
+
+.table-status.status-delivered.active {
+  background: #198754;
+  border-color: #198754;
+}
+
+.customer-order-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 98px;
+  min-height: 42px;
+  padding: 7px 8px;
+  color: #fff;
+  background: #333;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.customer-order-detail-btn:hover {
+  background: #e60012;
+}
+
+.order-details-list[hidden],
+.order-card[hidden] {
+  display: none !important;
+}
+
+.order-details-list .order-info-panel .info-expand,
+.order-details-list .order-detail-panel .detail-expand {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  border-top-width: 1px;
+}
+
+.order-details-list .order-info-panel .info-inner,
+.order-details-list .order-detail-panel .detail-inner {
+  padding: 12px 16px 18px;
+}
+
+.order-details-list .order-topline {
+  background: #0b0b0b;
+}
+
+/* Chi tiết đơn hàng trình bày theo các thẻ thông tin của trang Admin */
+.order-details-list .order-panels {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px;
+}
+
+.order-details-list .order-info-panel,
+.order-details-list .order-detail-panel {
+  border: 1px solid #292929;
+  border-radius: 8px;
+  background: #1a1a1a;
+}
+
+.order-details-list .info-toggle,
+.order-details-list .detail-toggle {
+  min-height: 54px;
+  padding: 14px 18px;
+  background: #0b0b0b;
+  border-bottom: 1px solid #292929;
+  cursor: default;
+}
+
+.order-details-list .info-toggle:hover,
+.order-details-list .detail-toggle:hover {
+  background: #0b0b0b;
+}
+
+.order-details-list .toggle-action {
+  display: none;
+}
+
+.order-details-list .toggle-icon,
+.order-details-list .detail-toggle-icon {
+  width: 34px;
+  height: 34px;
+  flex-basis: 34px;
+  border-radius: 5px;
+}
+
+.order-details-list .info-expand,
+.order-details-list .detail-expand {
+  border-top: 0;
+}
+
+.order-details-list .info-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 24px;
+  padding: 18px !important;
+}
+
+.order-details-list .order-customer-info,
+.order-details-list .order-timeline-info {
+  margin: 0 0 16px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid #303030;
+}
+
+.order-details-list .order-customer-info h3,
+.order-details-list .order-timeline-info h3 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.order-details-list .info-row {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.order-details-list .info-row span {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.order-details-list .info-row strong {
+  padding: 9px 11px;
+  background: #0b0b0b;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.order-details-list .order-customer-info .info-row:nth-of-type(4) {
+  grid-column: 1 / -1;
+}
+
+.order-details-list .info-inner > .info-row,
+.order-details-list .info-total {
+  grid-column: 1 / -1;
+}
+
+.order-details-list .info-total {
+  padding: 14px 0 0;
+  border-top: 1px solid #333;
+}
+
+.order-details-list .detail-inner {
+  padding: 18px !important;
+}
+
+.order-details-list .order-item {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) minmax(105px, 0.35fr);
+  padding: 12px 0;
+}
+
+.order-details-list .detail-summary {
+  padding-top: 12px;
+}
+
+.order-details-list .detail-grand-total {
+  margin-top: 12px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+}
+
+@media (max-width: 760px) {
+  .order-details-list .order-panels {
+    padding: 12px;
+  }
+
+  .order-details-list .info-inner {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 14px !important;
+  }
+
+  .order-details-list .order-customer-info,
+  .order-details-list .order-timeline-info,
+  .order-details-list .info-inner > .info-row,
+  .order-details-list .info-total {
+    grid-column: 1;
+  }
+
+  .order-details-list .info-row {
+    grid-template-columns: minmax(100px, 0.7fr) minmax(0, 1.3fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .customer-orders-table {
+    padding: 10px;
+  }
+
+  .customer-orders-table th,
+  .customer-orders-table td {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+
+  .table-status {
+    padding: 4px 7px;
+    font-size: 9px;
+  }
+
+  .customer-order-detail-btn {
+    font-size: 11px;
+  }
+}
+
 /* BỐ CỤC HAI Ô ĐƠN HÀNG */
 .order-panels {
   display: grid;
@@ -612,7 +933,7 @@
 
 .order-customer-info h3 i,
 .order-timeline-info h3 i {
-  color: #e60012;
+  color: #fff;
 }
 
 /* CÁC DÒNG THÔNG TIN */
@@ -664,7 +985,7 @@
 }
 
 .order-info-panel .info-total strong {
-  color: #e60012;
+  color: #fff;
   font-size: 18px;
 }
 
@@ -729,7 +1050,7 @@
   place-items: center;
   border-radius: 9px;
   background: rgba(230, 0, 18, 0.12);
-  color: #e60012;
+  color: #fff;
 }
 
 .toggle-text,
@@ -784,7 +1105,7 @@
 .order-info-panel.info-open .chevron,
 .order-detail-panel.is-open .chevron {
   transform: rotate(180deg);
-  color: #e60012;
+  color: #fff;
 }
 
 /* Đổi nhãn nút khi mở */
@@ -861,7 +1182,7 @@
 
 .order-customer-info h3 i,
 .order-timeline-info h3 i {
-  color: #e60012;
+  color: #fff;
 }
 
 /* Đảm bảo hai ô nằm cạnh nhau */

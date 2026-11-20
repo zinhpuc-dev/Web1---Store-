@@ -45,7 +45,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #e60012;
+  color: #fff;
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
@@ -77,7 +77,7 @@ body {
 }
 
 .header .cart a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* Hotline */
@@ -93,7 +93,7 @@ body {
 }
 
 .header .hotline strong {
-  color: #e60012;
+  color: #fff;
   margin-left: 5px;
 }
 
@@ -162,7 +162,7 @@ body {
 }
 
 .header .account > a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* Đăng xuất */
@@ -177,7 +177,7 @@ body {
   border: 1px solid #e60012;
   border-radius: 5px;
   background-color: transparent;
-  color: #e60012;
+  color: #fff;
   font-size: 13px;
   font-weight: bold;
   white-space: nowrap;
@@ -257,7 +257,7 @@ nav.menu .has-dropdown:focus-within .mega-menu {
 
 nav.menu .menu-column h3 {
   margin-bottom: 5px;
-  color: #e60012;
+  color: #fff;
   font-size: 14px;
 }
 
@@ -274,7 +274,7 @@ nav.menu .menu-column li a {
 }
 
 nav.menu .menu-column li a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* =========================================
@@ -369,7 +369,7 @@ nav.menu .menu-column li a:hover {
 }
 
 .breadcrumb a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ================================
@@ -447,7 +447,7 @@ nav.menu .menu-column li a:hover {
 ================================ */
 
 .product-brand {
-  color: #e60012;
+  color: #fff;
 
   font-size: 13px;
 
@@ -467,7 +467,7 @@ nav.menu .menu-column li a:hover {
 }
 
 .rating {
-  color: #e60012;
+  color: #fff;
 
   font-size: 15px;
 
@@ -483,7 +483,7 @@ nav.menu .menu-column li a:hover {
 }
 
 .price {
-  color: #e60012;
+  color: #fff;
 
   font-size: 28px;
 
@@ -631,7 +631,7 @@ nav.menu .menu-column li a:hover {
 
   border: 1px solid #e60012;
 
-  color: #e60012;
+  color: #fff;
 }
 
 .add-cart:hover {
@@ -711,7 +711,7 @@ nav.menu .menu-column li a:hover {
 .description-list strong {
   display: block;
 
-  color: #e60012;
+  color: #fff;
 
   margin-bottom: 10px;
 }
@@ -749,7 +749,7 @@ nav.menu .menu-column li a:hover {
 }
 
 .footer h3 {
-  color: #e60012;
+  color: #fff;
 
   margin-bottom: 15px;
 }
@@ -775,7 +775,7 @@ nav.menu .menu-column li a:hover {
 }
 
 .footer a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 .copyright {
@@ -1067,7 +1067,7 @@ nav.menu .menu-column li a:hover {
 }
 
 .header .cart a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 /* Bỏ gạch chân ở hotline */
@@ -1077,5 +1077,5 @@ nav.menu .menu-column li a:hover {
 .header .hotline a:hover,
 .header .hotline a:active {
   text-decoration: none;
-  color: #e60012;
+  color: #fff;
 }

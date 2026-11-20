@@ -177,7 +177,29 @@
             </div>
         </div>
 
-        <section class="order-list" aria-label="Danh sách đơn hàng">
+        <section class="customer-orders-table" aria-label="Danh sách đơn hàng">
+            <div class="customer-orders-scroll">
+                <table>
+                    <thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Ngày đặt</th><th>Tổng tiền</th><th>Thanh toán</th><th>Địa điểm giao</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#DH001</strong></td><td>Nguyễn Văn A</td><td>20/09/2026</td><td>2.450.000đ</td><td>Tiền mặt</td>
+                            <td><strong>TP. Hồ Chí Minh</strong><small>Quận 1</small></td>
+                            <td><div class="table-status-list"><span class="table-status status-pending active">Chưa xác nhận</span><span class="table-status">Đã xác nhận</span><span class="table-status">Đã giao - Thành công</span><span class="table-status">Đã giao - Hủy đơn</span></div><small>Có thể cập nhật tiếp</small></td>
+                            <td><a class="customer-order-detail-btn" href="order-detail.html?order=DH001">Xem chi tiết</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DH003</strong></td><td>Nguyễn Văn A</td><td>18/09/2026</td><td>2.640.000đ</td><td>Chuyển khoản</td>
+                            <td><strong>TP. Hồ Chí Minh</strong><small>Quận 1</small></td>
+                            <td><div class="table-status-list"><span class="table-status">Chưa xác nhận</span><span class="table-status">Đã xác nhận</span><span class="table-status status-delivered active">Đã giao - Thành công</span><span class="table-status">Đã giao - Hủy đơn</span></div><small class="status-complete">Đơn hàng đã hoàn thành</small></td>
+                            <td><a class="customer-order-detail-btn" href="order-detail.html?order=DH003">Xem chi tiết</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="order-list order-details-list" aria-label="Chi tiết đơn hàng" hidden>
 
             <!-- =====================================
                  ĐƠN HÀNG 1
@@ -582,6 +604,25 @@
 
         // Nút thu gọn / mở chi tiết sản phẩm
         setupToggle(".detail-toggle", ".order-detail-panel", "is-open");
+
+        document.querySelectorAll("[data-order-details]").forEach(function (button) {
+            button.addEventListener("click", function () {
+                const orderCode = button.getAttribute("data-order-details");
+                const detailsList = document.querySelector(".order-details-list");
+                const cards = Array.from(detailsList.querySelectorAll(".order-card"));
+                const selectedCard = cards.find(function (card) {
+                    return card.querySelector(".order-code strong")?.textContent.trim() === "#" + orderCode;
+                });
+                if (!selectedCard) return;
+                detailsList.hidden = false;
+                cards.forEach(function (card) { card.hidden = card !== selectedCard; });
+                selectedCard.querySelector(".order-info-panel")?.classList.add("info-open");
+                selectedCard.querySelector(".order-detail-panel")?.classList.add("is-open");
+                selectedCard.querySelector(".info-toggle")?.setAttribute("aria-expanded", "true");
+                selectedCard.querySelector(".detail-toggle")?.setAttribute("aria-expanded", "true");
+                detailsList.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+        });
     </script>
 
     <script src="../JS/login.js"></script>

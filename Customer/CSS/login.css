@@ -71,7 +71,7 @@ body {
 }
 
 .logo span {
-  color: #e60012;
+  color: #fff;
 }
 
 /* ========================================
@@ -181,7 +181,7 @@ body {
 
   text-align: center;
 
-  color: #dd2121;
+  color: #fff;
 }
 
 .input-box input {
@@ -239,7 +239,7 @@ body {
 }
 
 .login-options a {
-  color: #e60012;
+  color: #fff;
 
   text-decoration: none;
 }
@@ -255,7 +255,7 @@ body {
 .login-error {
   min-height: 20px;
 
-  color: #e60012;
+  color: #fff;
 
   font-size: 13px;
 
@@ -313,7 +313,7 @@ body {
 }
 
 .register-link a {
-  color: #e60012;
+  color: #fff;
 
   text-decoration: none;
 
@@ -345,7 +345,7 @@ body {
 }
 
 .back-home a:hover {
-  color: #e60012;
+  color: #fff;
 }
 
 .back-home i {
@@ -489,7 +489,7 @@ body {
 }
 
 .input-box:focus-within i {
-  color: #ff4654;
+  color: #fff;
 }
 
 .input-box input {
@@ -528,19 +528,19 @@ body {
 }
 
 .login-options a {
-  color: #ff5b67;
+  color: #fff;
   font-weight: 600;
   transition: color 0.2s ease;
 }
 
 .login-options a:hover {
-  color: #ff929a;
+  color: #fff;
 }
 
 /* THÔNG BÁO LỖI */
 
 .login-error {
-  color: #ff6975;
+  color: #fff;
   line-height: 1.5;
 }
 
@@ -584,12 +584,12 @@ body {
 }
 
 .register-link a {
-  color: #ff5b67;
+  color: #fff;
   font-weight: 700;
 }
 
 .register-link a:hover {
-  color: #ff929a;
+  color: #fff;
 }
 
 /* QUAY VỀ TRANG CHỦ */
@@ -606,7 +606,7 @@ body {
 }
 
 .back-home a:hover {
-  color: #ff5b67;
+  color: #fff;
 }
 
 /* TRẠNG THÁI FOCUS BẰNG BÀN PHÍM */
@@ -721,7 +721,7 @@ body {
 }
 
 .login-box.register-box .input-box:focus-within i {
-  color: #ff4654;
+  color: #fff;
 }
 
 /* Select giới tính và các trường chọn */
@@ -798,12 +798,12 @@ body {
 }
 
 .login-box.register-box .register-link a {
-  color: #ff5b67;
+  color: #fff;
   font-weight: 700;
 }
 
 .login-box.register-box .register-link a:hover {
-  color: #ff929a;
+  color: #fff;
 }
 
 /* Responsive */
@@ -918,7 +918,7 @@ body {
 }
 
 .login-box .input-box:focus-within i {
-  color: #ff4658;
+  color: #fff;
 }
 
 /* Select - dùng cho giới tính hoặc lựa chọn khác */
@@ -999,13 +999,13 @@ body {
 
 /* Liên kết */
 .login-box a {
-  color: #ff6876;
+  color: #fff;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .login-box a:hover {
-  color: #ff9ca5;
+  color: #fff;
   text-decoration: underline;
 }
 
@@ -1023,7 +1023,7 @@ body {
 /* Thông báo lỗi / thành công nếu dùng các class này */
 .login-box .error,
 .login-box .error-message {
-  color: #ff7c87;
+  color: #fff;
 }
 
 .login-box .success,
@@ -1215,14 +1215,14 @@ body {
 
 .login-container .register-link a {
   margin-left: 5px;
-  color: #ff6574;
+  color: #fff;
   font-weight: 700;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .login-container .register-link a:hover {
-  color: #ff9ca5;
+  color: #fff;
   text-decoration: underline;
 }
 

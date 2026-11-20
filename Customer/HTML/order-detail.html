@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết đơn hàng - ZP Badminton</title>
+    <link rel="icon" type="image/x-icon" href="../HinhAnh/Logo.ico">
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/order-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><a href="index.html"><img src="../HinhAnh/Logo_hinh.jpg" alt="Logo shop">ZP Badminton</a></div>
+        <div class="hotline"><span>HOTLINE:</span> <a href="tel:0946513954"><strong>0946 513 954</strong></a></div>
+        <form class="search" action="product_search.html" method="get">
+            <input type="text" name="q" placeholder="Tìm sản phẩm...">
+            <button type="submit" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="account"><a href="profile.html" id="accountLink">Tài khoản</a><button id="logoutBtn" class="logout-btn" type="button">Đăng xuất</button></div>
+        <div class="cart"><a href="cart.html" aria-label="Giỏ hàng"><i class="fa-solid fa-cart-shopping"></i></a></div>
+    </header>
+
+    <nav class="menu" aria-label="Điều hướng chính">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li class="has-dropdown"><a href="product.html">Sản phẩm <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="mega-menu"><div class="menu-column"><ul><li><a href="product.html">Vợt Yonex</a></li></ul></div><div class="menu-column"><ul><li><a href="product.html">Vợt Li-Ning</a></li></ul></div><div class="menu-column"><ul><li><a href="product.html">Vợt Victor</a></li></ul></div></div>
+            </li>
+            <li><a href="sale.html">Sale</a></li>
+            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+            <li><a href="orders.html" class="active">Đơn hàng của tôi</a></li>
+        </ul>
+    </nav>
+
+    <main class="order-detail-page">
+        <a class="back-link" href="orders.html"><i class="fa-solid fa-arrow-left"></i> Quay lại đơn hàng</a>
+        <div class="detail-heading">
+            <div><p class="detail-eyebrow">ĐƠN HÀNG CỦA BẠN</p><h1>Chi tiết đơn hàng <span id="order-code">#DH001</span></h1></div>
+            <span class="detail-status" id="order-status"></span>
+        </div>
+
+        <section class="detail-card">
+            <h2><i class="fa-solid fa-file-invoice"></i> Thông tin đơn hàng</h2>
+            <div class="detail-fields">
+                <div class="detail-field"><label>Mã đơn</label><strong id="field-code"></strong></div>
+                <div class="detail-field"><label>Ngày đặt</label><strong id="field-date"></strong></div>
+                <div class="detail-field"><label>Phương thức thanh toán</label><strong id="field-payment"></strong></div>
+                <div class="detail-field"><label>Trạng thái</label><strong id="field-status"></strong></div>
+            </div>
+            <div class="status-progress" id="status-progress"></div>
+        </section>
+
+        <section class="detail-card">
+            <h2><i class="fa-solid fa-user"></i> Thông tin khách hàng &amp; giao hàng</h2>
+            <div class="detail-fields">
+                <div class="detail-field"><label>Họ tên</label><strong id="field-name"></strong></div>
+                <div class="detail-field"><label>Số điện thoại</label><strong id="field-phone"></strong></div>
+                <div class="detail-field"><label>Email</label><strong id="field-email"></strong></div>
+                <div class="detail-field detail-field-wide"><label>Địa chỉ giao hàng</label><strong id="field-address"></strong></div>
+            </div>
+        </section>
+
+        <section class="detail-card">
+            <h2><i class="fa-solid fa-box-open"></i> Chi tiết sản phẩm</h2>
+            <div class="product-table-wrap">
+                <table class="product-table">
+                    <thead><tr><th>Sản phẩm</th><th>Đơn giá</th><th>Số lượng</th><th>Thành tiền</th></tr></thead>
+                    <tbody id="product-rows"></tbody>
+                    <tfoot>
+                        <tr><td colspan="3">Tạm tính</td><td id="subtotal"></td></tr>
+                        <tr><td colspan="3">Phí vận chuyển</td><td id="shipping"></td></tr>
+                        <tr class="grand-total"><td colspan="3">Tổng thanh toán</td><td id="total"></td></tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const orders = {
+            DH001: {
+                code: "#DH001", date: "20/09/2026 - 09:30", payment: "Tiền mặt khi nhận hàng (COD)",
+                status: "Chưa xác nhận", statusIndex: 0, customer: "Nguyễn Văn A", phone: "0901234567",
+                email: "nguyenvana@example.com", address: "123 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+                subtotal: 2450000, shipping: 0,
+                products: [
+                    { name: "Yonex Astrox 100ZZ", type: "Vợt cầu lông", price: 2405000, quantity: 1 },
+                    { name: "Quấn cán Yonex", type: "Phụ kiện cầu lông", price: 45000, quantity: 1 }
+                ]
+            },
+            DH003: {
+                code: "#DH003", date: "18/09/2026 - 14:15", payment: "Chuyển khoản ngân hàng", status: "Đã giao - Thành công",
+                statusIndex: 2, customer: "Nguyễn Văn A", phone: "0901234567", email: "nguyenvana@example.com",
+                address: "123 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh", subtotal: 2640000, shipping: 0,
+                products: [
+                    { name: "Victor Thruster Metallic", type: "Vợt cầu lông", price: 1500000, quantity: 1 },
+                    { name: "Giày Lining AYTS012", type: "Giày cầu lông", price: 1140000, quantity: 1 }
+                ]
+            }
+        };
+        const steps = ["Chưa xác nhận", "Đã xác nhận", "Đã giao - Thành công", "Đã giao - Hủy đơn"];
+        const money = value => new Intl.NumberFormat("vi-VN").format(value) + "đ";
+        const params = new URLSearchParams(window.location.search);
+        const order = orders[params.get("order")] || orders.DH001;
+
+        document.title = `Chi tiết ${order.code} - ZP Badminton`;
+        document.getElementById("order-code").textContent = order.code;
+        const statusBadge = document.getElementById("order-status");
+        statusBadge.textContent = order.status;
+        statusBadge.classList.add(order.statusIndex === 2 ? "status-delivered" : order.statusIndex === 3 ? "status-cancelled" : "status-pending");
+        document.getElementById("field-code").textContent = order.code;
+        document.getElementById("field-date").textContent = order.date;
+        document.getElementById("field-payment").textContent = order.payment;
+        document.getElementById("field-status").textContent = order.status;
+        document.getElementById("field-name").textContent = order.customer;
+        document.getElementById("field-phone").textContent = order.phone;
+        document.getElementById("field-email").textContent = order.email;
+        document.getElementById("field-address").textContent = order.address;
+        document.getElementById("subtotal").textContent = money(order.subtotal);
+        document.getElementById("shipping").textContent = money(order.shipping);
+        document.getElementById("total").textContent = money(order.subtotal + order.shipping);
+        document.getElementById("status-progress").innerHTML = steps.map((step, index) => {
+            const selected = index === order.statusIndex;
+            const passed = index < order.statusIndex;
+            const cancelled = order.statusIndex === 3 && index === 3;
+            return `<span class="status-step ${selected ? "active" : ""} ${passed ? "passed" : ""} ${cancelled ? "cancelled" : ""}">${step}</span>`;
+        }).join("");
+        document.getElementById("product-rows").innerHTML = order.products.map(product => `
+            <tr><td><strong>${product.name}</strong><small>${product.type}</small></td>
+                <td>${money(product.price)}</td><td>${product.quantity}</td>
+                <td>${money(product.price * product.quantity)}</td></tr>
+        `).join("");
+    </script>
+    <script src="../JS/login.js"></script>
+</body>
+</html>
